@@ -1,0 +1,5 @@
+[tasks."xps15:apply"]
+description = "Run nixos-rebuild switch"
+script = '''
+sudo nixos-rebuild switch --flake '.#xps15'
+'''

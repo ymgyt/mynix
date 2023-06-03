@@ -1,29 +1,31 @@
-{ config, pkgs, ...}:
+{ 
+  pkgs, 
+  ...
+}: {
 
-{
-  home.username = "ymgyt";
-  home.homeDirectory = "/home/ymgyt";
-  
-  programs.git = {
-    enable = true;
-    userName = "ymgyt";
-    userEmail = "yamaguchi7073xtt@gmail.com";
-  };
-  
-  home.packages = with pkgs; [
-    exa
-    procs
-    ripgrep
+  imports = [
+    ./terminal
+    ./shell
+    ./editor
+    ./programs
   ];
-  
-  programs.alacritty = {
-    enable = true;
-    settings = {
-      # env.TERM = "xterm-256color";
+
+  home = {
+    username = "ymgyt";
+    homeDirectory = "/home/ymgyt";
+
+    packages = with pkgs; [
+      exa
+      procs
+      ripgrep
+    ];
+
+    sessionVariables = {
+      EDITOR = "hx";
     };
+
+    stateVersion = "23.11";
   };
-  
-  home.stateVersion = "23.11";
   
   programs.home-manager.enable = true;
 }
