@@ -16,7 +16,7 @@
     };
   };
 
-  outputs = { nixpkgs, darwin, home-manager, ... }: {
+  outputs = inputs@{ nixpkgs, darwin, home-manager, ... }: {
     nixosConfigurations = {
       xps15 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -28,7 +28,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.ymgyt = import ./home;
+            home-manager.users.ymgyt = import ./home/linux;
           }
         ];
       };
@@ -38,7 +38,15 @@
       prox86 = darwin.lib.darwinSystem {
         system = "x86_64-darwin";
 
-        modules = [ ./hosts/prox86 ];
+        modules = [
+          ./hosts/prox86
+          home-manager.darwinModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.me = import ./home/darwin;
+          }
+        ];
       };
     };
 

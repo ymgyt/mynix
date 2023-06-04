@@ -3,10 +3,7 @@
 }: {
 
   imports = [
-    ./terminal
-    ./shell
-    ./editor
-    ./programs
+    ../base
   ];
 
   home = {

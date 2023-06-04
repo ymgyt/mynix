@@ -13,7 +13,7 @@ nix-build https://github.com/LnL7/nix-darwin/archive/master.tar.gz -A installer
 [tasks."prox86:apply"]
 script = '''
 nix build .#darwinConfigurations.prox86.system --extra-experimental-features 'nix-command flakes'
-./result/sw/bin/darwin-rebuild switch --flake '.#prox86'
+sudo ./result/sw/bin/darwin-rebuild switch --flake '.#prox86'
 '''
 
 [tasks.format]

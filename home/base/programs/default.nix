@@ -5,10 +5,13 @@
     ./cargo.nix
     ./filesystem.nix
     ./git.nix
-    ./util.nix
   ];
 
   home.packages = with pkgs; [
     procs
+    ripgrep
+
+    # Says
+    ponysay
   ];
 }
