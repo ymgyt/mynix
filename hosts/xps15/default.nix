@@ -6,7 +6,8 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
 
@@ -42,17 +43,17 @@
     LC_TELEPHONE = "ja_JP.UTF-8";
     LC_TIME = "ja_JP.UTF-8";
   };
-  
+
   i18n.inputMethod = {
     enabled = "fcitx5";
     fcitx5.addons = with pkgs; [ fcitx5-mozc ];
   };
-  
-  fonts.fonts = with pkgs; [ 
+
+  fonts.fonts = with pkgs; [
     rictydiminished-with-firacode
     ipafont
   ];
-  
+
   fonts.fontconfig.defaultFonts = {
     monospace = [
       "IPAGothic"
@@ -108,7 +109,7 @@
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       firefox
-    #  thunderbird
+      #  thunderbird
     ];
   };
 
@@ -118,14 +119,14 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     bat
     fd
     git
     helix
     rustup
   ];
-  
+
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Some programs need SUID wrappers, can be configured further or are

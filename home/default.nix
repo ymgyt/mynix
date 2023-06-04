@@ -1,6 +1,5 @@
-{ 
-  pkgs, 
-  ...
+{ pkgs
+, ...
 }: {
 
   imports = [
@@ -26,6 +25,6 @@
 
     stateVersion = "23.11";
   };
-  
+
   programs.home-manager.enable = true;
 }

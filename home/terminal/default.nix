@@ -1,5 +1,5 @@
 { ... }: {
-  imports = [ 
+  imports = [
     ./alacritty.nix
     ./zellij.nix
   ];
