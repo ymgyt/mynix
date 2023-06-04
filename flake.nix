@@ -1,5 +1,5 @@
 {
-  description = "NixOS Flake for ymgyt local";
+  description = "Nix configuration of ymgyt";
   
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
