@@ -3,13 +3,13 @@
   ...
 }: {
   imports = [
-    ./git.nix
     ./cargo.nix
+    ./filesystem.nix
+    ./git.nix
+    ./util.nix
   ];
 
   home.packages = with pkgs; [
-    exa
     procs
-    ripgrep
   ];
 }
