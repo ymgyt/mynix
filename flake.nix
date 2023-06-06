@@ -48,6 +48,20 @@
           }
         ];
       };
+
+      fraim = darwin.lib.darwinSystem {
+        system = "aarch64-darwin";
+
+        modules = [
+          ./hosts/fraim
+          home-manager.darwinModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.ymgyt = import ./home/darwin;
+          }
+        ];
+      };
     };
 
     formatter.x86_64-darwin = nixpkgs.legacyPackages.x86_64-darwin.nixpkgs-fmt;

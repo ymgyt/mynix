@@ -1,4 +1,5 @@
-{ ...
+{ pkgs 
+, ...
 }: {
   programs.git = {
     enable = true;
@@ -16,4 +17,8 @@
       cm = "commit";
     };
   };
+
+  home.packages = with pkgs; [
+    git-trim
+  ];
 }
