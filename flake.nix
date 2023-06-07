@@ -1,6 +1,14 @@
 {
   description = "Nix configuration of ymgyt";
 
+  nixConfig = {
+    experimental-features = [ "nix-command" "flakes" ];
+    # https://nixos.org/manual/nix/stable/command-ref/conf-file.html#conf-auto-optimise-store
+    auto-optimise-store = true;
+
+    eval-cache = true;
+  };
+
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 

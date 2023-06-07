@@ -5,7 +5,6 @@
 
   users.users.me = {
     home = "/Users/me";
-    shell = "nu";
   };
 
   networking = { hostName = "prox86"; };

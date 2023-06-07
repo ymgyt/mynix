@@ -13,20 +13,21 @@ nix-build https://github.com/LnL7/nix-darwin/archive/master.tar.gz -A installer
 [tasks."prox86:apply"]
 private = false
 extend = "darwin:apply"
-env = { HOST = "prox86" }
+env = { _HOST = "prox86" }
 
 [tasks."fraim:apply"]
 private = false
 extend = "darwin:apply"
-env = { HOST = "fraim" }
+env = { _HOST = "fraim" }
 
 [tasks."darwin:apply"]
 private = true
 script = '''
-nix build .#darwinConfigurations.${HOST}.system --extra-experimental-features 'nix-command flakes'
-sudo ./result/sw/bin/darwin-rebuild switch --flake ".#${HOST}"
+nix build .#darwinConfigurations.${_HOST}.system --extra-experimental-features 'nix-command flakes' --debug
+sudo ./result/sw/bin/darwin-rebuild switch --flake ".#${_HOST}"
 '''
 
+#
 
 [tasks.format]
 description = "Run formatter"
