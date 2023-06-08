@@ -1,11 +1,6 @@
 { ... }: {
   imports = [
     ./nushell
+    ./zsh
   ];
-
-  home.shellAliases = {
-    c = "cargo";
-    g = "git";
-    m = "makers";
-  };
 }
