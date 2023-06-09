@@ -5,7 +5,13 @@
     ./cargo.nix
     ./filesystem.nix
     ./git.nix
+    ./kubernetes.nix
+    ./cloud
   ];
+
+  programs = {
+    bat.enable = true;
+  };
 
   home.packages = with pkgs; [
     procs
@@ -19,5 +25,14 @@
 
     # nix lang server
     nil
+
+    # Provisioning
+    terraform
+
+    # Secret management
+    vault
+
+    # Etc
+    typst
   ];
 }
