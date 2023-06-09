@@ -16,10 +16,6 @@
       ripgrep
     ];
 
-    sessionVariables = {
-      EDITOR = "hx";
-    };
-
     stateVersion = "23.11";
   };
 

@@ -4,4 +4,9 @@
     configFile.source = ./config.nu;
     envFile.source = ./env.nu;
   };
+
+  programs.starship = {
+    enable = true;
+    enableNushellIntegration = true;
+  };
 }

@@ -1,6 +1,7 @@
 { ... }: {
   programs.alacritty = {
     enable = true;
-    settings = { };
   };
+
+  home.file.".alacritty.yml".source = ./.alacritty.yml;
 }

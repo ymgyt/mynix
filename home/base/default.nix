@@ -5,4 +5,10 @@
     ./editor
     ./programs
   ];
+
+  home = {
+    sessionVariables = {
+      EDITOR = "hx";
+    };
+  };
 }
