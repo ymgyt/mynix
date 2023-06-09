@@ -2,10 +2,10 @@
 , ...
 }: {
   imports = [
-    ./cargo.nix
     ./filesystem.nix
     ./git.nix
     ./kubernetes.nix
+    ./languages
     ./cloud
   ];
 
@@ -32,7 +32,8 @@
     # Secret management
     vault
 
-    # Etc
+    # Etc(not categorized yet)
     typst
+    protobuf # provide protoc
   ];
 }
