@@ -41,7 +41,14 @@
     , home-manager
       # , flake-utils
     , ...
-    }: {
+    }:
+    let
+      systems = [ "x86_64-linux" "x86_64-darwin" "aarch64-darwin" ];
+
+      forAllSystems = nixpkgs.lib.genAttrs systems;
+
+    in
+    {
       nixosConfigurations = {
         xps15 = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
@@ -89,11 +96,6 @@
         };
       };
 
-      # How to use flake-utils.lib.eachDefaultSystem here?
-      formatter = {
-        x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
-        x86_64-darwin = nixpkgs.legacyPackages.x86_64-darwin.nixpkgs-fmt;
-        aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixpkgs-fmt;
-      };
+      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixpkgs-fmt);
     };
 }
