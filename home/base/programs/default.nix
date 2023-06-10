@@ -26,6 +26,9 @@
     # Secret management
     vault
 
+    # Data format
+    taplo
+
     # Etc(not categorized yet)
     typst
     protobuf # provide protoc
