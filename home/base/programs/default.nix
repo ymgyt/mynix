@@ -17,9 +17,6 @@
     procs
     ripgrep
 
-    # Rust
-    rustup
-
     # Says
     ponysay
 
