@@ -29,6 +29,9 @@
     # Data format
     taplo
 
+    # SSH
+    openssh # provide ssh ssh-agent ssh-keygen ssh-add scp ssh-keyscan
+
     # Etc(not categorized yet)
     typst
     protobuf # provide protoc
