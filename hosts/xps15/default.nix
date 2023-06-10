@@ -1,6 +1,7 @@
 { ... }: {
   imports = [
     ../../modules/nixos
+    ./hardware-configuration.nix
   ];
 
   users.users.ymgyt = {

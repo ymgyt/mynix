@@ -44,6 +44,7 @@ command = "nix"
 args = ["flake", "check"]
 
 [tasks.clean]
+clear = true
 script = '''
 rm -rf result
 '''
