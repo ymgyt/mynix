@@ -34,10 +34,14 @@ description = "Run formatter"
 command = "nix"
 args = ["fmt"]
 
+# Should we use nix flake update ?
 [tasks.update]
-script = '''
-nix flake update
-'''
+command = "nix"
+args = ["flake", "lock", "--update-input", "nixpkgs"]
+
+[tasks.check]
+command = "nix"
+args = ["flake", "check"]
 
 [tasks.clean]
 script = '''
