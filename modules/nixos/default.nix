@@ -2,6 +2,8 @@
 
   imports = [
     ../ssh.nix
+    ../font.nix
+    ./font.nix
   ];
 
   # Bootloader.
@@ -36,26 +38,10 @@
     LC_TIME = "ja_JP.UTF-8";
   };
 
+  # https://nixos.org/manual/nixos/unstable/index.html#module-services-input-methods-fcitx
   i18n.inputMethod = {
     enabled = "fcitx5";
     fcitx5.addons = with pkgs; [ fcitx5-mozc ];
-  };
-
-  fonts.fonts = with pkgs; [
-    rictydiminished-with-firacode
-    ipafont
-  ];
-
-  fonts.fontconfig.defaultFonts = {
-    monospace = [
-      "IPAGothic"
-    ];
-    sansSerif = [
-      "IPAGothic"
-    ];
-    serif = [
-      "IPAPMincho"
-    ];
   };
 
   # Enable the X11 windowing system.
