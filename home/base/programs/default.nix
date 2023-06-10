@@ -11,6 +11,7 @@
 
   programs = {
     bat.enable = true;
+    firefox.enable = true;
   };
 
   home.packages = with pkgs; [
