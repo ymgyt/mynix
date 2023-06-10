@@ -23,9 +23,6 @@
     # Says
     ponysay
 
-    # nix lang server
-    nil
-
     # Provisioning
     terraform
 
