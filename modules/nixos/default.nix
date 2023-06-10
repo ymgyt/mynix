@@ -93,6 +93,10 @@
     helix
     rustup
   ];
+  environment.extraInit = ''
+  # Disable ssh-askpass
+  unset -v SSH_ASKPASS
+  '';
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
