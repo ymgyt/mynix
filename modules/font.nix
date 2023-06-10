@@ -5,8 +5,7 @@
 
     fonts = with pkgs; [
       noto-fonts
-      noto-fonts-cjk-sans
-      noto-fonts-cjk-serif
+      noto-fonts-cjk
       noto-fonts-emoji
 
       # nerdfotns
@@ -14,7 +13,7 @@
       # items are inferred from the actual downloaded file name
       (nerdfonts.override {
         fonts = [
-          "jetBrainsMono"
+          "JetBrainsMono"
         ];
       })
     ];

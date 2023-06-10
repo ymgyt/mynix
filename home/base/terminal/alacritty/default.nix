@@ -3,5 +3,5 @@
     enable = true;
   };
 
-  home.file.".alacritty.yml".source = ./.alacritty.yml;
+  home.file.".alacritty.yml".source = ./alacritty.yml;
 }
