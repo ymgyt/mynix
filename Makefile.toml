@@ -1,33 +1,33 @@
+[env]
+HOST = { script = ["hostname"] }
+
+[tasks.apply]
+linux_alias = "nixos:apply"
+mac_alias = "darwin:apply"
+
 [tasks."xps15:apply"]
 description = "Run nixos-rebuild switch"
-script = '''
-sudo nixos-rebuild switch --flake '.#xps15'
-'''
+extend = "nixos:apply"
+env = { HOST = "xps15" }
 
-[tasks."darwin:install"]
+[tasks."nixos:apply"]
 script = '''
-nix-build https://github.com/LnL7/nix-darwin/archive/master.tar.gz -A installer  
-./result/bin/darwin-installer
+sudo nixos-rebuild switch --flake '.#{HOST}'
 '''
 
 [tasks."prox86:apply"]
-private = false
 extend = "darwin:apply"
-env = { _HOST = "prox86" }
+env = { HOST = "prox86" }
 
 [tasks."fraim:apply"]
-private = false
 extend = "darwin:apply"
-env = { _HOST = "fraim" }
+env = { HOST = "fraim" }
 
 [tasks."darwin:apply"]
-private = true
 script = '''
-nix build .#darwinConfigurations.${_HOST}.system --extra-experimental-features 'nix-command flakes' --debug
-sudo ./result/sw/bin/darwin-rebuild switch --flake ".#${_HOST}"
+nix build .#darwinConfigurations.${HOST}.system --extra-experimental-features 'nix-command flakes' --debug
+sudo ./result/sw/bin/darwin-rebuild switch --flake ".#${HOST}"
 '''
-
-#
 
 [tasks.format]
 description = "Run formatter"
