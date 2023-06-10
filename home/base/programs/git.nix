@@ -6,6 +6,10 @@
     userName = "ymgyt";
     userEmail = "yamaguchi7073xtt@gmail.com";
 
+    includes = [
+      { path = "~/.gitlocalconfig"; }
+    ];
+
     aliases = {
       a = "add";
       b = "branch -vv";
