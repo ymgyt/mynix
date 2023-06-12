@@ -43,6 +43,13 @@ args = ["flake", "lock", "--update-input", "nixpkgs"]
 command = "nix"
 args = ["flake", "check"]
 
+[tasks.gc]
+script = '''
+sudo nix profile wipe-history --profile /nix/var/nix/profiles/system --older-than 7d
+
+sudo nix store gc --debug
+'''
+
 [tasks.clean]
 clear = true
 script = '''
