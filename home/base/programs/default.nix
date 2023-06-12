@@ -11,7 +11,9 @@
 
   programs = {
     bat.enable = true;
-    firefox.enable = true;
+    # error: Package ‘firefox-114.0’ is not available on the requested hostPlatform:
+    # hostPlatform.config = "aarch64-apple-darwin"
+    firefox.enable = if pkgs.stdenv.isDarwin then false else true;
   };
 
   home.packages = with pkgs; [
