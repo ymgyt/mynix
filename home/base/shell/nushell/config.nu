@@ -14,3 +14,16 @@ let-env config = {
 def book [ ] {
   hx $"($nu.home-path)/rs/techbook"
 }
+
+def gcom [ ] {
+  if (do -i { git checkout main | complete } | get exit_code) == 1 {
+    git checkout master
+  }
+}
+
+# def-env is required for cd to work
+export def-env fraim [ ] {
+  let dst = (exa ~/fraim | fzf)
+  let go = $"($env.HOME)/fraim/($dst)"
+  cd $go
+}
