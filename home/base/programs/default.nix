@@ -10,7 +10,12 @@
   ];
 
   programs = {
-    bat.enable = true;
+    bat = {
+      enable = true;
+      config = {
+        theme = "Monokai Extended Origin";
+      };
+    };
     # error: Package ‘firefox-114.0’ is not available on the requested hostPlatform:
     # hostPlatform.config = "aarch64-apple-darwin"
     firefox.enable = if pkgs.stdenv.isDarwin then false else true;
@@ -42,5 +47,6 @@
     typst
     protobuf # provide protoc
     direnv
+    fzf
   ];
 }
