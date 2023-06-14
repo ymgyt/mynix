@@ -48,5 +48,6 @@
     protobuf # provide protoc
     direnv
     fzf
+    neofetch
   ];
 }

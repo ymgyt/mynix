@@ -11,6 +11,15 @@ let-env config = {
   edit_mode: vi
 }
 
+# TODO: more nu way(find nu files from dir and iterate)
+source ~/.config/nu/completions/cargo-completions.nu
+source ~/.config/nu/completions/git-completions.nu
+source ~/.config/nu/completions/nix-completions.nu
+source ~/.config/nu/completions/poetry-completions.nu
+source ~/.config/nu/completions/typst-completions.nu
+source ~/.config/nu/completions/zellij-completions.nu
+
+# TODO: migrate module
 def book [ ] {
   hx $"($nu.home-path)/rs/techbook"
 }
