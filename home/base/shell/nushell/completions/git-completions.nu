@@ -176,7 +176,7 @@ export extern "git fetch" [
 ]
 
 # Push changes
-export extern "git push" [
+export extern "g p" [
   remote?: string@"nu-complete git remotes",         # the name of the remote
   ...refs: string@"nu-complete git local branches"   # the branch / refspec
   --all                                              # push all refs
@@ -259,7 +259,7 @@ export extern "git rebase" [
 ]
 
 # List or change branches
-export extern "git branch" [
+export extern "g b" [
   branch?: string@"nu-complete git local branches"               # name of branch to operate on
   --abbrev                                                       # use short commit hash prefixes
   --edit-description                                             # open editor to edit branch description
