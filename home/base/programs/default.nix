@@ -45,6 +45,9 @@
     # Blog
     zola
 
+    # Api client
+    gh # github cli
+
     # Etc(not categorized yet)
     typst
     protobuf # provide protoc
