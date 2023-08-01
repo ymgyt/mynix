@@ -37,6 +37,7 @@
     # Data format
     taplo
     jq
+    vector
 
     # SSH
     openssh # provide ssh ssh-agent ssh-keygen ssh-add scp ssh-keyscan
