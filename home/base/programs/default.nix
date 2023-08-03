@@ -30,6 +30,7 @@
 
     # Provisioning
     terraform
+    terraform-ls
 
     # Secret management
     vault
