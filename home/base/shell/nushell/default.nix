@@ -13,8 +13,12 @@
 
   programs.starship = {
     enable = true;
-    enableNushellIntegration = true;
+    # current starship generate nu script which use `let-env` that is deprecated in 0.83 nushell
+    enableNushellIntegration = false;
   };
+
+  # manually create starship init
+  xdg.configFile."nu/starship/init.nu".source = ./starship_init.nu;
 
   # generate by `starship preset nerd-font-symbols -o ./starship.toml`
   xdg.configFile."starship.toml".source = ./starship.toml;

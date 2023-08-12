@@ -4,9 +4,9 @@ alias m = makers
 alias tf = terraform
 alias k = kubectl
 
-let-env config = {
+$env.config = {
   show_banner: false,
-  max_history_size: 100000
+  history_size: 100000
 
   edit_mode: vi
 }
@@ -37,4 +37,10 @@ export def-env fraim [ ] {
   let dst = (exa ~/fraim | fzf)
   let go = $"($env.HOME)/fraim/($dst)"
   cd $go
+}
+
+const starship_init_me = "/Users/me/.config/nu/starship/init.nu"
+
+if ($starship_init_me | path exists) {
+  source $starship_init_me
 }
