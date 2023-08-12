@@ -49,6 +49,12 @@
     # Api client
     gh # github cli
 
+    # Plot
+    gnuplot
+
+    # Database
+    sqlite # provide sqlite3
+
     # Etc(not categorized yet)
     typst
     protobuf # provide protoc
