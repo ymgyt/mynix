@@ -6,7 +6,12 @@ alias k = kubectl
 
 $env.config = {
   show_banner: false,
-  history_size: 100000
+  history: {
+    max_size: 100_000
+    sync_on_enter: true
+    file_format: "plaintext"
+    isolation: false
+  }
 
   edit_mode: vi
 }
