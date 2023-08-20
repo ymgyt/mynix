@@ -24,8 +24,7 @@
   home.packages = with pkgs; [
     procs
     ripgrep
-    # C
-    gccgo13
+
     pkg-config-unwrapped
 
     # Says
