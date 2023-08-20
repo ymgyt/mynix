@@ -24,6 +24,9 @@
   home.packages = with pkgs; [
     procs
     ripgrep
+    # C
+    gccgo13
+    pkg-config-unwrapped
 
     # Says
     ponysay
@@ -48,6 +51,9 @@
 
     # Api client
     gh # github cli
+
+    # TLS
+    openssl
 
     # Etc(not categorized yet)
     typst
