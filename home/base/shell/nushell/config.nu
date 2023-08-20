@@ -44,8 +44,8 @@ export def-env fraim [ ] {
   cd $go
 }
 
-const starship_init_me = "/Users/me/.config/nu/starship/init.nu"
+const starship_init_me = "~/.config/nu/starship/init.nu"
 
-if ($starship_init_me | path exists) {
+if ($starship_init_me | path expand | path exists) {
   source $starship_init_me
 }
