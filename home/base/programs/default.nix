@@ -54,6 +54,9 @@
     # TLS
     openssl
 
+    # Policy
+    open-policy-agent
+
     # Etc(not categorized yet)
     typst
     protobuf # provide protoc
