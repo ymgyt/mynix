@@ -10,7 +10,7 @@ $env.config = {
     max_size: 100_000
     sync_on_enter: true
     file_format: "plaintext"
-    isolation: false
+    isolation: true
   }
 
   edit_mode: vi
