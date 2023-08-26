@@ -1,0 +1,20 @@
+[editor]
+line-number = "relative"
+bufferline = "always"
+
+[editor.lsp]
+enable = true
+display-messages = true
+display-inlay-hints = true
+
+[editor.cursor-shape]
+normal = "block"
+insert = "bar"
+select = "block"
+
+[editor.indent-guides]
+render = true
+skip-levels = 2
+
+[editor.soft-wrap]
+enable = true
