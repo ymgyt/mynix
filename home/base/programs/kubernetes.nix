@@ -3,5 +3,6 @@
     kubectl
     kdash
     kustomize
+    k3s
   ];
 }
