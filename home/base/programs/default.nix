@@ -25,7 +25,9 @@
     procs
     ripgrep
 
+    # C
     pkg-config-unwrapped
+    gccgo13
 
     # Says
     ponysay
