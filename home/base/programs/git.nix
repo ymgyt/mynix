@@ -5,6 +5,11 @@
     enable = true;
     userName = "ymgyt";
     userEmail = "yamaguchi7073xtt@gmail.com";
+    extraConfig = {
+      pull = {
+        rebase = true;
+      };
+    };
 
     includes = [
       { path = "~/.gitlocalconfig"; }
