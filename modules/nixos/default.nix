@@ -8,8 +8,11 @@
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
+  # Limit the number of generations to keep
+  boot.loader.systemd-boot.configurationLimit = 10;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
+
 
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -102,6 +105,13 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   nix.settings.trusted-users = ["ymgyt"];
+  nix.settings.auto-optimise-store = true;
+
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 1w";
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
