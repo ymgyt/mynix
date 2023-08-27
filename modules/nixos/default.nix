@@ -90,6 +90,10 @@
     fd
     git
   ];
+
+  # Set default editor to helix
+  environment.variables.EDITOR = "hx"
+
   environment.extraInit = ''
   # Disable ssh-askpass
   unset -v SSH_ASKPASS
