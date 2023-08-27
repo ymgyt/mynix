@@ -1,9 +1,12 @@
 { ... }: {
+  # Enable openssh daemon.
   services.openssh = {
     enable = true;
     settings = {
-      PermitRootLogin = "no";
-      PasswordAuthentication = false;
+      # Disable root login
+      PermitRootLogin = "no"; 
+      # Disable password login
+      PasswordAuthentication = false; # 
     };
   };
 }

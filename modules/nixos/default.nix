@@ -92,7 +92,7 @@
   ];
 
   # Set default editor to helix
-  environment.variables.EDITOR = "hx"
+  environment.variables.EDITOR = "hx";
 
   environment.extraInit = ''
   # Disable ssh-askpass
