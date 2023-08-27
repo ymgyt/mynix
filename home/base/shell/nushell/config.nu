@@ -17,12 +17,12 @@ $env.config = {
 }
 
 # TODO: more nu way(find nu files from dir and iterate)
-source ~/.config/nu/completions/cargo-completions.nu
-source ~/.config/nu/completions/git-completions.nu
-source ~/.config/nu/completions/nix-completions.nu
-source ~/.config/nu/completions/poetry-completions.nu
-source ~/.config/nu/completions/typst-completions.nu
-source ~/.config/nu/completions/zellij-completions.nu
+source ~/.config/nushell/completions/cargo-completions.nu
+source ~/.config/nushell/completions/git-completions.nu
+source ~/.config/nushell/completions/nix-completions.nu
+source ~/.config/nushell/completions/poetry-completions.nu
+source ~/.config/nushell/completions/typst-completions.nu
+source ~/.config/nushell/completions/zellij-completions.nu
 
 # TODO: migrate module
 def book [ ] {
@@ -44,7 +44,7 @@ export def-env fraim [ ] {
   cd $go
 }
 
-const starship_init_me = "~/.config/nu/starship/init.nu"
+const starship_init_me = "~/.config/nushell/starship/init.nu"
 
 if ($starship_init_me | path expand | path exists) {
   source $starship_init_me
