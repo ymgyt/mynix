@@ -9,6 +9,9 @@
 
     eval-cache = true;
 
+    substituters = [
+      "https://cache.nixos.org/"
+    ];
     extra-substituters = [
       "https://nix-community.cachix.org"
     ];
@@ -38,7 +41,7 @@
     , darwin
     , home-manager
     , ...
-    }:
+    }@inputs:
     let
       systems = [ "x86_64-linux" "x86_64-darwin" "aarch64-darwin" ];
 
@@ -50,6 +53,7 @@
         xps15 = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
 
+          specialArgs = inputs;
           modules = [
             ./hosts/xps15
 
