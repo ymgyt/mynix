@@ -27,7 +27,8 @@
 
     # C
     pkg-config-unwrapped
-    gccgo13
+    # TODO: not supported in darwin
+    # gccgo13
 
     # Says
     ponysay

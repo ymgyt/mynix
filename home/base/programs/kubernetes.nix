@@ -3,6 +3,7 @@
     kubectl
     kdash
     kustomize
-    k3s
+    # TODO: not supported in darwin
+    # k3s
   ];
 }
