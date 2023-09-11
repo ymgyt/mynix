@@ -58,6 +58,9 @@
     # Policy
     open-policy-agent
 
+    # Visualize
+    graphviz
+
     # Etc(not categorized yet)
     typst
     protobuf # provide protoc
