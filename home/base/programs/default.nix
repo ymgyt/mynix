@@ -27,7 +27,7 @@
 
     # C
     pkg-config-unwrapped
-
+    cmakeMinimal # provide cmake
     # Says
     ponysay
 
