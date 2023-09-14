@@ -25,6 +25,10 @@
       co = "checkout";
       cm = "commit";
     };
+
+    init = {
+      defaultBranch = "main"
+    };
   };
 
   home.packages = with pkgs; [
