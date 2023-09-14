@@ -2,5 +2,6 @@
   imports = [
     ./nushell
     ./zsh
+    ./bash
   ];
 }
