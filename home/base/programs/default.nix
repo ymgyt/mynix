@@ -62,6 +62,9 @@
     # Visualize
     graphviz
 
+    # Container
+    dive
+
     # Etc(not categorized yet)
     typst
     protobuf # provide protoc
