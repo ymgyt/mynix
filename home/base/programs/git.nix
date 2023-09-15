@@ -9,6 +9,10 @@
       pull = {
         rebase = true;
       };
+
+      init = {
+        defaultBranch = "main";
+      };
     };
 
     includes = [
@@ -26,9 +30,6 @@
       cm = "commit";
     };
 
-    init = {
-      defaultBranch = "main"
-    };
   };
 
   home.packages = with pkgs; [
