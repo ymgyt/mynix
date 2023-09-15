@@ -1,6 +1,6 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
-    awscli
+    awscli2
     eksctl
     s5cmd
   ];
