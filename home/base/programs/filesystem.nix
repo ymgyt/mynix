@@ -5,7 +5,8 @@
     icons = true;
   };
 
-  home.packages = with pkgs; [
-    yazi
-  ];
+  # Not published yet in 23.05-darwin
+  # home.packages = with pkgs; [
+  #   yazi
+  # ];
 }
