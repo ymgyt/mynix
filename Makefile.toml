@@ -45,9 +45,9 @@ args = ["flake", "check"]
 
 [tasks.gc]
 script = '''
-sudo nix profile wipe-history --profile /nix/var/nix/profiles/system --older-than 7d
+sudo nix profile wipe-history --extra-experimental-features 'nix-command flakes' --profile /nix/var/nix/profiles/system --older-than 7d
 
-sudo nix store gc --debug
+sudo nix store gc --debug --extra-experimental-features 'nix-command flakes'
 '''
 
 [tasks.clean]
