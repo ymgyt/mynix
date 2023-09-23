@@ -1,0 +1,11 @@
+[tasks.deploy]
+description = "Deploy to all nodes"
+script = '''
+deploy --skip-checks --interactive .
+'''
+
+[tasks.fmt]
+description = "Run nix formatter"
+script = '''
+nixfmt .
+'''
