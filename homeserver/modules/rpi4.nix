@@ -18,7 +18,7 @@
     };
   };
 
-  environment.systemPackages = with pkgs; [ vim helix git bottom ];
+  environment.systemPackages = with pkgs; [ vim helix git bottom bat ];
 
   services.openssh.enable = true;
 

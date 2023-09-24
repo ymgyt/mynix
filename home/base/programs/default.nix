@@ -1,5 +1,6 @@
 { pkgs
-, ...
+ ,telemetryd
+ , ...
 }: {
   imports = [
     ./filesystem.nix
@@ -71,5 +72,7 @@
     direnv
     fzf
     neofetch
+
+    telemetryd.packages."${pkgs.system}".telemetryd
   ];
 }

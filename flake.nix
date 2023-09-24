@@ -34,26 +34,31 @@
       url = "github:nix-community/home-manager/release-23.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    telemetryd.url = "github:ymgyt/telemetryd/a2136807c9a056ec26ff16e8d51c13c6d67a11c3";
   };
 
   outputs =
     { nixpkgs
     , darwin
     , home-manager
+    , telemetryd
     , ...
     }@inputs:
     let
       systems = [ "x86_64-linux" "x86_64-darwin" "aarch64-darwin" ];
 
       forAllSystems = nixpkgs.lib.genAttrs systems;
-
+      specialArgs = {
+        inherit telemetryd;
+      };
     in
     {
       nixosConfigurations = {
         xps15 = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
+          inherit specialArgs;
 
-          specialArgs = inputs;
           modules = [
             ./hosts/xps15
 
@@ -62,6 +67,7 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.ymgyt = import ./home/linux;
+              home-manager.extraSpecialArgs = specialArgs;
             }
           ];
         };
@@ -70,6 +76,7 @@
       darwinConfigurations = {
         prox86 = darwin.lib.darwinSystem {
           system = "x86_64-darwin";
+          inherit specialArgs;
 
           modules = [
             ./hosts/prox86
@@ -78,12 +85,14 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.me = import ./home/darwin;
+              home-manager.extraSpecialArgs = specialArgs;
             }
           ];
         };
 
         fraim = darwin.lib.darwinSystem {
           system = "aarch64-darwin";
+          inherit specialArgs;
 
           modules = [
             ./hosts/fraim
@@ -92,6 +101,7 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.ymgyt = import ./home/darwin;
+              home-manager.extraSpecialArgs = specialArgs;
             }
           ];
         };

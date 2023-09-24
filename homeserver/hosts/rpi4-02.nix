@@ -1,4 +1,8 @@
-{ defaultGateway, nameservers, ... }: {
+{ pkgs, defaultGateway, nameservers, telemetryd, ... }: 
+  let
+    telemetrydStore = telemetryd.packages."${pkgs.system}".telemetryd;
+  in
+{
   imports = [ ../modules/rpi4.nix ];
 
   networking = {
@@ -9,5 +13,14 @@
       prefixLength = 24;
     }];
     wireless.enable = false;
+  };
+
+  systemd.services.telemetryd = {
+    enable = true;
+    wantedBy = [ "multi-user.target" ];
+    description = "Telemetryd server";
+    serviceConfig = {
+      ExecStart = "${telemetrydStore}/bin/telemetryd";
+    };
   };
 }

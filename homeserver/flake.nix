@@ -5,14 +5,20 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     deploy-rs.url = "github:serokell/deploy-rs";
     flake-utils.url = "github:numtide/flake-utils";
+    telemetryd = {
+      url =  "github:ymgyt/telemetryd/a2136807c9a056ec26ff16e8d51c13c6d67a11c3";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
+    };
   };
 
-  outputs = { self, nixpkgs, deploy-rs, flake-utils, }:
+  outputs = { self, nixpkgs, deploy-rs, flake-utils, telemetryd }:
     let
       spec = {
         user = "ymgyt";
         defaultGateway = "192.168.10.1";
         nameservers = [ "8.8.8.8" ];
+        inherit telemetryd;
       };
     in {
       nixosConfigurations = {
