@@ -7,6 +7,10 @@ keybinds {
         unbind "Ctrl n"
         bind "Ctrl l" { SwitchToMode "Session"; }
         bind "Ctrl r" { SwitchToMode "Resize"; }
+        // Alt + l
+        bind "¬" { MoveFocusOrTab "Right"; }
+        // Alt + h
+        bind "˙" { MoveFocusOrTab "Left"; }
     }
     locked {
         bind "Ctrl g" { SwitchToMode "Normal"; }
