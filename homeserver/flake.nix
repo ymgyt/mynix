@@ -10,6 +10,14 @@
     };
 
     flake-utils.url = "github:numtide/flake-utils";
+
+    # secrets management
+    ragenix.url = "github:yaxitech/ragenix";
+    mysecrets = {
+      url = "github:ymgyt/mynix.secrets";
+      flake = false;
+    };
+
     telemetryd = {
       url = "github:ymgyt/telemetryd/89e37d707417a8f83433dc3bf6d401a786a21ef6";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -17,7 +25,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, deploy-rs, flake-utils, telemetryd }:
+  outputs = { self, nixpkgs, deploy-rs, flake-utils, telemetryd, ragenix, mysecrets }:
     let
       spec = {
         user = "ymgyt";

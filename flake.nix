@@ -1,26 +1,6 @@
 {
   description = "Nix configuration of ymgyt";
 
-  # https://nixos.org/manual/nix/stable/command-ref/conf-file.html
-  nixConfig = {
-    experimental-features = [ "nix-command" "flakes" ];
-    # https://nixos.org/manual/nix/stable/command-ref/conf-file.html#conf-auto-optimise-store
-    auto-optimise-store = true;
-
-    eval-cache = true;
-
-    substituters = [
-      "https://cache.nixos.org/"
-    ];
-    extra-substituters = [
-      "https://nix-community.cachix.org"
-    ];
-    extra-trusted-public-keys = [
-      # https://app.cachix.org/cache/nix-community#pull
-      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-    ];
-  };
-
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/23.05";
 
@@ -35,6 +15,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # secrets management
+    ragenix.url = "github:yaxitech/ragenix";
+    mysecrets = {
+      url = "github:ymgyt/mynix.secrets/main";
+      flake = false;
+    };
+
     telemetryd.url = "github:ymgyt/telemetryd/a2136807c9a056ec26ff16e8d51c13c6d67a11c3";
   };
 
@@ -42,6 +29,8 @@
     { nixpkgs
     , darwin
     , home-manager
+    , ragenix
+    , mysecrets
     , telemetryd
     , ...
     }@inputs:
@@ -50,7 +39,7 @@
 
       forAllSystems = nixpkgs.lib.genAttrs systems;
       specialArgs = {
-        inherit telemetryd;
+        inherit telemetryd ragenix mysecrets;
       };
     in
     {
@@ -61,6 +50,7 @@
 
           modules = [
             ./hosts/xps15
+            ./secrets
 
             home-manager.nixosModules.home-manager
             {
@@ -109,4 +99,24 @@
 
       formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixpkgs-fmt);
     };
+
+  # https://nixos.org/manual/nix/stable/command-ref/conf-file.html
+  nixConfig = {
+    experimental-features = [ "nix-command" "flakes" ];
+    # https://nixos.org/manual/nix/stable/command-ref/conf-file.html#conf-auto-optimise-store
+    auto-optimise-store = true;
+
+    eval-cache = true;
+
+    substituters = [
+      "https://cache.nixos.org/"
+    ];
+    extra-substituters = [
+      "https://nix-community.cachix.org"
+    ];
+    extra-trusted-public-keys = [
+      # https://app.cachix.org/cache/nix-community#pull
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+    ];
+  };
 }
