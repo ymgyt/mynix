@@ -18,7 +18,7 @@
     # secrets management
     ragenix.url = "github:yaxitech/ragenix";
     mysecrets = {
-      url = "github:ymgyt/mynix.secrets/main";
+      url = "github:ymgyt/mynix.secrets/c06815267a99c86730de19d467bf7d6182d4eba0";
       flake = false;
     };
 

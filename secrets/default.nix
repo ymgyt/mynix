@@ -17,4 +17,10 @@
     owner = "root";
     group = "root";
   };
+  age.secrets."openobserve" = {
+    symlink = false;
+    path = "/etc/openobserve/env";
+    file = "${mysecrets}/openobserve.age";
+    mode = "0444";
+  };
 }

@@ -229,17 +229,17 @@
     "mysecrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1696062899,
-        "narHash": "sha256-XG1fIQ6irw1ozB4wVHMv9VoDWXqmpatSJxJTeX/dxJo=",
+        "lastModified": 1696343675,
+        "narHash": "sha256-3edIJ/qDYN4/zzdUpA6fW9NCSR6RNamHmo10uPBlgKA=",
         "owner": "ymgyt",
         "repo": "mynix.secrets",
-        "rev": "c7ef4fc8a5615637a54136403606132defaa545e",
+        "rev": "c06815267a99c86730de19d467bf7d6182d4eba0",
         "type": "github"
       },
       "original": {
         "owner": "ymgyt",
-        "ref": "main",
         "repo": "mynix.secrets",
+        "rev": "c06815267a99c86730de19d467bf7d6182d4eba0",
         "type": "github"
       }
     },

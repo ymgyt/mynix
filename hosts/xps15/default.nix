@@ -38,13 +38,19 @@ processors:
 exporters:
   logging:
     verbosity: "basic"
+  prometheusremotewrite/openobserve:
+    endpoint: https://api.openobserve.ai/api/''${env:OPEN_OBSERVE_ORG}/prometheus/api/v1/write
+    headers:
+      Authorization: Basic ''${env:OPEN_OBSERVE_TOKEN}
+    resource_to_telemetry_conversion:
+      enabled: true
 
 service:
   pipelines:
     metrics:
       receivers: [hostmetrics]
-      processors: [resourcedetection]
-      exporters: [logging]
+      processors: [resourcedetection/system]
+      exporters: [logging, prometheusremotewrite/openobserve]
 '';
     };
   };
@@ -58,6 +64,9 @@ service:
       in
     {
       inherit ExecStart;
+      EnvironmentFile = [
+        "/etc/openobserve/env"
+      ];
       DynamicUser = true;
       Restart = "always";
       ProtectSystem = "full";
