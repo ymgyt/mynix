@@ -22,6 +22,15 @@
                 metrics:
                   system.cpu.time: { enabled: false }
                   system.cpu.utilization: { enabled: true }
+              filesystem:
+                metrics:
+                  system.filesystem.inodes.usage: { enabled: false }
+                  system.filesystem.usage: { enabled: false }
+                  system.filesystem.utilization: { enabled: true }
+              memory:
+                metrics:
+                  system.memory.usage: { enabled: false }
+                  system.memory.utilization: { enabled: true }
         processors:
           resourcedetection/system:
             detectors: ["system"]
