@@ -1,10 +1,10 @@
 { ragenix, ...}:
 {
   imports = [
-    ragenix.nisosModules.default
+    ragenix.nixosModules.default
   ];
 
-  age.identitPaths = [
+  age.identityPaths = [
     "/home/ymgyt/.ssh/nixos_age"
   ];
 
