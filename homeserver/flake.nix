@@ -12,9 +12,14 @@
     flake-utils.url = "github:numtide/flake-utils";
 
     # secrets management
-    ragenix.url = "github:yaxitech/ragenix";
+    ragenix = {
+      url = "github:yaxitech/ragenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
+    };
     mysecrets = {
-      url = "github:ymgyt/mynix.secrets";
+      url =
+        "github:ymgyt/mynix.secrets/c06815267a99c86730de19d467bf7d6182d4eba0";
       flake = false;
     };
 
@@ -25,13 +30,14 @@
     };
   };
 
-  outputs = { self, nixpkgs, deploy-rs, flake-utils, telemetryd, ragenix, mysecrets }:
+  outputs =
+    { self, nixpkgs, deploy-rs, flake-utils, telemetryd, ragenix, mysecrets }:
     let
       spec = {
         user = "ymgyt";
         defaultGateway = "192.168.10.1";
         nameservers = [ "8.8.8.8" ];
-        inherit telemetryd;
+        inherit telemetryd ragenix mysecrets;
       };
     in {
       nixosConfigurations = {
