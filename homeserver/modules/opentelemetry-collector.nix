@@ -22,15 +22,29 @@
                 metrics:
                   system.cpu.time: { enabled: false }
                   system.cpu.utilization: { enabled: true }
-              filesystem:
-                metrics:
-                  system.filesystem.inodes.usage: { enabled: false }
-                  system.filesystem.usage: { enabled: false }
-                  system.filesystem.utilization: { enabled: true }
               memory:
                 metrics:
                   system.memory.usage: { enabled: false }
                   system.memory.utilization: { enabled: true }
+              network:
+                metrics:
+                  system.network.connections: { enabled: true }
+                  system.network.dropped: { enabled: false }
+                  system.network.errors: { enabled: false }
+                  system.network.io: { enabled: true }
+                  system.network.packets: { enabled: false }
+          hostmetrics/fs:
+            collection_interval: 60m
+            scrapers:
+              filesystem:
+                exclude_mount_points:
+                  mount_points: ["/nix/store"]
+                  match_type: strict
+                metrics:
+                  system.filesystem.inodes.usage: { enabled: false }
+                  system.filesystem.usage: { enabled: false }
+                  system.filesystem.utilization: { enabled: true }
+
         processors:
           resourcedetection/system:
             detectors: ["system"]
@@ -38,6 +52,22 @@
             attributes: ["host.name"]
             system:
               hostname_sources: ["os"]
+          filter/metrics:
+            error_mode: ignore
+            metrics:
+              - >-
+                name == "system.memory.utilization"
+                and
+                (
+                  resource.attributes["state"] == "nice"
+                  or
+                  resource.attributes["state"] == "softirq"
+                  or
+                  resource.attributes["state"] == "steal"
+                  or
+                  resource.attributes["state"] == "interrupt"
+                )
+
         exporters:
           logging:
             verbosity: "basic"
@@ -51,9 +81,15 @@
         service:
           pipelines:
             metrics:
-              receivers: [hostmetrics]
-              processors: [resourcedetection/system]
-              exporters: [logging, prometheusremotewrite/openobserve]
+              receivers: 
+                - hostmetrics
+                - hostmetrics/fs
+              processors: 
+                - resourcedetection/system
+                - filter/metrics
+              exporters: 
+                - logging
+                - prometheusremotewrite/openobserve
       '';
     };
   };
