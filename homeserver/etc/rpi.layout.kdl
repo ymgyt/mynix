@@ -8,18 +8,18 @@ layout {
 	}
 	pane split_direction="vertical" {
 		ssh {
-			args "ymgyt@192.168.10.150" "-i" "~/.ssh/nixos_key"
+			args "ymgyt@192.168.10.150"
 		}
 		ssh {
-			args "ymgyt@192.168.10.151" "-i" "~/.ssh/nixos_key"
+			args "ymgyt@192.168.10.151"
 		}
 	}
 	pane split_direction="vertical" {
 		ssh {
-			args "ymgyt@192.168.10.152" "-i" "~/.ssh/nixos_key"
+			args "ymgyt@192.168.10.152"
 		}
 		ssh {
-			args "ymgyt@192.168.10.153" "-i" "~/.ssh/nixos_key"
+			args "ymgyt@192.168.10.153"
 		}
 	}
 	pane size=2 borderless=true {
