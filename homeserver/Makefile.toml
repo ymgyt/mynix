@@ -7,7 +7,7 @@ deploy --skip-checks --interactive .
 [tasks.fmt]
 description = "Run nix formatter"
 script = '''
-nixfmt .
+nu -c "fd --extension nix . | lines | each { nixfmt $in }"
 '''
 
 [tasks.ssh]
