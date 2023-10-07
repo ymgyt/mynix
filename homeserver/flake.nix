@@ -68,7 +68,7 @@
         sshUser = spec.user;
         # User to which profile will be deployed.
         user = "root";
-        sshOpts = [ "-p" "22" "-F" "./ssh.config" ];
+        sshOpts = [ "-p" "22" "-F" "./etc/ssh.config" ];
 
         fastConnection = false;
         autoRollback = true;
