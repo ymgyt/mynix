@@ -1,0 +1,28 @@
+layout {
+	pane_template name="ssh" {
+		command "ssh"
+	}
+
+	pane size=1 borderless=true {
+		plugin location="zellij:tab-bar"
+	}
+	pane split_direction="vertical" {
+		ssh {
+			args "ymgyt@192.168.10.150" "-i" "~/.ssh/nixos_key"
+		}
+		ssh {
+			args "ymgyt@192.168.10.151" "-i" "~/.ssh/nixos_key"
+		}
+	}
+	pane split_direction="vertical" {
+		ssh {
+			args "ymgyt@192.168.10.152" "-i" "~/.ssh/nixos_key"
+		}
+		ssh {
+			args "ymgyt@192.168.10.153" "-i" "~/.ssh/nixos_key"
+		}
+	}
+	pane size=2 borderless=true {
+		plugin location="zellij:status-bar"
+	}
+}
