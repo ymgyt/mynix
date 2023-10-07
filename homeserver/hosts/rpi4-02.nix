@@ -1,9 +1,8 @@
-{ pkgs, defaultGateway, nameservers, telemetryd, ... }: 
-  let
-    telemetrydStore = telemetryd.packages."${pkgs.system}".telemetryd;
-  in
-{
-  imports = [ ../modules/rpi4.nix ../modules/opentelemetry-collector.nix ../secrets ];
+{ pkgs, defaultGateway, nameservers, telemetryd, ... }:
+let telemetrydStore = telemetryd.packages."${pkgs.system}".telemetryd;
+in {
+  imports =
+    [ ../modules/rpi4.nix ../modules/opentelemetry-collector.nix ../secrets ];
 
   networking = {
     inherit defaultGateway nameservers;
@@ -19,8 +18,6 @@
     enable = true;
     wantedBy = [ "multi-user.target" ];
     description = "Telemetryd server";
-    serviceConfig = {
-      ExecStart = "${telemetrydStore}/bin/telemetryd";
-    };
+    serviceConfig = { ExecStart = "${telemetrydStore}/bin/telemetryd"; };
   };
 }
