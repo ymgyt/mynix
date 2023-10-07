@@ -27,6 +27,9 @@
                   system.memory.usage: { enabled: false }
                   system.memory.utilization: { enabled: true }
               network:
+                include:
+                  interfaces: ["end0"]
+                  match_type: strict
                 metrics:
                   system.network.connections: { enabled: true }
                   system.network.dropped: { enabled: false }
@@ -53,24 +56,31 @@
             system:
               hostname_sources: ["os"]
           filter/metrics:
-            error_mode: ignore
+            error_mode: propagate
             metrics:
-              - >-
-                name == "system.memory.utilization"
-                and
-                (
-                  resource.attributes["state"] == "nice"
-                  or
-                  resource.attributes["state"] == "softirq"
-                  or
-                  resource.attributes["state"] == "steal"
-                  or
-                  resource.attributes["state"] == "interrupt"
-                )
+              datapoint:
+                - >-
+                  metric.name == "system.cpu.utilization" 
+                  and 
+                  ( 
+                    attributes["state"] == "nice" 
+                    or 
+                    attributes["state"] == "softirq" 
+                    or 
+                    attributes["state"] == "steal" 
+                    or 
+                    attributes["state"] == "interrupt" 
+                  ) 
+                - >-
+                  metric.name == "system.network.connections"
+                  and
+                  attributes["state"] != "ESTABLISHED"
+                  and
+                  attributes["state"] != "LISTEN"
 
         exporters:
           logging:
-            verbosity: "basic"
+            verbosity: "normal"
           prometheusremotewrite/openobserve:
             endpoint: https://api.openobserve.ai/api/''${env:OPEN_OBSERVE_ORG}/prometheus/api/v1/write
             headers:
