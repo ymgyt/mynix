@@ -20,7 +20,7 @@
 
   time.timeZone = "Asia/Tokyo";
   
-  environment.systemPackages = with pkgs; [ vim helix git bottom bat ];
+  environment.systemPackages = with pkgs; [ helix git bottom bat ];
 
   services.openssh.enable = true;
 
