@@ -28,6 +28,10 @@ receivers:
         metrics:
           system.cpu.time: { enabled: false }
           system.cpu.utilization: { enabled: true }
+      filesystem:
+        system.filesystem.inodes.usage: { enabled: false }
+        system.filesystem.usage: { enabled: false }
+        system.filesystem.utilization: { enabled: true }
 processors:
   resourcedetection/system:
     detectors: ["system"]
@@ -56,6 +60,7 @@ service:
   };
 
   systemd.services.opentelemetry-collector = {
+    enable = false;
     description = "Opentelemetry Collector Serivice";
     wantedBy = ["multi-user.target"];
     serviceConfig = let 
