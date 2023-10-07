@@ -9,3 +9,9 @@ description = "Run nix formatter"
 script = '''
 nixfmt .
 '''
+
+[tasks.ssh]
+description = "SSH to raspi hosts"
+script = '''
+zellij action new-tab --layout ./etc/rpi.layout.kdl
+'''

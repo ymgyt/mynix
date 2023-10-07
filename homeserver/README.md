@@ -1,6 +1,6 @@
 # Home Server Cluster
 
-`nix develop -c` or `direnv allow`
+`nix develop -c nu` or `direnv allow`
 
 ## Deployment
 
@@ -9,7 +9,22 @@
 deploy --skip-checks .#rpi4-01
 
 # Deploy all node
-cargo make deploy
+makers deploy
 ```
 
 Currently on x86-darwin check does not work. [issue](https://github.com/serokell/deploy-rs/issues/216)
+
+
+## SSH to raspi hosts
+
+```sh
+makers ssh
+```
+
+
+## Development
+
+```sh
+# Run formatter
+makers fmt
+```
