@@ -1,15 +1,35 @@
-{ pkgs, config, mysecrets, ... }: {
+{ pkgs, config, mysecrets, ... }: 
+  let 
+    otelColUser = "opentelemetry-collector";
+    otelColGroup = otelColUser;
+  in
+ {
+  # Create user statically for age to execute chown
+  users = { 
+    groups."opentelemetry-collector" = {
+      name = "${otelColGroup}";
+    };
+    users."opentelemetry-collector" = {
+      name = "${otelColUser}";
+      isSystemUser = true;
+      group = "${otelColGroup}";
+    };
+  };  
+
   # Credential for opentelemetry-collector to export telemetry to openobserve cloud
   age.secrets."openobserve" = {
     file = "${mysecrets}/openobserve.age";
-    # It is preferable to set systemd user and specify owner
-    mode = "0444";
+    mode = "0440";
+    owner = "${otelColUser}";
+    group = "${otelColGroup}";
   };
 
   # Put opentelemetry-collector config file
   environment.etc = {
     "opentelemetry-collector/config.yaml" = {
-      mode = "0644";
+      mode = "0440";
+      user = "${otelColUser}";
+      group = "${otelColGroup}";
       text = builtins.readFile ./config.yaml;
     };
   };
@@ -26,9 +46,13 @@
     in {
       inherit ExecStart;
       EnvironmentFile = [ 
+        # referenced by environment variable substitution in config file like '${env:FOO}'
         config.age.secrets.openobserve.path
        ];
-      DynamicUser = true;
+      # age executes chown on secret files, so user and group should exists in advance
+      DynamicUser = false;
+      User = "${otelColUser}";
+      Group  = "${otelColGroup}";
       Restart = "always";
       ProtectSystem = "full";
       DevicePolicy = "closed";
