@@ -82,7 +82,12 @@ exporters:
     resource_to_telemetry_conversion:
       enabled: true
 
+extensions:
+  memory_ballast:
+    size_mib: 64
+
 service:
+  extensions: [memory_ballast]
   pipelines:
     metrics:
       receivers: 
