@@ -2,7 +2,7 @@
 let telemetrydStore = telemetryd.packages."${pkgs.system}".telemetryd;
 in {
   imports =
-    [ ../modules/rpi4.nix ../modules/opentelemetry-collector.nix ../secrets ];
+    [ ../modules/rpi4.nix ../modules/opentelemetry-collector ../secrets ];
 
   networking = {
     inherit defaultGateway nameservers;
