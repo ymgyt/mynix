@@ -198,17 +198,17 @@
     "mysecrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1696343675,
-        "narHash": "sha256-3edIJ/qDYN4/zzdUpA6fW9NCSR6RNamHmo10uPBlgKA=",
+        "lastModified": 1696766537,
+        "narHash": "sha256-8W0EGH6zec5HOPqwRU+xqW0YqNN7xx2HrEkcKfmpXu4=",
         "owner": "ymgyt",
         "repo": "mynix.secrets",
-        "rev": "c06815267a99c86730de19d467bf7d6182d4eba0",
+        "rev": "a09e3d81f8e24657ea2cbd53f37f9e95b4576abb",
         "type": "github"
       },
       "original": {
         "owner": "ymgyt",
         "repo": "mynix.secrets",
-        "rev": "c06815267a99c86730de19d467bf7d6182d4eba0",
+        "rev": "a09e3d81f8e24657ea2cbd53f37f9e95b4576abb",
         "type": "github"
       }
     },
