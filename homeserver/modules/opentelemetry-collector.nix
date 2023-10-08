@@ -1,8 +1,6 @@
 { pkgs, config, mysecrets, ... }: {
   # Credential for opentelemetry-collector to export telemetry to openobserve cloud
   age.secrets."openobserve" = {
-    symlink = false;
-    path = "/etc/openobserve/env";
     file = "${mysecrets}/openobserve.age";
     # It is preferable to set systemd user and specify owner
     mode = "0444";
@@ -115,8 +113,9 @@
         "${pkgs.opentelemetry-collector-contrib}/bin/otelcontribcol --config=file:${conf}";
     in {
       inherit ExecStart;
-      # Read age secret
-      EnvironmentFile = [ "/etc/openobserve/env" ];
+      EnvironmentFile = [ 
+        config.age.secrets.openobserve.path
+       ];
       DynamicUser = true;
       Restart = "always";
       ProtectSystem = "full";
