@@ -17,6 +17,9 @@
   home.packages = with pkgs; [
     gccgo13
     k3s
+    # cgroup utilities
+    # getpcaps,capsh, setcap, getcap
+    libcap
   ];
 
   programs.home-manager.enable = true;
