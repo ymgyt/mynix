@@ -19,8 +19,15 @@
   };
 
   time.timeZone = "Asia/Tokyo";
-  
-  environment.systemPackages = with pkgs; [ helix git bottom bat ];
+
+  environment.systemPackages = with pkgs; [
+    helix
+    git
+    bottom
+    bat
+    # cgroup tools
+    libcgroup
+  ];
 
   services.openssh.enable = true;
 

@@ -18,6 +18,8 @@
     gccgo13
     k3s
     # cgroup utilities
+    libcgroup
+    # capability tools
     # getpcaps,capsh, setcap, getcap
     libcap
   ];
