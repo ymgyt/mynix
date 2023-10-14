@@ -1,6 +1,6 @@
 { pkgs
- ,telemetryd
- , ...
+, telemetryd
+, ...
 }: {
   imports = [
     ./filesystem.nix

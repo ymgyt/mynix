@@ -99,13 +99,13 @@
   environment.variables.EDITOR = "hx";
 
   environment.extraInit = ''
-  # Disable ssh-askpass
-  unset -v SSH_ASKPASS
+    # Disable ssh-askpass
+    unset -v SSH_ASKPASS
   '';
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  nix.settings.trusted-users = ["ymgyt"];
+  nix.settings.trusted-users = [ "ymgyt" ];
   nix.settings.auto-optimise-store = true;
 
   nix.gc = {

@@ -4,7 +4,7 @@
     enable = true;
     settings = {
       # Disable root login
-      PermitRootLogin = "no"; 
+      PermitRootLogin = "no";
       # Disable password login
       PasswordAuthentication = false; # 
     };

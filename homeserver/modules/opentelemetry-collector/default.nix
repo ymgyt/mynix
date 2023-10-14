@@ -1,11 +1,11 @@
-{ pkgs, config, mysecrets, ... }: 
-  let 
-    otelColUser = "opentelemetry-collector";
-    otelColGroup = otelColUser;
-  in
- {
+{ pkgs, config, mysecrets, ... }:
+let
+  otelColUser = "opentelemetry-collector";
+  otelColGroup = otelColUser;
+in
+{
   # Create user statically for age to execute chown
-  users = { 
+  users = {
     groups."opentelemetry-collector" = {
       name = "${otelColGroup}";
     };
@@ -14,7 +14,7 @@
       isSystemUser = true;
       group = "${otelColGroup}";
     };
-  };  
+  };
 
   # Credential for opentelemetry-collector to export telemetry to openobserve cloud
   age.secrets."openobserve" = {
@@ -38,27 +38,29 @@
   systemd.services.opentelemetry-collector = {
     description = "Opentelemetry Collector Serivice";
     wantedBy = [ "multi-user.target" ];
-    serviceConfig = let
-      conf =
-        "${config.environment.etc."opentelemetry-collector/config.yaml".source.outPath}";
-      ExecStart =
-        "${pkgs.opentelemetry-collector-contrib}/bin/otelcontribcol --config=file:${conf}";
-    in {
-      inherit ExecStart;
-      EnvironmentFile = [ 
-        # referenced by environment variable substitution in config file like '${env:FOO}'
-        config.age.secrets.openobserve.path
-       ];
-      # age executes chown on secret files, so user and group should exists in advance
-      DynamicUser = false;
-      User = "${otelColUser}";
-      Group  = "${otelColGroup}";
-      Restart = "always";
-      ProtectSystem = "full";
-      DevicePolicy = "closed";
-      NoNewPrivileges = true;
-      WorkingDirectory = "/var/lib/opentelemetry-collector";
-      StateDirectory = "opentelemetry-collector";
-    };
+    serviceConfig =
+      let
+        conf =
+          "${config.environment.etc."opentelemetry-collector/config.yaml".source.outPath}";
+        ExecStart =
+          "${pkgs.opentelemetry-collector-contrib}/bin/otelcontribcol --config=file:${conf}";
+      in
+      {
+        inherit ExecStart;
+        EnvironmentFile = [
+          # referenced by environment variable substitution in config file like '${env:FOO}'
+          config.age.secrets.openobserve.path
+        ];
+        # age executes chown on secret files, so user and group should exists in advance
+        DynamicUser = false;
+        User = "${otelColUser}";
+        Group = "${otelColGroup}";
+        Restart = "always";
+        ProtectSystem = "full";
+        DevicePolicy = "closed";
+        NoNewPrivileges = true;
+        WorkingDirectory = "/var/lib/opentelemetry-collector";
+        StateDirectory = "opentelemetry-collector";
+      };
   };
 }

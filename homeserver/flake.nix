@@ -39,7 +39,8 @@
         nameservers = [ "8.8.8.8" ];
         inherit telemetryd ragenix mysecrets;
       };
-    in {
+    in
+    {
       nixosConfigurations = {
         rpi4-01 = nixpkgs.lib.nixosSystem {
           system = "aarch64-linux";
@@ -110,11 +111,12 @@
       };
 
       checks = builtins.mapAttrs
-        (system: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
+        (system: deployLib: deployLib.deployChecks self.deploy)
+        deploy-rs.lib;
     } // flake-utils.lib.eachDefaultSystem (system:
-      let pkgs = import nixpkgs { inherit system; };
-      in {
-        devShells.default =
-          pkgs.mkShell { buildInputs = [ pkgs.deploy-rs pkgs.nixfmt ]; };
-      });
+    let pkgs = import nixpkgs { inherit system; };
+    in {
+      devShells.default =
+        pkgs.mkShell { buildInputs = [ pkgs.deploy-rs pkgs.nixfmt ]; };
+    });
 }
