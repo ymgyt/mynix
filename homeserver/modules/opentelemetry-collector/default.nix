@@ -38,6 +38,9 @@ in
   systemd.services.opentelemetry-collector = {
     description = "Opentelemetry Collector Serivice";
     wantedBy = [ "multi-user.target" ];
+    unitConfig = {
+      Alias = "otelcol";
+    };
     serviceConfig =
       let
         conf =
@@ -51,20 +54,23 @@ in
           # referenced by environment variable substitution in config file like '${env:FOO}'
           config.age.secrets.openobserve.path
         ];
+        # user
         # age executes chown on secret files, so user and group should exists in advance
         DynamicUser = false;
         User = "${otelColUser}";
         Group = "${otelColGroup}";
+
+        # exec
         Restart = "always";
-        # security: "strict"にしてみる?
-        ProtectSystem = "full";
-        DevicePolicy = "closed";
-        NoNewPrivileges = true;
         WorkingDirectory = "/var/lib/opentelemetry-collector";
-        StateDirectory = "opentelemetry-collector";
 
         # security
-        # RemoveIPC = "true";        
+        RemoveIPC = "true";        
+        CapabilityBoundingSet = "";
+        ProtectSystem = "strict";
+        DevicePolicy = "closed";
+        NoNewPrivileges = true;
+        StateDirectory = "opentelemetry-collector";
       };
   };
 }
