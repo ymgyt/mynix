@@ -56,11 +56,15 @@ in
         User = "${otelColUser}";
         Group = "${otelColGroup}";
         Restart = "always";
+        # security: "strict"にしてみる?
         ProtectSystem = "full";
         DevicePolicy = "closed";
         NoNewPrivileges = true;
         WorkingDirectory = "/var/lib/opentelemetry-collector";
         StateDirectory = "opentelemetry-collector";
+
+        # security
+        # RemoveIPC = "true";        
       };
   };
 }
