@@ -72,7 +72,7 @@
     direnv
     fzf
     neofetch
-
+    llvmPackages_16.bintools-unwrapped
     telemetryd.packages."${pkgs.system}".telemetryd
   ];
 }
