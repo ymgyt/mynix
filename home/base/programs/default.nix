@@ -66,6 +66,9 @@
     # Container
     dive
 
+    # Otel
+    opentelemetry-collector-contrib # provide otelcontribcol
+
     # Etc(not categorized yet)
     typst
     protobuf # provide protoc
