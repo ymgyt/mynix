@@ -25,6 +25,7 @@
   home.packages = with pkgs; [
     procs
     ripgrep
+    bottom
 
     # C
     pkg-config-unwrapped
