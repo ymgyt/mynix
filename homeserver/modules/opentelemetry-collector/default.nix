@@ -38,9 +38,6 @@ in
   systemd.services.opentelemetry-collector = {
     description = "Opentelemetry Collector Serivice";
     wantedBy = [ "multi-user.target" ];
-    unitConfig = {
-      Alias = "otelcol";
-    };
     serviceConfig =
       let
         conf =

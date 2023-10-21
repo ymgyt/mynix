@@ -1,6 +1,6 @@
 { defaultGateway, nameservers, ... }: {
   imports =
-    [ ../modules/rpi4.nix ../modules/opentelemetry-collector ../secrets ];
+    [ ../modules/rpi4.nix ../modules/opentelemetry-collector ../secrets ../modules/metrics ];
 
   networking = {
     inherit defaultGateway nameservers;

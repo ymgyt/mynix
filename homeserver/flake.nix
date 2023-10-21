@@ -28,16 +28,22 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
     };
+
+    opentelemetry-cli = {
+      url = "github:ymgyt/opentelemetry-cli/ffba78aa5d2f1271a29d9e911028af8a28b1c589";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
+    };
   };
 
   outputs =
-    { self, nixpkgs, deploy-rs, flake-utils, telemetryd, ragenix, mysecrets }:
+    { self, nixpkgs, deploy-rs, flake-utils, telemetryd, ragenix, mysecrets, opentelemetry-cli }:
     let
       spec = {
         user = "ymgyt";
         defaultGateway = "192.168.10.1";
         nameservers = [ "8.8.8.8" ];
-        inherit telemetryd ragenix mysecrets;
+        inherit telemetryd ragenix mysecrets opentelemetry-cli;
       };
     in
     {

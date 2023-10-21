@@ -24,6 +24,27 @@
     },
     "crane": {
       "inputs": {
+        "nixpkgs": [
+          "opentelemetry-cli",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1697838303,
+        "narHash": "sha256-EnBKnFjT9ZTTI7XQEMjUJSPwi2o85/DU9JtSJ0haCFc=",
+        "owner": "ipetkov",
+        "repo": "crane",
+        "rev": "f8f1b3fc5b2174a14c02e98730ea38971a4da4c2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ipetkov",
+        "repo": "crane",
+        "type": "github"
+      }
+    },
+    "crane_2": {
+      "inputs": {
         "flake-compat": "flake-compat_2",
         "flake-utils": [
           "ragenix",
@@ -52,7 +73,7 @@
         "type": "github"
       }
     },
-    "crane_2": {
+    "crane_3": {
       "inputs": {
         "flake-compat": "flake-compat_3",
         "flake-utils": [
@@ -228,9 +249,8 @@
         "type": "github"
       }
     },
-    "ragenix": {
+    "opentelemetry-cli": {
       "inputs": {
-        "agenix": "agenix",
         "crane": "crane",
         "flake-utils": [
           "flake-utils"
@@ -239,6 +259,33 @@
           "nixpkgs"
         ],
         "rust-overlay": "rust-overlay"
+      },
+      "locked": {
+        "lastModified": 1697841785,
+        "narHash": "sha256-XDk6jwCiC+sLZBwf3yCDbc6eBU7YbhWjkBw9TLUYwkw=",
+        "owner": "ymgyt",
+        "repo": "opentelemetry-cli",
+        "rev": "ffba78aa5d2f1271a29d9e911028af8a28b1c589",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ymgyt",
+        "repo": "opentelemetry-cli",
+        "rev": "ffba78aa5d2f1271a29d9e911028af8a28b1c589",
+        "type": "github"
+      }
+    },
+    "ragenix": {
+      "inputs": {
+        "agenix": "agenix",
+        "crane": "crane_2",
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "rust-overlay": "rust-overlay_2"
       },
       "locked": {
         "lastModified": 1682237245,
@@ -260,11 +307,37 @@
         "flake-utils": "flake-utils",
         "mysecrets": "mysecrets",
         "nixpkgs": "nixpkgs",
+        "opentelemetry-cli": "opentelemetry-cli",
         "ragenix": "ragenix",
         "telemetryd": "telemetryd"
       }
     },
     "rust-overlay": {
+      "inputs": {
+        "flake-utils": [
+          "opentelemetry-cli",
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "opentelemetry-cli",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1697767917,
+        "narHash": "sha256-9+FjCVE1Y7iUKohBF43yD05KoQB+FPcw/XL2rlKkjqY=",
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "rev": "679ea0878edc749f23516ea6d7ffa974c6304bf5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "type": "github"
+      }
+    },
+    "rust-overlay_2": {
       "inputs": {
         "flake-utils": [
           "ragenix",
@@ -289,7 +362,7 @@
         "type": "github"
       }
     },
-    "rust-overlay_2": {
+    "rust-overlay_3": {
       "inputs": {
         "flake-utils": [
           "telemetryd",
@@ -331,14 +404,14 @@
     },
     "telemetryd": {
       "inputs": {
-        "crane": "crane_2",
+        "crane": "crane_3",
         "flake-utils": [
           "flake-utils"
         ],
         "nixpkgs": [
           "nixpkgs"
         ],
-        "rust-overlay": "rust-overlay_2"
+        "rust-overlay": "rust-overlay_3"
       },
       "locked": {
         "lastModified": 1695549309,

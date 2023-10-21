@@ -1,4 +1,8 @@
 receivers:
+  otlp:
+    protocols:
+      grpc:
+        endpoint: "0.0.0.0:4317"
   hostmetrics:
     collection_interval: 1m
     scrapers:
@@ -91,6 +95,7 @@ service:
   pipelines:
     metrics:
       receivers: 
+        - otlp
         - hostmetrics
         - hostmetrics/fs
       processors: 

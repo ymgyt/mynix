@@ -1,4 +1,4 @@
-{ pkgs, ...}:
+{ pkgs, opentelemetry-cli, ...}:
 {
   systemd.timers."cpu-temp-metrics" = {
     wantedBy = [ "timers.target" ];
@@ -10,8 +10,15 @@
      };
   };
 
-  systemd.services."cpu-temp-metrics" = {
-    path = [ pkgs.gawk ];
+  systemd.services."cpu-temp-metrics" = 
+  let
+    otel = opentelemetry-cli.packages."${pkgs.system}".opentelemetry-cli;
+  in
+  {
+    path = [ 
+      pkgs.gawk 
+      otel
+    ];
     script = builtins.readFile ./script.sh;
     serviceConfig = {
       Type = "oneshot";

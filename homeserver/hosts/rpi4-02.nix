@@ -2,7 +2,7 @@
 let telemetrydStore = telemetryd.packages."${pkgs.system}".telemetryd;
 in {
   imports =
-    [ ../modules/rpi4.nix ../modules/opentelemetry-collector ../secrets ];
+    [ ../modules/rpi4.nix ../modules/opentelemetry-collector ../secrets ../modules/metrics ];
 
   networking = {
     inherit defaultGateway nameservers;
@@ -15,7 +15,7 @@ in {
   };
 
   systemd.services.telemetryd = {
-    enable = true;
+    enable = false;
     wantedBy = [ "multi-user.target" ];
     description = "Telemetryd server";
     serviceConfig = { ExecStart = "${telemetrydStore}/bin/telemetryd"; };
