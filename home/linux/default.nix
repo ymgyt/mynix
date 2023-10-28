@@ -15,7 +15,13 @@
 
   # Define packages supported in only linux
   home.packages = with pkgs; [
-    gccgo13
+    # llvm
+    llvmPackages_16.libcxxClang
+    llvmPackages_16.bintools-unwrapped
+
+    # emulator
+    qemu
+
     k3s
     # cgroup utilities
     libcgroup
