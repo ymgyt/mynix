@@ -16,8 +16,6 @@
   # Define packages supported in only linux
   home.packages = with pkgs; [
     # llvm
-    llvmPackages_16.libcxxClang
-    llvmPackages_16.bintools-unwrapped
 
     # emulator
     qemu
