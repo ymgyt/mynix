@@ -17,6 +17,9 @@
   home.packages = with pkgs; [
     # llvm
 
+    # gcc
+    gcc
+
     # emulator
     qemu
 
