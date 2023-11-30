@@ -8,6 +8,7 @@
     ./kubernetes.nix
     ./languages
     ./cloud
+    ./wasm.nix
   ];
 
   programs = {
