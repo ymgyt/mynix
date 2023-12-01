@@ -3,7 +3,7 @@
     kubectl
     kdash
     kustomize
-    # TODO: not supported in darwin
-    # k3s
+    clusterctl
+    kind
   ];
 }
