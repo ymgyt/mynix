@@ -23,6 +23,8 @@
     };
 
     telemetryd.url = "github:ymgyt/telemetryd/a2136807c9a056ec26ff16e8d51c13c6d67a11c3";
+
+    nix-bitcoin.url = "github:fort-nix/nix-bitcoin/release";
   };
 
   outputs =
@@ -32,6 +34,7 @@
     , ragenix
     , mysecrets
     , telemetryd
+    , nix-bitcoin
     , ...
     }@inputs:
     let
@@ -92,6 +95,17 @@
               home-manager.useUserPackages = true;
               home-manager.users.ymgyt = import ./home/darwin;
               home-manager.extraSpecialArgs = specialArgs;
+            }
+
+            nix-bitcoin.nixosModules.default
+            {
+              nix-bitcoin.generateSecrets = true;
+              services.bitcoind.enabled = true;
+              services.clightning.enable = false;
+              nix-bitcoin.operator = {
+                enable = true;
+                name = "ymgyt";
+              };
             }
           ];
         };
