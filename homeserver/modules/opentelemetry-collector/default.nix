@@ -62,7 +62,7 @@ in
         WorkingDirectory = "/var/lib/opentelemetry-collector";
 
         # security
-        RemoveIPC = "true";        
+        RemoveIPC = "true";
         CapabilityBoundingSet = "";
         ProtectSystem = "strict";
         DevicePolicy = "closed";
