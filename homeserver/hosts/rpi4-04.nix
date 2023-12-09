@@ -1,6 +1,12 @@
 { defaultGateway, nameservers, ... }: {
   imports =
-    [ ../modules/rpi4.nix ../modules/opentelemetry-collector ../secrets ../modules/metrics ];
+    [ 
+      ../modules/rpi4.nix 
+      ../modules/opentelemetry-collector 
+      ../secrets 
+      ../modules/metrics 
+      ../modules/kubernetes/master.nix
+    ];
 
   networking = {
     inherit defaultGateway nameservers;
