@@ -28,6 +28,9 @@
     # capability tools
     # getpcaps,capsh, setcap, getcap
     libcap
+
+    # blockchain
+    bitcoin
   ];
 
   programs.home-manager.enable = true;
