@@ -1,7 +1,7 @@
 # Configure nixos specific options
 { pkgs, ... }: {
   fonts = {
-    enableDefaultFonts = true;
+    enableDefaultPackages = true;
     # Make sure font match with alacritty font settings
     fontconfig.defaultFonts = {
       serif = [ "Noto Serif" "Noto Color Emoji" ];
