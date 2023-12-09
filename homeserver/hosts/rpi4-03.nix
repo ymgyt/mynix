@@ -5,7 +5,7 @@
       ../modules/opentelemetry-collector 
       ../secrets 
       ../modules/metrics 
-      ../modules/kubernetes/worker.nix
+      # ../modules/kubernetes/worker.nix
     ];
 
   networking = {
