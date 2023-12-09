@@ -23,7 +23,6 @@
     # emulator
     qemu
 
-    k3s
     # cgroup utilities
     libcgroup
     # capability tools
