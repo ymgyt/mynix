@@ -24,6 +24,7 @@ source ~/.config/nushell/completions/nix-completions.nu
 source ~/.config/nushell/completions/poetry-completions.nu
 source ~/.config/nushell/completions/typst-completions.nu
 source ~/.config/nushell/completions/zellij-completions.nu
+source ~/.config/nushell/completions/terraform-completions.nu
 
 # TODO: migrate module
 def book [ ] {

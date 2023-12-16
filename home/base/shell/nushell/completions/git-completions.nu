@@ -259,7 +259,7 @@ export extern "git rebase" [
 ]
 
 # List or change branches
-export extern "g b" [
+export extern "git branch" [
   branch?: string@"nu-complete git local branches"               # name of branch to operate on
   --abbrev                                                       # use short commit hash prefixes
   --edit-description                                             # open editor to edit branch description

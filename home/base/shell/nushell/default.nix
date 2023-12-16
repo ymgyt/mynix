@@ -10,6 +10,7 @@
   xdg.configFile."nushell/completions/poetry-completions.nu".source = ./completions/poetry-completions.nu;
   xdg.configFile."nushell/completions/typst-completions.nu".source = ./completions/typst-completions.nu;
   xdg.configFile."nushell/completions/zellij-completions.nu".source = ./completions/zellij-completions.nu;
+  xdg.configFile."nushell/completions/terraform-completions.nu".source = ./completions/terraform-completions.nu;
 
   programs.starship = {
     enable = true;
