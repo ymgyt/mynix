@@ -27,6 +27,7 @@
     procs
     ripgrep
     bottom
+    just
 
     # C
     pkg-config-unwrapped
@@ -38,6 +39,7 @@
     # Provisioning
     terraform
     terraform-ls
+    tflint
 
     # Secret management
     vault
