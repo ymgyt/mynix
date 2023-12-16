@@ -106,3 +106,9 @@ service:
       exporters: 
         - logging
         - prometheusremotewrite/openobserve
+  telemetry:
+    metrics:
+      level: none
+      # change default 8888 port
+      # which is golden one everyone want to listen
+      address: 127.0.0.1:9999
