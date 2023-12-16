@@ -25,6 +25,7 @@
     git
     bottom
     bat
+    lsof
     # cgroup tools
     libcgroup
   ];
