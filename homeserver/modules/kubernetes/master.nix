@@ -1,13 +1,18 @@
-{ config, pkgs,... }:
+{ ... }:
 let
   masterIp = "192.168.10.153";
-  masterHostname = "rpi4-04";
+  # masterHostname = "rpi4-04";
+  masterHostname = "localhost";
   masterApiServerPort = 6443;
 in
 {
   networking.extraHosts = "${masterIp} ${masterHostname}";
   # imports = [ ./common.nix ];
   # TODO: add kubectl
+
+  # Next shot: copy 
+  # /var/lib/cfssl/ca.pem to
+  # /var/lib/kubernetes/secrets.ca.pem
 
   services.kubernetes = {
     roles = ["master"];
@@ -22,6 +27,6 @@ in
     };
 
     addons.dns.enable = true;
-    # kubelet.extraOpts = "--fail-swap-on=false";
+    kubelet.extraOpts = "--fail-swap-on=false";
   };
 }
