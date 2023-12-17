@@ -44,6 +44,19 @@
   };
   security.sudo.wheelNeedsPassword = false;
 
+  # garbage collection
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 1w";
+    persistent = true;
+    randomizedDelaySec = "30sec";
+  };
+
+  # not applyied yet for incrementalism
+  # boot.loader.systemd-boot.configurationLimit = 10;
+  # nix.settings.auto-optimise-store = true;
+
   hardware.enableRedistributableFirmware = true;
   system.stateVersion = "23.11";
 }
