@@ -17,15 +17,12 @@ $env.ENV_CONVERSIONS = {
 
 $env.EDITOR = "hx"
 
-# https://github.com/nushell/nu_scripts/blob/56d948e78792c4065b25d85a6925b9d982c6d59a/hooks/direnv/config.nu
+# https://github.com/nushell/nu_scripts/blob/main/nu-hooks/direnv/config.nu
 $env.config = {
   hooks: {
     pre_prompt: [{
       code: "
-        let direnv = (direnv export json | from json)
-        let direnv = if ($direnv | length) == 1 { $direnv } else { {} }
-        echo $direnv
-        $direnv | load-env
+        direnv export json | from json | default {} | load-env
       "
     }]
   }
