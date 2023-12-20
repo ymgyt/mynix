@@ -17,6 +17,8 @@ $env.config = {
   edit_mode: vi
 }
 
+$env.SHELL = "nu"
+
 # TODO: more nu way(find nu files from dir and iterate)
 source ~/.config/nushell/completions/cargo-completions.nu
 source ~/.config/nushell/completions/git-completions.nu
