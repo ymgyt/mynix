@@ -33,7 +33,7 @@ receivers:
           system.network.io: { enabled: true }
           system.network.packets: { enabled: false }
   hostmetrics/fs:
-    collection_interval: 60m
+    collection_interval: 15m
     scrapers:
       filesystem:
         exclude_mount_points:
