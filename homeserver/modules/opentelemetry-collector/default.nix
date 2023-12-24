@@ -16,13 +16,23 @@ in
     };
   };
 
-  # Credential for opentelemetry-collector to export telemetry to openobserve cloud
-  age.secrets."openobserve" = {
-    file = "${mysecrets}/openobserve.age";
-    mode = "0440";
-    owner = "${otelColUser}";
-    group = "${otelColGroup}";
+  # Credential for opentelemetry-collector to export telemetry
+  age.secrets = {
+    "openobserve" = {
+      file = "${mysecrets}/openobserve.age";
+      mode = "0440";
+      owner = "${otelColUser}";
+      group = "${otelColGroup}";
+    };
+
+    "grafanacloud" = {
+      file = "${mysecrets}/grafanacloud.age";      
+      mode = "0440";
+      owner = "${otelColUser}";
+      group = "${otelColGroup}";
+    };
   };
+
 
   # Put opentelemetry-collector config file
   environment.etc = {
@@ -47,9 +57,10 @@ in
       in
       {
         inherit ExecStart;
-        EnvironmentFile = [
+        EnvironmentFile = with config.age.secrets; [
           # referenced by environment variable substitution in config file like '${env:FOO}'
-          config.age.secrets.openobserve.path
+          openobserve.path
+          grafanacloud.path
         ];
         # user
         # age executes chown on secret files, so user and group should exists in advance
