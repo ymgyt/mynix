@@ -72,6 +72,9 @@
     # Otel
     opentelemetry-collector-contrib # provide otelcontribcol
 
+    # Grafana
+    grafana
+
     # Etc(not categorized yet)
     typst
     protobuf # provide protoc
