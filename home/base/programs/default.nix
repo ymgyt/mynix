@@ -72,9 +72,6 @@
     # Otel
     opentelemetry-collector-contrib # provide otelcontribcol
 
-    # Grafana
-    grafana
-
     # GraphQL
     graphql-client
 
