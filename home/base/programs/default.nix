@@ -75,6 +75,9 @@
     # Grafana
     grafana
 
+    # GraphQL
+    graphql-client
+
     # Etc(not categorized yet)
     typst
     protobuf # provide protoc
