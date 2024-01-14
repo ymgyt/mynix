@@ -3,5 +3,6 @@
     # Language server
     nil
     nix-direnv
+    nixfmt
   ];
 }
