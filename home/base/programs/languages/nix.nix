@@ -4,5 +4,6 @@
     nil
     nix-direnv
     nixfmt
+    cachix
   ];
 }
