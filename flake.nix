@@ -50,8 +50,6 @@
 
           modules = [
             ./hosts/xps15
-            ./secrets
-
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
