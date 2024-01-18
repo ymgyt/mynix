@@ -2,7 +2,6 @@
 
 { pkgs, ... }: {
   imports = [
-    # ../font.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
