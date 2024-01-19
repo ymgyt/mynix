@@ -75,6 +75,9 @@
     # GraphQL
     graphql-client
 
+    # Browser
+    google-chrome
+
     # Etc(not categorized yet)
     typst
     protobuf # provide protoc
@@ -82,6 +85,6 @@
     fzf
     neofetch
     telemetryd.packages."${pkgs.system}".telemetryd
-
+    kbt
   ];
 }
