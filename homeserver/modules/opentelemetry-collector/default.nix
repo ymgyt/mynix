@@ -26,7 +26,7 @@ in
     };
 
     "grafanacloud" = {
-      file = "${mysecrets}/grafanacloud.age";      
+      file = "${mysecrets}/grafanacloud.age";
       mode = "0440";
       owner = "${otelColUser}";
       group = "${otelColGroup}";

@@ -1,8 +1,7 @@
 # Configure darwin common settings;
 
 { pkgs, ... }: {
-  imports = [
-  ];
+  imports = [ ];
 
   nixpkgs.config.allowUnfree = true;
 
@@ -13,11 +12,8 @@
   # error: The daemon is not enabled but this is a multi-user install, aborting activation
   services.nix-daemon.enable = true;
 
-  environment.variables = {
-    EDITOR = "hx";
-  };
+  environment.variables = { EDITOR = "hx"; };
 
-  
   fonts = {
     fontDir.enable = true;
 
@@ -31,11 +27,7 @@
       # nerdfotns
       # https://www.nerdfonts.com/font-downloads
       # items are inferred from the actual downloaded file name
-      (nerdfonts.override {
-        fonts = [
-          "JetBrainsMono"
-        ];
-      })
+      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     ];
   };
 

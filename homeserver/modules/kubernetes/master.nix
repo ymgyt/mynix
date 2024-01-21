@@ -15,11 +15,11 @@ in
   # /var/lib/kubernetes/secrets.ca.pem
 
   services.kubernetes = {
-    roles = ["master"];
+    roles = [ "master" ];
     masterAddress = masterHostname;
     apiserverAddress = "https://${masterHostname}:${toString masterApiServerPort}";
     easyCerts = true;
-    featureGates = [];
+    featureGates = [ ];
     clusterCidr = "10.1.0.0/16";
     apiserver = {
       securePort = masterApiServerPort;

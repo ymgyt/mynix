@@ -18,11 +18,13 @@
     # secrets management
     ragenix.url = "github:yaxitech/ragenix";
     mysecrets = {
-      url = "github:ymgyt/mynix.secrets/c06815267a99c86730de19d467bf7d6182d4eba0";
+      url =
+        "github:ymgyt/mynix.secrets/c06815267a99c86730de19d467bf7d6182d4eba0";
       flake = false;
     };
 
-    telemetryd.url = "github:ymgyt/telemetryd/a2136807c9a056ec26ff16e8d51c13c6d67a11c3";
+    telemetryd.url =
+      "github:ymgyt/telemetryd/a2136807c9a056ec26ff16e8d51c13c6d67a11c3";
   };
 
   outputs =
@@ -38,9 +40,7 @@
       systems = [ "x86_64-linux" "x86_64-darwin" "aarch64-darwin" ];
 
       forAllSystems = nixpkgs.lib.genAttrs systems;
-      specialArgs = {
-        inherit telemetryd ragenix mysecrets;
-      };
+      specialArgs = { inherit telemetryd ragenix mysecrets; };
     in
     {
       nixosConfigurations = {
@@ -95,7 +95,8 @@
         };
       };
 
-      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixpkgs-fmt);
+      formatter =
+        forAllSystems (system: nixpkgs.legacyPackages.${system}.nixpkgs-fmt);
     };
 
   # https://nixos.org/manual/nix/stable/command-ref/conf-file.html
@@ -106,14 +107,10 @@
 
     eval-cache = true;
 
-    substituters = [
-      "https://cache.nixos.org/"
-    ];
-    extra-substituters = [
-      "https://nix-community.cachix.org"
-    ];
+    substituters = [ "https://cache.nixos.org/" ];
+    extra-substituters = [ "https://nix-community.cachix.org" ];
     extra-trusted-public-keys = [
-      # https://app.cachix.org/cache/nix-community#pull
+
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
     ];
   };
