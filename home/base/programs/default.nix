@@ -70,9 +70,6 @@
     # GraphQL
     graphql-client
 
-    # Browser
-    google-chrome
-
     # Markdown
     marksman
 
