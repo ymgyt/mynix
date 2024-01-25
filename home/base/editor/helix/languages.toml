@@ -3,6 +3,11 @@ name = "nix"
 auto-format = true
 formatter = { command = "nixfmt"}
 
+[[language]]
+name = "toml"
+auto-format = true
+formatter = { command = "taplo", args = ["fmt", "-" ] }
+
 # https://github.com/rust-lang/rust-analyzer/blob/master/crates/rust-analyzer/src/config.rs
 [language-server.rust-analyzer.config]
 inlayHints.chainingHints.enable = true
