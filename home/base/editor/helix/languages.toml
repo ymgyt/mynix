@@ -8,6 +8,10 @@ name = "toml"
 auto-format = true
 formatter = { command = "taplo", args = ["fmt", "-"] }
 
+[language-server.yaml-language-server.config.yaml]
+format = { enable = true }
+validation = true
+
 # https://github.com/rust-lang/rust-analyzer/blob/master/crates/rust-analyzer/src/config.rs
 [language-server.rust-analyzer.config]
 inlayHints.chainingHints.enable = true
