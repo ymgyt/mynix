@@ -1,1 +1,1 @@
-{ ... }: { programs.eza = { enabme = true; }; }
+{ ... }: { programs.eza = { enable = true; }; }
