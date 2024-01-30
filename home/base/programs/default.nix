@@ -74,6 +74,9 @@
     # Markdown
     marksman
 
+    # Language server for html,css,json
+    vscode-langservers-extracted
+
     # Etc(not categorized yet)
     typst
     protobuf # provide protoc
