@@ -1,6 +1,8 @@
 [editor]
 line-number = "relative"
 bufferline = "always"
+auto-completion = true
+auto-format = true
 
 [editor.lsp]
 enable = true
