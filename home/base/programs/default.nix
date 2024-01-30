@@ -76,6 +76,7 @@
 
     # Language server for html,css,json
     vscode-langservers-extracted
+    biome
 
     # Etc(not categorized yet)
     typst
