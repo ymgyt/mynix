@@ -69,6 +69,11 @@ language-servers = [
   "biome",
 ]
 auto-format = true
+formatter = { command = "biome", args = [
+  "format",
+  "--stdin-file-path",
+  "a.ts",
+] }
 
 [[language]]
 name = "tsx"
