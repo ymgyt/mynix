@@ -38,12 +38,15 @@ lens.enable = false
 
 hover.actions.enable = false
 
+# https://users.rust-lang.org/t/can-i-stop-vscode-rust-analyzer-from-shading-out-cfgs/58773/4
+diagnostics.disabled = ["inactive-code"]
+
 [language-server.rust-analyzer.config.cargo]
 features = "all"
 
 [language-server.rust-analyzer.config.check]
 command = "clippy"
-features = "all"
+
 
 # Configure biome
 # https://github.com/biomejs/biome/blob/main/editors/helix/manual.md
