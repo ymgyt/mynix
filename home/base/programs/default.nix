@@ -43,6 +43,7 @@
     taplo
     jq
     yaml-language-server
+    yamlfmt
 
     # SSH
     openssh # provide ssh ssh-agent ssh-keygen ssh-add scp ssh-keyscan
