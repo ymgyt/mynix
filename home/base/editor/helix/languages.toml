@@ -8,6 +8,11 @@ name = "toml"
 auto-format = true
 formatter = { command = "taplo", args = ["fmt", "-"] }
 
+[[language]]
+name = "yaml"
+# does not use ansible-language-server
+language-servers = ["yaml-language-server"]
+
 [language-server.yaml-language-server.config.yaml]
 format = { enable = true }
 validation = true
