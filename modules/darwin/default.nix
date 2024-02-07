@@ -12,6 +12,8 @@
   # error: The daemon is not enabled but this is a multi-user install, aborting activation
   services.nix-daemon.enable = true;
 
+  nix.settings.trusted-users = [ "ymgyt" ];
+
   environment.variables = { EDITOR = "hx"; };
 
   fonts = {
