@@ -88,7 +88,7 @@ export extern "cargo build" [
   --release(-r)       # Build optimized artifacts with the release profile
   --profile: string@"nu-complete cargo profiles" # Build with the given profile
   --ignore-rust-version # Ignore `rust-version` specification in packages
-  --timings: string    # Output information how long each compilation takes
+  --timings           # Output information how long each compilation takes
   --target-dir: path  # Directory for all generated artifacts and intermediate files
   --out-dir: path     # Copy final artifacts to this directory
   --verbose(-v)      # Use verbose output. May be specified twice for "very verbose" output
