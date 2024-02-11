@@ -1,10 +1,6 @@
 { config, pkgs, ... }: {
 
-  imports = [
-    ../ssh.nix
-    ../font.nix
-    ./font.nix
-  ];
+  imports = [ ../ssh.nix ../font.nix ./font.nix ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -13,6 +9,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
