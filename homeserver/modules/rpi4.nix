@@ -44,6 +44,10 @@
   };
   security.sudo.wheelNeedsPassword = false;
 
+  # needed when deploy-rs remoteBuild = false
+  # https://github.com/NixOS/nix/issues/2450
+  nix.settings.trusted-users = [ "${user}" ];
+
   # garbage collection
   nix.gc = {
     automatic = true;
