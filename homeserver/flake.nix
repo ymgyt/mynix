@@ -41,16 +41,24 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
     };
+
+    syndicationd = {
+      url =
+        "github:ymgyt/syndicationd/d29ba92e929d9d1348fa114ac2bdf210b76c5a1b";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
+    };
   };
 
   outputs = { self, nixpkgs, deploy-rs, flake-utils, telemetryd, ragenix
-    , mysecrets, opentelemetry-cli, kvsd }:
+    , mysecrets, opentelemetry-cli, kvsd, syndicationd }:
     let
       spec = {
         user = "ymgyt";
         defaultGateway = "192.168.10.1";
         nameservers = [ "8.8.8.8" ];
-        inherit telemetryd ragenix mysecrets opentelemetry-cli kvsd;
+        inherit telemetryd ragenix mysecrets opentelemetry-cli kvsd
+          syndicationd;
       };
     in {
       nixosConfigurations = {
@@ -103,6 +111,7 @@
             profiles.system = {
               path = deploy-rs.lib.aarch64-linux.activate.nixos
                 self.nixosConfigurations.rpi4-02;
+              remoteBuild = false;
             };
           };
           rpi4-03 = {
@@ -110,6 +119,7 @@
             profiles.system = {
               path = deploy-rs.lib.aarch64-linux.activate.nixos
                 self.nixosConfigurations.rpi4-03;
+              remoteBuild = false;
             };
           };
           rpi4-04 = {

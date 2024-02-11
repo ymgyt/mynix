@@ -96,6 +96,27 @@
     },
     "crane_4": {
       "inputs": {
+        "nixpkgs": [
+          "syndicationd",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1704819371,
+        "narHash": "sha256-oFUfPWrWGQTZaCM3byxwYwrMLwshDxVGOrMH5cVP/X8=",
+        "owner": "ipetkov",
+        "repo": "crane",
+        "rev": "5c234301a1277e4cc759c23a2a7a00a06ddd7111",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ipetkov",
+        "repo": "crane",
+        "type": "github"
+      }
+    },
+    "crane_5": {
+      "inputs": {
         "flake-compat": "flake-compat_3",
         "flake-utils": [
           "telemetryd",
@@ -185,6 +206,28 @@
         "owner": "nix-community",
         "repo": "fenix",
         "rev": "28dbd8b43ea328ee708f7da538c63e03d5ed93c8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "fenix",
+        "type": "github"
+      }
+    },
+    "fenix_2": {
+      "inputs": {
+        "nixpkgs": [
+          "syndicationd",
+          "nixpkgs"
+        ],
+        "rust-analyzer-src": "rust-analyzer-src_2"
+      },
+      "locked": {
+        "lastModified": 1705213324,
+        "narHash": "sha256-9UBPhXzDHTkdHc2qS8T0cA9UYOTvMvlKpDXtpdYafp0=",
+        "owner": "nix-community",
+        "repo": "fenix",
+        "rev": "e9c7d6b7b653bb9ed80bf6dcd0eb78fa73cfc32d",
         "type": "github"
       },
       "original": {
@@ -379,6 +422,7 @@
         "nixpkgs": "nixpkgs",
         "opentelemetry-cli": "opentelemetry-cli",
         "ragenix": "ragenix",
+        "syndicationd": "syndicationd",
         "telemetryd": "telemetryd"
       }
     },
@@ -390,6 +434,23 @@
         "owner": "rust-lang",
         "repo": "rust-analyzer",
         "rev": "8f6a72871ec87ed53cfe43a09fb284168a284e7e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rust-lang",
+        "ref": "nightly",
+        "repo": "rust-analyzer",
+        "type": "github"
+      }
+    },
+    "rust-analyzer-src_2": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1704974004,
+        "narHash": "sha256-H3RdtMxH8moTInVmracgtF8bgFpaEE3zYoSkuv7PBs0=",
+        "owner": "rust-lang",
+        "repo": "rust-analyzer",
+        "rev": "9d8889cdfcc3aa0302353fc988ed21ff9bc9925c",
         "type": "github"
       },
       "original": {
@@ -474,6 +535,32 @@
         "type": "github"
       }
     },
+    "syndicationd": {
+      "inputs": {
+        "crane": "crane_4",
+        "fenix": "fenix_2",
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1707608023,
+        "narHash": "sha256-34BClunPbFx+17YplN0CgzqqRn8gCahH1dhO6fFXkwU=",
+        "owner": "ymgyt",
+        "repo": "syndicationd",
+        "rev": "d29ba92e929d9d1348fa114ac2bdf210b76c5a1b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ymgyt",
+        "repo": "syndicationd",
+        "rev": "d29ba92e929d9d1348fa114ac2bdf210b76c5a1b",
+        "type": "github"
+      }
+    },
     "systems": {
       "locked": {
         "lastModified": 1681028828,
@@ -491,7 +578,7 @@
     },
     "telemetryd": {
       "inputs": {
-        "crane": "crane_4",
+        "crane": "crane_5",
         "flake-utils": [
           "flake-utils"
         ],
