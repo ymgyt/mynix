@@ -28,6 +28,9 @@ in {
     # cli
     environment.systemPackages = [ "${kvsdPkg}" ];
 
+    # Allow kvsd port
+    networking.firewall.allowedTCPPorts = [ 7379 ];
+
     # Enable kvsd service
     systemd.services.kvsd = {
       description = "Kvsd Service";
