@@ -25,6 +25,27 @@
     "crane": {
       "inputs": {
         "nixpkgs": [
+          "kvsd",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1707461758,
+        "narHash": "sha256-VaqINICYEtVKF0X+chdNtXcNp6poZr385v6AG7j0ybM=",
+        "owner": "ipetkov",
+        "repo": "crane",
+        "rev": "505976eaeac289fe41d074bee37006ac094636bb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ipetkov",
+        "repo": "crane",
+        "type": "github"
+      }
+    },
+    "crane_2": {
+      "inputs": {
+        "nixpkgs": [
           "opentelemetry-cli",
           "nixpkgs"
         ]
@@ -43,7 +64,7 @@
         "type": "github"
       }
     },
-    "crane_2": {
+    "crane_3": {
       "inputs": {
         "flake-compat": "flake-compat_2",
         "flake-utils": [
@@ -73,7 +94,7 @@
         "type": "github"
       }
     },
-    "crane_3": {
+    "crane_4": {
       "inputs": {
         "flake-compat": "flake-compat_3",
         "flake-utils": [
@@ -137,16 +158,38 @@
         ]
       },
       "locked": {
-        "lastModified": 1702460489,
-        "narHash": "sha256-H6s6oVLvx7PCjUcvfkB89Bb+kbaiJxTAgWfMjiQTjA0=",
+        "lastModified": 1704875591,
+        "narHash": "sha256-eWRLbqRcrILgztU/m/k7CYLzETKNbv0OsT2GjkaNm8A=",
         "owner": "serokell",
         "repo": "deploy-rs",
-        "rev": "915327515f5fd1b7719c06e2f1eb304ee0bdd803",
+        "rev": "1776009f1f3fb2b5d236b84d9815f2edee463a9b",
         "type": "github"
       },
       "original": {
         "owner": "serokell",
         "repo": "deploy-rs",
+        "type": "github"
+      }
+    },
+    "fenix": {
+      "inputs": {
+        "nixpkgs": [
+          "kvsd",
+          "nixpkgs"
+        ],
+        "rust-analyzer-src": "rust-analyzer-src"
+      },
+      "locked": {
+        "lastModified": 1706941198,
+        "narHash": "sha256-t6/qloMYdknVJ9a3QzjylQIZnQfgefJ5kMim50B7dwA=",
+        "owner": "nix-community",
+        "repo": "fenix",
+        "rev": "28dbd8b43ea328ee708f7da538c63e03d5ed93c8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "fenix",
         "type": "github"
       }
     },
@@ -216,6 +259,32 @@
         "type": "github"
       }
     },
+    "kvsd": {
+      "inputs": {
+        "crane": "crane",
+        "fenix": "fenix",
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1707620622,
+        "narHash": "sha256-vGFdRHt4ue6AShxYRh0PPSv1Nc6wbQoLAZ3JT9wWUWQ=",
+        "owner": "ymgyt",
+        "repo": "kvsd",
+        "rev": "b7f3bdb808bf4f146f00305155c74d59b43c2644",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ymgyt",
+        "repo": "kvsd",
+        "rev": "b7f3bdb808bf4f146f00305155c74d59b43c2644",
+        "type": "github"
+      }
+    },
     "mysecrets": {
       "flake": false,
       "locked": {
@@ -251,7 +320,7 @@
     },
     "opentelemetry-cli": {
       "inputs": {
-        "crane": "crane",
+        "crane": "crane_2",
         "flake-utils": [
           "flake-utils"
         ],
@@ -278,7 +347,7 @@
     "ragenix": {
       "inputs": {
         "agenix": "agenix",
-        "crane": "crane_2",
+        "crane": "crane_3",
         "flake-utils": [
           "flake-utils"
         ],
@@ -305,11 +374,29 @@
       "inputs": {
         "deploy-rs": "deploy-rs",
         "flake-utils": "flake-utils",
+        "kvsd": "kvsd",
         "mysecrets": "mysecrets",
         "nixpkgs": "nixpkgs",
         "opentelemetry-cli": "opentelemetry-cli",
         "ragenix": "ragenix",
         "telemetryd": "telemetryd"
+      }
+    },
+    "rust-analyzer-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1706875368,
+        "narHash": "sha256-KOBXxNurIU2lEmO6lR2A5El32X9x8ITt25McxKZ/Ew0=",
+        "owner": "rust-lang",
+        "repo": "rust-analyzer",
+        "rev": "8f6a72871ec87ed53cfe43a09fb284168a284e7e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rust-lang",
+        "ref": "nightly",
+        "repo": "rust-analyzer",
+        "type": "github"
       }
     },
     "rust-overlay": {
@@ -404,7 +491,7 @@
     },
     "telemetryd": {
       "inputs": {
-        "crane": "crane_3",
+        "crane": "crane_4",
         "flake-utils": [
           "flake-utils"
         ],

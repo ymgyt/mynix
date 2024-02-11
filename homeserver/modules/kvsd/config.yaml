@@ -1,0 +1,10 @@
+server:
+  max_tcp_connections: 1024
+  connection_tcp_buffer_bytes: 4096
+  authenticate_timeout_milliseconds: 300
+  listen_host: 0.0.0.0
+  listen_port: 7379
+kvsd:
+  users:
+    - username: "synd_api"
+      password: "synd_api"

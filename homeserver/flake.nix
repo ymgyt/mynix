@@ -30,23 +30,29 @@
     };
 
     opentelemetry-cli = {
-      url = "github:ymgyt/opentelemetry-cli/ffba78aa5d2f1271a29d9e911028af8a28b1c589";
+      url =
+        "github:ymgyt/opentelemetry-cli/ffba78aa5d2f1271a29d9e911028af8a28b1c589";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
+    };
+
+    kvsd = {
+      url = "github:ymgyt/kvsd/b7f3bdb808bf4f146f00305155c74d59b43c2644";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
     };
   };
 
-  outputs =
-    { self, nixpkgs, deploy-rs, flake-utils, telemetryd, ragenix, mysecrets, opentelemetry-cli }:
+  outputs = { self, nixpkgs, deploy-rs, flake-utils, telemetryd, ragenix
+    , mysecrets, opentelemetry-cli, kvsd }:
     let
       spec = {
         user = "ymgyt";
         defaultGateway = "192.168.10.1";
         nameservers = [ "8.8.8.8" ];
-        inherit telemetryd ragenix mysecrets opentelemetry-cli;
+        inherit telemetryd ragenix mysecrets opentelemetry-cli kvsd;
       };
-    in
-    {
+    in {
       nixosConfigurations = {
         rpi4-01 = nixpkgs.lib.nixosSystem {
           system = "aarch64-linux";
@@ -117,12 +123,17 @@
       };
 
       checks = builtins.mapAttrs
-        (system: deployLib: deployLib.deployChecks self.deploy)
-        deploy-rs.lib;
+        (system: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
     } // flake-utils.lib.eachDefaultSystem (system:
-    let pkgs = import nixpkgs { inherit system; };
-    in {
-      devShells.default =
-        pkgs.mkShell { buildInputs = [ pkgs.deploy-rs pkgs.nixfmt ]; };
-    });
+      let pkgs = import nixpkgs { inherit system; };
+      in {
+        devShells.default =
+          pkgs.mkShell { buildInputs = [ pkgs.deploy-rs pkgs.nixfmt ]; };
+      });
+  nixConfig = {
+    extra-substituters = [ "https://homeserver.cachix.org" ];
+    extra-trusted-public-keys = [
+      "homeserver.cachix.org-1:h0DxBdjH9Euljmp1oaPHZRWKhIFKt6cNefIqz6VOzvs="
+    ];
+  };
 }
