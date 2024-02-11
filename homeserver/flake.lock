@@ -331,17 +331,17 @@
     "mysecrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1703430995,
-        "narHash": "sha256-pgmT48hc3stDDmTxAQVzHkUSNlVSD51L9wXDC3R/OPc=",
+        "lastModified": 1707663450,
+        "narHash": "sha256-GI7Mlx2q6vjtiTi9a7hCEpkk7UjkW8Zxt0IjFt2vOH4=",
         "owner": "ymgyt",
         "repo": "mynix.secrets",
-        "rev": "a7e281a3b609607079a08f15efb812fac03756b7",
+        "rev": "9352a1e5f6b96f7b5b7ff8869a7e7a3aa2eb649a",
         "type": "github"
       },
       "original": {
         "owner": "ymgyt",
         "repo": "mynix.secrets",
-        "rev": "a7e281a3b609607079a08f15efb812fac03756b7",
+        "rev": "9352a1e5f6b96f7b5b7ff8869a7e7a3aa2eb649a",
         "type": "github"
       }
     },
@@ -547,17 +547,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1707608023,
-        "narHash": "sha256-34BClunPbFx+17YplN0CgzqqRn8gCahH1dhO6fFXkwU=",
+        "lastModified": 1707664849,
+        "narHash": "sha256-rCB0iCds6mrBpEAAhfXYuF70IxUlzUqmnjgeAJNUeWs=",
         "owner": "ymgyt",
         "repo": "syndicationd",
-        "rev": "d29ba92e929d9d1348fa114ac2bdf210b76c5a1b",
+        "rev": "efd12d66f32ce2c835e7dd7b9dbeb99b8d724df6",
         "type": "github"
       },
       "original": {
         "owner": "ymgyt",
         "repo": "syndicationd",
-        "rev": "d29ba92e929d9d1348fa114ac2bdf210b76c5a1b",
+        "rev": "efd12d66f32ce2c835e7dd7b9dbeb99b8d724df6",
         "type": "github"
       }
     },

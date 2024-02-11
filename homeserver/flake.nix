@@ -19,7 +19,7 @@
     };
     mysecrets = {
       url =
-        "github:ymgyt/mynix.secrets/a7e281a3b609607079a08f15efb812fac03756b7";
+        "github:ymgyt/mynix.secrets/9352a1e5f6b96f7b5b7ff8869a7e7a3aa2eb649a";
       flake = false;
     };
 
@@ -44,7 +44,7 @@
 
     syndicationd = {
       url =
-        "github:ymgyt/syndicationd/d29ba92e929d9d1348fa114ac2bdf210b76c5a1b";
+        "github:ymgyt/syndicationd/efd12d66f32ce2c835e7dd7b9dbeb99b8d724df6";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
     };
@@ -140,10 +140,4 @@
         devShells.default =
           pkgs.mkShell { buildInputs = [ pkgs.deploy-rs pkgs.nixfmt ]; };
       });
-  nixConfig = {
-    extra-substituters = [ "https://homeserver.cachix.org" ];
-    extra-trusted-public-keys = [
-      "homeserver.cachix.org-1:h0DxBdjH9Euljmp1oaPHZRWKhIFKt6cNefIqz6VOzvs="
-    ];
-  };
 }
