@@ -21,5 +21,9 @@ skip-levels = 2
 [editor.soft-wrap]
 enable = true
 
-[keys.normal.space]
-t = ":sh zellij action new-pane --direction down --close-on-exit -- yazi"
+[keys.normal]
+"'" = ":buffer-close" # Close buffer with single quote
+
+[keys.normal.z]
+j = "half_page_down" # Not using scroll down(just one line)
+k = "half_page_up"   # Not using scroll up(just one line)
