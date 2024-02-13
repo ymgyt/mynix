@@ -79,6 +79,9 @@
     vscode-langservers-extracted
     biome
 
+    # Typo
+    typos
+
     # Etc(not categorized yet)
     typst
     protobuf # provide protoc
