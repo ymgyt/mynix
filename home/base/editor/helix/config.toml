@@ -22,7 +22,9 @@ skip-levels = 2
 enable = true
 
 [keys.normal]
-"'" = ":buffer-close" # Close buffer with single quote
+"'" = ":buffer-close"  # Close buffer with single quote
+L = ":buffer-next"
+H = ":buffer-previous"
 
 [keys.normal.z]
 j = "half_page_down" # Not using scroll down(just one line)
