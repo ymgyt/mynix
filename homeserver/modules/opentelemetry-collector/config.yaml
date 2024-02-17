@@ -1,10 +1,10 @@
 extensions:
   memory_ballast:
     size_mib: 64
-  basicauth/grafanacloudprom:
+  basicauth/grafanacloud:
     client_auth:
-      username: "${env:GC_PROM_USERNAME}"
-      password: "${env:GC_API_KEY}"
+      username: ${env:GC_INSTANCE_ID}
+      password: ${env:GC_API_KEY}
 
 receivers:
   otlp:
@@ -93,15 +93,13 @@ exporters:
       Authorization: Basic ${env:OPEN_OBSERVE_TOKEN}
     resource_to_telemetry_conversion:
       enabled: true
-  prometheusremotewrite/grafanacloud:
-    endpoint: "${env:GC_PROM_REMOTE_WRITE_URL}"
-    resource_to_telemetry_conversion:
-      enabled: true
+  otlphttp/grafanacloud:
     auth:
-      authenticator: basicauth/grafanacloudprom
+      authenticator: basicauth/grafanacloud
+    endpoint: ${env:GC_OTLP_ENDPOINT}
 
 service:
-  extensions: [memory_ballast, basicauth/grafanacloudprom]
+  extensions: [memory_ballast, basicauth/grafanacloud]
   pipelines:
     metrics:
       receivers: 
@@ -116,7 +114,7 @@ service:
       exporters: 
         - logging
         - prometheusremotewrite/openobserve
-        - prometheusremotewrite/grafanacloud
+        - otlphttp/grafanacloud
   telemetry:
     metrics:
       level: none

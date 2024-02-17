@@ -19,7 +19,7 @@
     };
     mysecrets = {
       url =
-        "github:ymgyt/mynix.secrets/9352a1e5f6b96f7b5b7ff8869a7e7a3aa2eb649a";
+        "github:ymgyt/mynix.secrets/7740a5f2efd0f8bec2f706e3153b89b4a1492f80";
       flake = false;
     };
 
