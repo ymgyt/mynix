@@ -30,6 +30,13 @@ in {
         owner = "${syndUser}";
         group = "${syndGroup}";
       };
+
+      "syndicationd_grafanacloud" = {
+        file = "${mysecrets}/grafanacloud.age";
+        mode = "0440";
+        owner = "${syndUser}";
+        group = "${syndGroup}";
+      };
     };
 
     # Allow synd_api port
@@ -39,14 +46,21 @@ in {
     systemd.services.synd-api = {
       description = "Syndicationd api";
       wantedBy = [ "multi-user.target" ];
-      environment = { RUST_LOG = "INFO"; };
+      environment = {
+        SYND_LOG = "INFO";
+        OTEL_EXPORTER_OTLP_ENDPOINT = "http://localhost:4317";
+        OTEL_RESOURCE_ATTRIBUTES =
+          "service.namespace=syndicationd,deployment.environment=production";
+      };
       serviceConfig = let
         cert = config.age.secrets.syndicationd_certificate.path;
         key = config.age.secrets.syndicationd_private_key.path;
         ExecStart =
-          "${syndPkg}/bin/synd_api --kvsd-host 192.168.10.151 --kvsd-port 7379 --kvsd-username synd_api --kvsd-password synd_api --tls-cert ${cert} --tls-key ${key}";
+          "${syndPkg}/bin/synd-api --kvsd-host 192.168.10.151 --kvsd-port 7379 --kvsd-username synd_api --kvsd-password synd_api --tls-cert ${cert} --tls-key ${key} --show-code-location=false --show-target=true --trace-sampler-ratio=1";
       in {
         inherit ExecStart;
+        EnvironmentFile = with config.age.secrets;
+          [ syndicationd_grafanacloud.path ];
 
         # user
         DynamicUser = false;

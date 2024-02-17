@@ -30,10 +30,13 @@ makers fmt
 ```
 
 
-## Kubernetes
+## Troubleshoot
 
-reset to clean state
-
-```sh
-sudo rm -rf  /var/lib/kubernetes/ /var/lib/etcd/ /var/lib/cfssl/ /var/lib/kubelet/ /etc/kube-flannel/ /etc/kubernetes/
 ```
+Couldn't execute nu -c "echo started": No such file or directory
+```
+
+```
+hide-env SHELL
+```
+

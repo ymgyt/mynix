@@ -44,7 +44,7 @@
 
     syndicationd = {
       url =
-        "github:ymgyt/syndicationd/efd12d66f32ce2c835e7dd7b9dbeb99b8d724df6";
+        "github:ymgyt/syndicationd/07839dc10e7c44cae79055eea6103f099f0daf5e";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
     };
@@ -104,6 +104,7 @@
             profiles.system = {
               path = deploy-rs.lib.aarch64-linux.activate.nixos
                 self.nixosConfigurations.rpi4-01;
+              remoteBuild = false;
             };
           };
           rpi4-02 = {
@@ -127,6 +128,7 @@
             profiles.system = {
               path = deploy-rs.lib.aarch64-linux.activate.nixos
                 self.nixosConfigurations.rpi4-04;
+              remoteBuild = false;
             };
           };
         };
