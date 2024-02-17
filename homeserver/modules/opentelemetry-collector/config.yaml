@@ -57,6 +57,11 @@ processors:
     attributes: ["host.name"]
     system:
       hostname_sources: ["os"]
+  resource/metrics:
+    attributes:
+      - key: service.instance.id
+        from_attribute: host.name
+        action: insert
   filter/metrics:
     error_mode: propagate
     metrics:
@@ -83,16 +88,15 @@ processors:
     send_batch_size: 8192
     timeout: 3s
     send_batch_max_size: 16384
+  batch/traces:
+  batch/logs:
+    send_batch_size: 8192
+    timeout: 30s
+    send_batch_max_size: 16384
 
 exporters:
-  logging:
+  debug:
     verbosity: "normal"
-  prometheusremotewrite/openobserve:
-    endpoint: https://api.openobserve.ai/api/${env:OPEN_OBSERVE_ORG}/prometheus/api/v1/write
-    headers:
-      Authorization: Basic ${env:OPEN_OBSERVE_TOKEN}
-    resource_to_telemetry_conversion:
-      enabled: true
   otlphttp/grafanacloud:
     auth:
       authenticator: basicauth/grafanacloud
@@ -101,6 +105,15 @@ exporters:
 service:
   extensions: [memory_ballast, basicauth/grafanacloud]
   pipelines:
+    traces:
+      receivers:
+        - otlp
+      processors:
+        - memory_limiter
+        - batch/traces
+      exporters:
+        - debug
+        - otlphttp/grafanacloud
     metrics:
       receivers: 
         - otlp
@@ -109,11 +122,20 @@ service:
       processors: 
         - memory_limiter
         - resourcedetection/system
+        - resource/metrics
         - filter/metrics
         - batch/metrics
       exporters: 
-        - logging
-        - prometheusremotewrite/openobserve
+        - debug
+        - otlphttp/grafanacloud
+    logs:
+      receivers:
+        - otlp
+      processors:
+        - memory_limiter
+        - batch/logs
+      exporters:
+        - debug
         - otlphttp/grafanacloud
   telemetry:
     metrics:
