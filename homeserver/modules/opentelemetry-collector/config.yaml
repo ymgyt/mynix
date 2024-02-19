@@ -62,6 +62,15 @@ processors:
       - key: service.instance.id
         from_attribute: host.name
         action: insert
+  resource/loki:
+    attributes:
+      # Hints to toki which attributes to promote to loki labels
+      # Default 
+      #   - job(service.namespace/service.name)
+      #   - level(INFO,ERROR,..)
+      - action: insert
+        key: loki.resource.labels
+        value: deployment.environment 
   filter/metrics:
     error_mode: propagate
     metrics:
@@ -133,6 +142,7 @@ service:
         - otlp
       processors:
         - memory_limiter
+        - resource/loki
         - batch/logs
       exporters:
         - debug
