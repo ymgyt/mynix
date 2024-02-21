@@ -113,3 +113,8 @@ language-servers = [
   ] },
   "biome",
 ]
+
+[[language]]
+name = "just"
+# Current just format overwrite content, and could not edit...
+auto-format = false
