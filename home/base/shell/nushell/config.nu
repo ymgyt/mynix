@@ -17,7 +17,11 @@ $env.config = {
   edit_mode: vi
 }
 
-$env.SHELL = "nu"
+# Disable SHELL=nu
+# ProxyJump in ssh doesn't work well.
+# It also affects deploy-rs.
+# Probably trying to run nu as shell in remote
+# $env.SHELL = "nu"
 
 # TODO: more nu way(find nu files from dir and iterate)
 source ~/.config/nushell/completions/cargo-completions.nu
