@@ -29,3 +29,6 @@ H = ":buffer-previous"
 [keys.normal.z]
 j = "half_page_down" # Not using scroll down(just one line)
 k = "half_page_up"   # Not using scroll up(just one line)
+
+[keys.normal.g]
+d = ["goto_definition", "align_view_top"]
