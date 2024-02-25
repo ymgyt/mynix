@@ -1,6 +1,6 @@
 { config, pkgs, mysecrets, syndicationd, ... }:
 let
-  syndPkg = syndicationd.packages."${pkgs.system}".synd_api;
+  syndPkg = syndicationd.packages."${pkgs.system}".synd-api;
   syndUser = "synd";
   syndGroup = syndUser;
 in {
@@ -55,8 +55,23 @@ in {
       serviceConfig = let
         cert = config.age.secrets.syndicationd_certificate.path;
         key = config.age.secrets.syndicationd_private_key.path;
-        ExecStart =
-          "${syndPkg}/bin/synd-api --kvsd-host 192.168.10.151 --kvsd-port 7379 --kvsd-username synd_api --kvsd-password synd_api --tls-cert ${cert} --tls-key ${key} --show-code-location=false --show-target=true --trace-sampler-ratio=1";
+        options = pkgs.lib.concatStrings (pkgs.lib.strings.intersperse " " [
+          "--addr 0.0.0.0"
+          "--port 5959"
+          "--timeout 30s"
+          "--body-limit-bytes 2048"
+          "--concurrency-limit 100"
+          "--kvsd-host 192.168.10.151"
+          "--kvsd-port 7379"
+          "--kvsd-username synd_api"
+          "--kvsd-password synd_api"
+          "--tls-cert ${cert}"
+          "--tls-key ${key}"
+          "--show-code-location=false"
+          "--show-target=true"
+          "--trace-sampler-ratio=1"
+        ]);
+        ExecStart = "${syndPkg}/bin/synd-api ${options}";
       in {
         inherit ExecStart;
         EnvironmentFile = with config.age.secrets;

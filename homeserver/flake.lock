@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "advisory-db": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1708645386,
+        "narHash": "sha256-OdK/fVWOpbMBsl37pSWawPqpk5sePqtu1lx1UM+7c9Q=",
+        "owner": "rustsec",
+        "repo": "advisory-db",
+        "rev": "feb54ac57e980ef6578f66b307cfb844869e5260",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rustsec",
+        "repo": "advisory-db",
+        "type": "github"
+      }
+    },
     "agenix": {
       "inputs": {
         "darwin": "darwin",
@@ -537,6 +553,7 @@
     },
     "syndicationd": {
       "inputs": {
+        "advisory-db": "advisory-db",
         "crane": "crane_4",
         "fenix": "fenix_2",
         "flake-utils": [
@@ -547,16 +564,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1708420853,
-        "narHash": "sha256-bX+yksK2NCE5EQFpzRb5Lvs7ktBBuhRo3OdJVuF+Kd0=",
+        "lastModified": 1708885226,
+        "narHash": "sha256-2xrsT+ABJ5pfWvEu8HneePEiHMd1By2UczLA/RdaLlI=",
         "owner": "ymgyt",
         "repo": "syndicationd",
-        "rev": "45d3a05aaa42c160d03971f4b36141d8038184d7",
+        "rev": "ed5bd533aeac806fbd047de76ac86920a90ac0e2",
         "type": "github"
       },
       "original": {
         "owner": "ymgyt",
-        "ref": "synd-api-v0.1.2",
+        "ref": "synd-api-v0.1.4",
         "repo": "syndicationd",
         "type": "github"
       }
