@@ -37,7 +37,7 @@
     };
 
     kvsd = {
-      url = "github:ymgyt/kvsd/b7f3bdb808bf4f146f00305155c74d59b43c2644";
+      url = "github:ymgyt/kvsd/v0.1.3";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
     };

@@ -3,6 +3,22 @@
     "advisory-db": {
       "flake": false,
       "locked": {
+        "lastModified": 1709140195,
+        "narHash": "sha256-iOfXgIlFe8oPP5pd9HbycmCMg0iiQ+851zLP2Z2CgIE=",
+        "owner": "rustsec",
+        "repo": "advisory-db",
+        "rev": "ebbd93b9ed5b21c14cfb3c320f52e159ba1a3bf8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rustsec",
+        "repo": "advisory-db",
+        "type": "github"
+      }
+    },
+    "advisory-db_2": {
+      "flake": false,
+      "locked": {
         "lastModified": 1708645386,
         "narHash": "sha256-OdK/fVWOpbMBsl37pSWawPqpk5sePqtu1lx1UM+7c9Q=",
         "owner": "rustsec",
@@ -320,6 +336,7 @@
     },
     "kvsd": {
       "inputs": {
+        "advisory-db": "advisory-db",
         "crane": "crane",
         "fenix": "fenix",
         "flake-utils": [
@@ -330,17 +347,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1707620622,
-        "narHash": "sha256-vGFdRHt4ue6AShxYRh0PPSv1Nc6wbQoLAZ3JT9wWUWQ=",
+        "lastModified": 1709049232,
+        "narHash": "sha256-X6fjY57xx8zuLknD0MlC1Cexd+242tdnTlCvRq095Oc=",
         "owner": "ymgyt",
         "repo": "kvsd",
-        "rev": "b7f3bdb808bf4f146f00305155c74d59b43c2644",
+        "rev": "7349dac39a0140915e5ac15a56ea471e4ed55d14",
         "type": "github"
       },
       "original": {
         "owner": "ymgyt",
+        "ref": "v0.1.3",
         "repo": "kvsd",
-        "rev": "b7f3bdb808bf4f146f00305155c74d59b43c2644",
         "type": "github"
       }
     },
@@ -553,7 +570,7 @@
     },
     "syndicationd": {
       "inputs": {
-        "advisory-db": "advisory-db",
+        "advisory-db": "advisory-db_2",
         "crane": "crane_4",
         "fenix": "fenix_2",
         "flake-utils": [
