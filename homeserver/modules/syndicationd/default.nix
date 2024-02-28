@@ -46,6 +46,8 @@ in {
     systemd.services.synd-api = {
       description = "Syndicationd api";
       wantedBy = [ "multi-user.target" ];
+      wants = [ "opentelemetry-collector.service" ];
+      after = [ "opentelemetry-collector.service" ];
       environment = {
         SYND_LOG = "INFO";
         OTEL_EXPORTER_OTLP_ENDPOINT = "http://localhost:4317";
