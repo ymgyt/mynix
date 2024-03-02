@@ -32,7 +32,7 @@ inlayHints.typeHints.hideClosureInitialization = false
 
 completion.autoimport.enable = true
 # fill_arguments | add_parentheses | none
-completion.callable.snippets = "add_parentheses"
+completion.callable.snippets = "none"
 completion.fullFunctionSignatures.enable = true
 
 imports.group.enable = true
