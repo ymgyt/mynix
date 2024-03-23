@@ -43,7 +43,7 @@
     };
 
     syndicationd = {
-      url = "github:ymgyt/syndicationd/synd-api-v0.1.6";
+      url = "github:ymgyt/syndicationd/synd-api-v0.1.7";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
     };
