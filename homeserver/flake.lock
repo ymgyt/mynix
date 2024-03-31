@@ -581,17 +581,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1711178138,
-        "narHash": "sha256-4gSvCBqzetFP2LoCjhGmzx5kiQfx+Dnab+0uNMxOB5E=",
+        "lastModified": 1711891746,
+        "narHash": "sha256-BeJ3xMKdWg6naGNJz3ir0cwJsHnHnmLA4wQPWboDLHM=",
         "owner": "ymgyt",
         "repo": "syndicationd",
-        "rev": "6d56ae7405a804a6b51321e9a67932989203e766",
+        "rev": "e095b07e9dfbc0d16b6f8f625a53131641e34d7e",
         "type": "github"
       },
       "original": {
         "owner": "ymgyt",
-        "ref": "synd-api-v0.1.8",
         "repo": "syndicationd",
+        "rev": "e095b07e9dfbc0d16b6f8f625a53131641e34d7e",
         "type": "github"
       }
     },
