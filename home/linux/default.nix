@@ -1,10 +1,6 @@
-{ pkgs
-, ...
-}: {
+{ pkgs, ... }: {
 
-  imports = [
-    ../base
-  ];
+  imports = [ ../base ];
 
   home = {
     username = "ymgyt";
@@ -16,9 +12,11 @@
   # Define packages supported in only linux
   home.packages = with pkgs; [
     # llvm
+    # ojbdump
+    llvmPackages.bintools
 
-    # gcc
-    gcc
+    # eBPF
+    bpftool
 
     # emulator
     qemu

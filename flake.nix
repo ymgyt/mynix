@@ -17,32 +17,18 @@
 
     # secrets management
     ragenix.url = "github:yaxitech/ragenix";
-    mysecrets = {
-      url =
-        "github:ymgyt/mynix.secrets/c06815267a99c86730de19d467bf7d6182d4eba0";
-      flake = false;
-    };
 
     telemetryd.url =
       "github:ymgyt/telemetryd/a2136807c9a056ec26ff16e8d51c13c6d67a11c3";
   };
 
-  outputs =
-    { nixpkgs
-    , darwin
-    , home-manager
-    , ragenix
-    , mysecrets
-    , telemetryd
-    , ...
-    }@inputs:
+  outputs = { nixpkgs, darwin, home-manager, ragenix, telemetryd, ... }@inputs:
     let
       systems = [ "x86_64-linux" "x86_64-darwin" "aarch64-darwin" ];
 
       forAllSystems = nixpkgs.lib.genAttrs systems;
-      specialArgs = { inherit telemetryd ragenix mysecrets; };
-    in
-    {
+      specialArgs = { inherit telemetryd ragenix; };
+    in {
       nixosConfigurations = {
         xps15 = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
