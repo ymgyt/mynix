@@ -1,6 +1,4 @@
-{ pkgs
-, ...
-}: {
+{ pkgs, ... }: {
   programs.git = {
     enable = true;
     userName = "ymgyt";
@@ -12,27 +10,17 @@
         default = "current";
       };
 
-      pull = {
-        rebase = true;
-      };
+      pull = { rebase = true; };
 
-      init = {
-        defaultBranch = "main";
-      };
+      init = { defaultBranch = "main"; };
 
-      color = {
-        ui = "auto";
-      };
+      color = { ui = "auto"; };
 
-      credential = {
-        helper = "cache --timeout=604800";
-      };
+      credential = { helper = "cache --timeout=604800"; };
 
     };
 
-    includes = [
-      { path = "~/.gitlocalconfig"; }
-    ];
+    includes = [{ path = "~/.gitlocalconfig"; }];
 
     aliases = {
       a = "add";
@@ -40,6 +28,7 @@
       d = "diff";
       s = "status";
       l = "log";
+      t = "trim --delete local";
 
       co = "checkout";
       cm = "commit";
@@ -47,11 +36,7 @@
 
   };
 
-  programs.gitui = {
-    enable = true;
-  };
+  programs.gitui = { enable = true; };
 
-  home.packages = with pkgs; [
-    git-trim
-  ];
+  home.packages = with pkgs; [ git-trim ];
 }
