@@ -28,7 +28,7 @@
       d = "diff";
       s = "status";
       l = "log";
-      t = "trim --delete local";
+      t = "trim --delete local --delete 'merged:*'";
 
       co = "checkout";
       cm = "commit";
