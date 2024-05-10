@@ -1,6 +1,6 @@
 { config, pkgs, ... }: {
 
-  imports = [ ../ssh.nix ../font.nix ./font.nix ];
+  imports = [ ../ssh.nix ../font.nix ./font.nix ./virtualbox.nix ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
