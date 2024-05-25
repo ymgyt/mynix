@@ -52,8 +52,9 @@ export def --env fraim [ ] {
   cd $go
 }
 
-const starship_init_me = "~/.config/nushell/starship/init.nu"
+# const starship_init_me = "~/.config/nushell/starship/init.nu"
 
-if ($starship_init_me | path expand | path exists) {
-  source $starship_init_me
-}
+# if ($starship_init_me | path expand | path exists) {
+#   source $starship_init_me
+# }
+use ~/.cache/starship/init.nu

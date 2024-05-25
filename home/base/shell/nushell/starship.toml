@@ -1,12 +1,14 @@
 # https://starship.rs/config/#prompt
+
 add_newline = true
+format = '''
+[┌─](bold green)$all[└─](bold green)$character
+'''
 
 [character] # The name of the module we are configuring is 'character'
-format = '''$symbol
-'''
-success_symbol = '(bold green)'
 error_symbol = '[✗](bold red) '
-
+format = "$symbol"
+success_symbol = '[❯](bold green) '
 [aws]
 symbol = "  "
 
