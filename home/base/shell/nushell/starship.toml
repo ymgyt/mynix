@@ -80,6 +80,7 @@ symbol = " "
 
 [nix_shell]
 symbol = " "
+format = '[$symbol$state( \($name\))]($style) '
 
 [nodejs]
 symbol = " "
@@ -142,6 +143,7 @@ symbol = " "
 
 [rust]
 symbol = " "
+format = '[$symbol($version )]($style)'
 
 [scala]
 symbol = " "
