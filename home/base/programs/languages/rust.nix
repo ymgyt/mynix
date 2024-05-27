@@ -10,5 +10,6 @@
     cargo-udeps
     cargo-sort
     cargo-vet
+    cargo-bundle-licenses
   ];
 }
