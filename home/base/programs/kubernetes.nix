@@ -1,9 +1,3 @@
 { pkgs, ... }: {
-  home.packages = with pkgs; [
-    kubectl
-    kdash
-    kustomize
-    clusterctl
-    kind
-  ];
+  home.packages = with pkgs; [ kubectl kdash kustomize clusterctl kind stern ];
 }
