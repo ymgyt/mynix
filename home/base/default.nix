@@ -6,9 +6,5 @@
     ./programs
   ];
 
-  home = {
-    sessionVariables = {
-      EDITOR = "hx";
-    };
-  };
+  home = { sessionVariables = { EDITOR = "hx"; }; };
 }

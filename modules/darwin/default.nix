@@ -17,11 +17,9 @@
   environment.variables = { EDITOR = "hx"; };
 
   fonts = {
-    fontDir.enable = true;
-
     # nixos use fonts.packages but nix-darwin use fonts.fonts
     # so, currently allow duplication definition
-    fonts = with pkgs; [
+    packages = with pkgs; [
       noto-fonts
       noto-fonts-cjk
       noto-fonts-emoji

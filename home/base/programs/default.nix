@@ -1,4 +1,4 @@
-{ pkgs, telemetryd, ... }: {
+{ pkgs, ... }: {
   imports = [
     ./filesystem.nix
     ./git.nix
@@ -88,7 +88,6 @@
     direnv
     fzf
     neofetch
-    telemetryd.packages."${pkgs.system}".telemetryd
     kbt
   ];
 }

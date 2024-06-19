@@ -2,32 +2,30 @@
   description = "Nix configuration of ymgyt";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/23.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
-    nixpkgs-darwin.url = "github:NixOS/nixpkgs/nixpkgs-23.11-darwin";
+    nixpkgs-darwin.url = "github:NixOS/nixpkgs/nixpkgs-24.05-darwin";
     darwin = {
       url = "github:lnl7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs-darwin";
     };
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-23.11";
+      url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # secrets management
     ragenix.url = "github:yaxitech/ragenix";
-
-    telemetryd.url =
-      "github:ymgyt/telemetryd/a2136807c9a056ec26ff16e8d51c13c6d67a11c3";
   };
 
-  outputs = { nixpkgs, darwin, home-manager, ragenix, telemetryd, ... }@inputs:
+  outputs = { nixpkgs, nixpkgs-unstable, darwin, home-manager, ragenix, ... }:
     let
       systems = [ "x86_64-linux" "x86_64-darwin" "aarch64-darwin" ];
 
       forAllSystems = nixpkgs.lib.genAttrs systems;
-      specialArgs = { inherit telemetryd ragenix; };
+      specialArgs = { inherit ragenix; };
     in {
       nixosConfigurations = {
         xps15 = nixpkgs.lib.nixosSystem {
