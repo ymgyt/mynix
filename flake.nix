@@ -25,12 +25,15 @@
       systems = [ "x86_64-linux" "x86_64-darwin" "aarch64-darwin" ];
 
       forAllSystems = nixpkgs.lib.genAttrs systems;
-      specialArgs = { inherit ragenix; };
+      specialArgs = { inherit ragenix nixpkgs-unstable; };
     in {
       nixosConfigurations = {
-        xps15 = nixpkgs.lib.nixosSystem {
+        xps15 = nixpkgs.lib.nixosSystem rec {
           system = "x86_64-linux";
-          inherit specialArgs;
+          specialArgs = {
+            inherit ragenix;
+            pkgs-unstable = import nixpkgs-unstable { inherit system; };
+          };
 
           modules = [
             ./hosts/xps15
@@ -46,9 +49,12 @@
       };
 
       darwinConfigurations = {
-        prox86 = darwin.lib.darwinSystem {
+        prox86 = darwin.lib.darwinSystem rec {
           system = "x86_64-darwin";
-          inherit specialArgs;
+          specialArgs = {
+            inherit ragenix;
+            pkgs-unstable = import nixpkgs-unstable { inherit system; };
+          };
 
           modules = [
             ./hosts/prox86
@@ -62,9 +68,12 @@
           ];
         };
 
-        fraim = darwin.lib.darwinSystem {
+        fraim = darwin.lib.darwinSystem rec {
           system = "aarch64-darwin";
-          inherit specialArgs;
+          specialArgs = {
+            inherit ragenix;
+            pkgs-unstable = import nixpkgs-unstable { inherit system; };
+          };
 
           modules = [
             ./hosts/fraim

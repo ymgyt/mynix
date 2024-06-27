@@ -1,0 +1,32 @@
+[debug]
+log_level = "Off"
+persistent_logging = false
+print_events = false
+
+[env]
+EDITOR = "hx"
+
+[font]
+size = 11.0
+
+[font.normal]
+family = "JetBrainsMono Nerd Font"
+
+[[keyboard.bindings]]
+action = "ClearHistory"
+key = "K"
+mode = "~Vi|~Search"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "V"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "C"
+mods = "Command"
+
+[window]
+option_as_alt = "Both"
