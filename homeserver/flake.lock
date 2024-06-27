@@ -134,15 +134,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1704819371,
-        "narHash": "sha256-oFUfPWrWGQTZaCM3byxwYwrMLwshDxVGOrMH5cVP/X8=",
+        "lastModified": 1717383740,
+        "narHash": "sha256-559HbY4uhNeoYvK3H6AMZAtVfmR3y8plXZ1x6ON/cWU=",
         "owner": "ipetkov",
         "repo": "crane",
-        "rev": "5c234301a1277e4cc759c23a2a7a00a06ddd7111",
+        "rev": "b65673fce97d277934488a451724be94cc62499a",
         "type": "github"
       },
       "original": {
         "owner": "ipetkov",
+        "ref": "v0.17.3",
         "repo": "crane",
         "type": "github"
       }
@@ -347,17 +348,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1709049232,
-        "narHash": "sha256-X6fjY57xx8zuLknD0MlC1Cexd+242tdnTlCvRq095Oc=",
+        "lastModified": 1718647573,
+        "narHash": "sha256-PMJwHjWJdivkXhNzoyKW2xgCcCHs/o3diRbIc5tIqEY=",
         "owner": "ymgyt",
         "repo": "kvsd",
-        "rev": "7349dac39a0140915e5ac15a56ea471e4ed55d14",
+        "rev": "2dbed99870c87304e04c7c0e63acac249f30df02",
         "type": "github"
       },
       "original": {
         "owner": "ymgyt",
-        "ref": "v0.1.3",
         "repo": "kvsd",
+        "rev": "2dbed99870c87304e04c7c0e63acac249f30df02",
         "type": "github"
       }
     },
@@ -581,16 +582,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1715011773,
-        "narHash": "sha256-E9aBKiVmAVqDqGwn0hlkw72gXGOxWtf45H+0YwvSCyo=",
+        "lastModified": 1718719759,
+        "narHash": "sha256-MPnRR+fV4HU6rq6vTBE2mLOvPjTxItUjTyR3CabRkfc=",
         "owner": "ymgyt",
         "repo": "syndicationd",
-        "rev": "7cd4130df3eda49f07383ac60c40d8d573463250",
+        "rev": "7e25d4e71ae43051ad59f88b84f14676ba1ea224",
         "type": "github"
       },
       "original": {
         "owner": "ymgyt",
-        "ref": "synd-api-v0.2.3",
+        "ref": "synd-api-v0.2.4",
         "repo": "syndicationd",
         "type": "github"
       }

@@ -37,13 +37,13 @@
     };
 
     kvsd = {
-      url = "github:ymgyt/kvsd/v0.1.3";
+      url = "github:ymgyt/kvsd/2dbed99870c87304e04c7c0e63acac249f30df02";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
     };
 
     syndicationd = {
-      url = "github:ymgyt/syndicationd/synd-api-v0.2.3";
+      url = "github:ymgyt/syndicationd/synd-api-v0.2.4";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
     };
