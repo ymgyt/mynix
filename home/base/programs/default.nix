@@ -82,6 +82,9 @@
     # Typo
     typos
 
+    # Security
+    trivy
+
     # Etc(not categorized yet)
     typst
     protobuf # provide protoc
