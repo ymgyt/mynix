@@ -25,7 +25,6 @@
       systems = [ "x86_64-linux" "x86_64-darwin" "aarch64-darwin" ];
 
       forAllSystems = nixpkgs.lib.genAttrs systems;
-      specialArgs = { inherit ragenix nixpkgs-unstable; };
     in {
       nixosConfigurations = {
         xps15 = nixpkgs.lib.nixosSystem rec {
