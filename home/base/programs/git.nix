@@ -3,6 +3,10 @@
     enable = true;
     userName = "ymgyt";
     userEmail = "yamaguchi7073xtt@gmail.com";
+    delta = {
+      enable = true;
+      options = { };
+    };
     extraConfig = {
       push = {
         # remoteに同じbranch名でpushする
