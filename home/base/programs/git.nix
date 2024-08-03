@@ -5,7 +5,7 @@
     userEmail = "yamaguchi7073xtt@gmail.com";
     delta = {
       enable = true;
-      options = { };
+      options = { dark = true; };
     };
     extraConfig = {
       push = {
