@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, pkgs-unstable, ... }: {
   imports = [
     ./filesystem.nix
     ./git.nix
@@ -22,7 +22,7 @@
     procs
     ripgrep
     bottom
-    just
+    pkgs-unstable.just # >= 1.32.0 for modules
 
     # C
     pkg-config-unwrapped
