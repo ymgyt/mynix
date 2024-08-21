@@ -5,6 +5,26 @@ alias tf = terraform
 alias k = kubectl
 alias j = just
 
+# nu is unable to properly complete aliases. 
+# Therefore, based on the workaround below, manually expanding aliases before the completion process.
+# https://github.com/nushell/nushell/issues/8483
+# https://www.nushell.sh/cookbook/external_completers.html#alias-completions
+let alias_completer = {|spans| 
+  let expanded_alias = scope aliases
+      | where name == $spans.0
+      | get -i 0.expansion
+
+  let spans = if $expanded_alias != null {
+    $spans
+      | skip 1
+      | prepend ($expanded_alias | split row ' ' | take 1)
+  } else {
+    $spans
+  }
+
+  carapace $spans.0 nushell ...$spans | from json 
+}
+
 $env.config = {
   show_banner: false,
   history: {
@@ -12,6 +32,12 @@ $env.config = {
     sync_on_enter: true
     file_format: "plaintext"
     isolation: true
+  }
+  completions: {
+    external: {
+      enable: true
+      completer: $alias_completer
+    }
   }
 
   edit_mode: vi

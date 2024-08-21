@@ -16,6 +16,11 @@
     # error: Package ‘firefox-114.0’ is not available on the requested hostPlatform:
     # hostPlatform.config = "aarch64-apple-darwin"
     firefox.enable = if pkgs.stdenv.isDarwin then false else true;
+
+    carapace = {
+      enable = true;
+      enableNushellIntegration = true;
+    };
   };
 
   home.packages = with pkgs; [
