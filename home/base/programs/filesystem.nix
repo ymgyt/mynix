@@ -1,1 +1,6 @@
-{ ... }: { programs.eza = { enable = true; }; }
+{ ... }: {
+  programs = {
+    eza.enable = true;
+    fd.enable = true;
+  };
+}
