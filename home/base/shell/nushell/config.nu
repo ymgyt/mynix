@@ -4,6 +4,7 @@ alias m = makers
 alias tf = terraform
 alias k = kubectl
 alias j = just
+alias zr = zellij action rename-tab
 
 # nu is unable to properly complete aliases. 
 # Therefore, based on the workaround below, manually expanding aliases before the completion process.
