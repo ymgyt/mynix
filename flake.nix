@@ -76,6 +76,7 @@
 
           modules = [
             ./hosts/fraim
+            (import ./overlays)
             home-manager.darwinModules.home-manager
             {
               home-manager.useGlobalPkgs = true;

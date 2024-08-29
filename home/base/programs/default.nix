@@ -90,6 +90,13 @@
     # Security
     trivy
 
+    # Text browser
+    w3m
+    # w3m.override
+    # {
+    #   graphicsSupport = true;
+    # }
+
     # Etc(not categorized yet)
     typst
     protobuf # provide protoc
