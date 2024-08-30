@@ -3,7 +3,7 @@
     # Language server
     nil
     nix-direnv
-    nixfmt-classic
+    nixfmt-rfc-style
     cachix
   ];
 }
