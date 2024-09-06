@@ -4,6 +4,9 @@ bufferline = "always"
 auto-completion = true
 auto-format = true
 
+# Anything after --command will be interpreted as a command, so place it at the end
+shell = ["nu", "--stdin", "--commands"]
+
 [editor.lsp]
 enable = true
 display-messages = true
