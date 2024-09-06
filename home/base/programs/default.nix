@@ -1,4 +1,5 @@
-{ pkgs, pkgs-unstable, ... }: {
+{ pkgs, pkgs-unstable, ... }:
+{
   imports = [
     ./filesystem.nix
     ./git.nix
@@ -11,7 +12,9 @@
   programs = {
     bat = {
       enable = true;
-      config = { theme = "Monokai Extended Origin"; };
+      config = {
+        theme = "Monokai Extended Origin";
+      };
     };
     # error: Package ‘firefox-114.0’ is not available on the requested hostPlatform:
     # hostPlatform.config = "aarch64-apple-darwin"
@@ -49,6 +52,7 @@
     jq
     yaml-language-server
     yamlfmt
+    pandoc
 
     # SSH
     openssh # provide ssh ssh-agent ssh-keygen ssh-add scp ssh-keyscan
