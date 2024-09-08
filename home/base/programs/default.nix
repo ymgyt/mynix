@@ -71,6 +71,7 @@
 
     # Visualize
     graphviz
+    dot-language-server
 
     # Container
     dive
