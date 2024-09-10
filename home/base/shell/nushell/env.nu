@@ -16,6 +16,7 @@ $env.ENV_CONVERSIONS = {
 }
 
 $env.EDITOR = "hx"
+$env.SHELL = "nu"
 
 # https://github.com/nushell/nu_scripts/blob/main/nu-hooks/direnv/config.nu
 $env.config = {
