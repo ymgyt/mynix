@@ -64,7 +64,7 @@ processors:
         action: insert
   resource/loki:
     attributes:
-      # Hints to toki which attributes to promote to loki labels
+      # Hints to loki which attributes to promote to loki labels
       # Default 
       #   - job(service.namespace/service.name)
       #   - level(INFO,ERROR,..)
