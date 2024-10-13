@@ -1,10 +1,12 @@
 alias c = cargo
 alias g = git
-alias m = makers
-alias tf = terraform
-alias k = kubectl
 alias j = just
+alias k = kubectl
+alias m = makers
+alias n = nix
+alias tf = terraform
 alias zr = zellij action rename-tab
+alias nd = nix develop
 
 # nu is unable to properly complete aliases. 
 # Therefore, based on the workaround below, manually expanding aliases before the completion process.
