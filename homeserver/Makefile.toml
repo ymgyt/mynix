@@ -1,7 +1,7 @@
 [tasks.deploy]
 description = "Deploy to all nodes"
 script = '''
-deploy --skip-checks --interactive --debug-logs . -- --print-build-logs
+deploy  --interactive --debug-logs . -- --print-build-logs
 '''
 
 [tasks.fmt]
