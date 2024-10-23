@@ -76,23 +76,23 @@
       };
     in
     {
-      nixosConfigurations =
-        let
-          mkHost = (
-            module:
-            nixpkgs.lib.nixosSystem {
+      nixosConfigurations = builtins.listToAttrs (
+        builtins.map
+          (host: {
+            name = host;
+            value = nixpkgs.lib.nixosSystem {
               system = "aarch64-linux";
               specialArgs = spec;
-              modules = [ module ];
-            }
-          );
-        in
-        {
-          rpi4-01 = mkHost ./hosts/rpi4-01.nix;
-          rpi4-02 = mkHost ./hosts/rpi4-02.nix;
-          rpi4-03 = mkHost ./hosts/rpi4-03.nix;
-          rpi4-04 = mkHost ./hosts/rpi4-04.nix;
-        };
+              modules = [ ./hosts/${host}.nix ];
+            };
+          })
+          [
+            "rpi4-01"
+            "rpi4-02"
+            "rpi4-03"
+            "rpi4-04"
+          ]
+      );
 
       deploy = {
         # Deployment options applied to all nodes
@@ -109,27 +109,12 @@
         fastConnection = false;
         autoRollback = true;
         magicRollback = true;
-
-        # Or setup cross compilation
         remoteBuild = false;
 
-        nodes =
-          let
-            mkNode = (
-              hostname: {
-                inherit hostname;
-                profiles.system.path =
-                  deploy-rs.lib.aarch64-linux.activate.nixos
-                    self.nixosConfigurations."${hostname}";
-              }
-            );
-          in
-          {
-            rpi4-01 = mkNode "rpi4-01";
-            rpi4-02 = mkNode "rpi4-02";
-            rpi4-03 = mkNode "rpi4-03";
-            rpi4-04 = mkNode "rpi4-04";
-          };
+        nodes = builtins.mapAttrs (hostname: nixosConfig: {
+          inherit hostname;
+          profiles.system.path = deploy-rs.lib.aarch64-linux.activate.nixos nixosConfig;
+        }) self.nixosConfigurations;
       };
 
       checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
