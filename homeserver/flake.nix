@@ -127,7 +127,7 @@
       {
         devShells.default = pkgs.mkShell {
           buildInputs = [
-            pkgs.deploy-rs
+            deploy-rs.packages.${system}.deploy-rs
             pkgs.nixfmt
           ];
         };
