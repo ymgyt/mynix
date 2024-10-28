@@ -53,7 +53,7 @@ features = "all"
 
 [language-server.rust-analyzer.config.check]
 command = "clippy"
-
+features = "all"
 
 # Configure biome
 # https://github.com/biomejs/biome/blob/main/editors/helix/manual.md
@@ -116,5 +116,4 @@ language-servers = [
 
 [[language]]
 name = "just"
-# Current just format overwrite content, and could not edit...
-auto-format = false
+auto-format = true
