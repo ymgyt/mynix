@@ -20,12 +20,25 @@
     ragenix.url = "github:yaxitech/ragenix";
   };
 
-  outputs = { nixpkgs, nixpkgs-unstable, darwin, home-manager, ragenix, ... }:
+  outputs =
+    {
+      nixpkgs,
+      nixpkgs-unstable,
+      darwin,
+      home-manager,
+      ragenix,
+      ...
+    }:
     let
-      systems = [ "x86_64-linux" "x86_64-darwin" "aarch64-darwin" ];
+      systems = [
+        "x86_64-linux"
+        "x86_64-darwin"
+        "aarch64-darwin"
+      ];
 
       forAllSystems = nixpkgs.lib.genAttrs systems;
-    in {
+    in
+    {
       nixosConfigurations = {
         xps15 = nixpkgs.lib.nixosSystem rec {
           system = "x86_64-linux";
@@ -36,6 +49,25 @@
 
           modules = [
             ./hosts/xps15
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.ymgyt = import ./home/linux;
+              home-manager.extraSpecialArgs = specialArgs;
+            }
+          ];
+        };
+
+        system76 = nixpkgs.lib.nixosSystem rec {
+          system = "x86_64-linux";
+          specialArgs = {
+            inherit ragenix;
+            pkgs-unstable = import nixpkgs-unstable { inherit system; };
+          };
+
+          modules = [
+            ./hosts/system76
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
@@ -88,13 +120,15 @@
         };
       };
 
-      formatter =
-        forAllSystems (system: nixpkgs.legacyPackages.${system}.nixpkgs-fmt);
+      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixpkgs-fmt);
     };
 
   # https://nixos.org/manual/nix/stable/command-ref/conf-file.html
   nixConfig = {
-    experimental-features = [ "nix-command" "flakes" ];
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
     # https://nixos.org/manual/nix/stable/command-ref/conf-file.html#conf-auto-optimise-store
     auto-optimise-store = true;
 
