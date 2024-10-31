@@ -98,6 +98,7 @@
             inherit system;
             host = "fraim";
           };
+        };
       };
 
       formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixpkgs-fmt);

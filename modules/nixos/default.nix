@@ -1,15 +1,13 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+{
 
-  imports = [ ../ssh.nix ../font.nix ./font.nix ./virtualbox.nix ./docker.nix ];
-
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  # Limit the number of generations to keep
-  boot.loader.systemd-boot.configurationLimit = 10;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.efi.efiSysMountPoint = "/boot/efi";
-
-  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+  imports = [
+    ../ssh.nix
+    ../font.nix
+    ./font.nix
+    ./virtualbox.nix
+    ./docker.nix
+  ];
 
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -100,7 +98,10 @@
     unset -v SSH_ASKPASS
   '';
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   nix.settings.trusted-users = [ "ymgyt" ];
   nix.settings.auto-optimise-store = true;
@@ -129,4 +130,3 @@
 
   system.stateVersion = "23.05"; # Did you read the comment?
 }
-

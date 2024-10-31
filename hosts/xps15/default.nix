@@ -1,18 +1,11 @@
 { ... }:
 {
   imports = [
+    ../../modules/users.nix
     ../../modules/nixos
     ./hardware-configuration.nix
+    ./boot.nix
   ];
 
-  users.users.ymgyt = {
-    isNormalUser = true;
-    description = "ymgyt";
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-    ];
-  };
-
-  networking.hostName = "xps15"; # Define your hostname.
+  networking.hostName = "xps15";
 }
