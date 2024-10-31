@@ -1,16 +1,11 @@
-{ ... }:
 {
   imports = [
-    ./hardware-configuration.nix
+    ../../modules/users.nix
     ../../modules/nixos
+    ./hardware-configuration.nix
+    ./boot.nix
   ];
 
-  users.users.ymgyt = {
-    isNormalUser = true;
-    description = "ymgyt";
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-    ];
-  };
+  networking.hostName = "arkedge";
+  system.stateVersion = "24.05";
 }

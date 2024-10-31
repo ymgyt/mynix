@@ -64,23 +64,20 @@
         ];
     in
     {
-      nixosConfigurations = {
-        xps15 = nixpkgs.lib.nixosSystem rec {
-          system = "x86_64-linux";
-          modules = mkModules {
-            inherit system;
-            host = "xps15";
+      nixosConfigurations =
+        builtins.mapAttrs
+          (
+            host: system:
+            nixpkgs.lib.nixosSystem {
+              inherit system;
+              modules = mkModules { inherit system host; };
+            }
+          )
+          {
+            xps15 = "x86_64-linux";
+            system764 = "x86_64-linux";
+            arkedge = "x86_64-linux";
           };
-        };
-
-        system76 = nixpkgs.lib.nixosSystem rec {
-          system = "x86_64-linux";
-          modules = mkModules {
-            inherit system;
-            host = "system76";
-          };
-        };
-      };
 
       darwinConfigurations = {
         prox86 = darwin.lib.darwinSystem rec {
