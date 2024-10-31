@@ -37,87 +37,67 @@
       ];
 
       forAllSystems = nixpkgs.lib.genAttrs systems;
+
+      mkModules =
+        {
+          host,
+          system,
+          user ? "ymgyt",
+        }:
+        let
+          # substritute "x86_64-linux" => "linux"
+          os = builtins.elemAt (builtins.match ".*-(.*)" system) 0;
+          specialArgs = {
+            inherit ragenix;
+            pkgs-unstable = import nixpkgs-unstable { inherit system; };
+          };
+        in
+        [
+          ./hosts/${host}
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.${user} = import ./home/${os};
+            home-manager.extraSpecialArgs = specialArgs;
+          }
+        ];
     in
     {
       nixosConfigurations = {
         xps15 = nixpkgs.lib.nixosSystem rec {
           system = "x86_64-linux";
-          specialArgs = {
-            inherit ragenix;
-            pkgs-unstable = import nixpkgs-unstable { inherit system; };
+          modules = mkModules {
+            inherit system;
+            host = "xps15";
           };
-
-          modules = [
-            ./hosts/xps15
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.ymgyt = import ./home/linux;
-              home-manager.extraSpecialArgs = specialArgs;
-            }
-          ];
         };
 
         system76 = nixpkgs.lib.nixosSystem rec {
           system = "x86_64-linux";
-          specialArgs = {
-            inherit ragenix;
-            pkgs-unstable = import nixpkgs-unstable { inherit system; };
+          modules = mkModules {
+            inherit system;
+            host = "system76";
           };
-
-          modules = [
-            ./hosts/system76
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.ymgyt = import ./home/linux;
-              home-manager.extraSpecialArgs = specialArgs;
-            }
-          ];
         };
       };
 
       darwinConfigurations = {
         prox86 = darwin.lib.darwinSystem rec {
           system = "x86_64-darwin";
-          specialArgs = {
-            inherit ragenix;
-            pkgs-unstable = import nixpkgs-unstable { inherit system; };
+          modules = mkModules {
+            inherit system;
+            host = "prox86";
+            user = "me";
           };
-
-          modules = [
-            ./hosts/prox86
-            home-manager.darwinModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.me = import ./home/darwin;
-              home-manager.extraSpecialArgs = specialArgs;
-            }
-          ];
         };
 
         fraim = darwin.lib.darwinSystem rec {
           system = "aarch64-darwin";
-          specialArgs = {
-            inherit ragenix;
-            pkgs-unstable = import nixpkgs-unstable { inherit system; };
+          modules = mkModules {
+            inherit system;
+            host = "fraim";
           };
-
-          modules = [
-            ./hosts/fraim
-            (import ./overlays)
-            home-manager.darwinModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.ymgyt = import ./home/darwin;
-              home-manager.extraSpecialArgs = specialArgs;
-            }
-          ];
-        };
       };
 
       formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixpkgs-fmt);
