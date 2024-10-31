@@ -8,4 +8,5 @@
   ];
 
   networking.hostName = "system76";
+  system.stateVersion = "24.05";
 }
