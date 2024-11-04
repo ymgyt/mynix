@@ -89,11 +89,11 @@
           };
         };
 
-        fraim = darwin.lib.darwinSystem rec {
+        aem2 = darwin.lib.darwinSystem rec {
           system = "aarch64-darwin";
           modules = mkModules {
             inherit system;
-            host = "fraim";
+            host = "aem2";
           };
         };
       };

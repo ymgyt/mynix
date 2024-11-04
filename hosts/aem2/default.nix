@@ -1,6 +1,7 @@
 # Configure host specific settings
 
-{ ... }: {
+{ ... }:
+{
   imports = [ ../../modules/darwin ];
 
   users.users.ymgyt = {
@@ -8,5 +9,7 @@
     shell = "nu";
   };
 
-  networking = { hostName = "fraim"; };
+  networking = {
+    hostName = "aem2";
+  };
 }
