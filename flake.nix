@@ -53,7 +53,7 @@
           };
         in
         [
-          ./hosts/${host}
+          # ./hosts/${host}
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -82,19 +82,47 @@
       darwinConfigurations = {
         prox86 = darwin.lib.darwinSystem rec {
           system = "x86_64-darwin";
-          modules = mkModules {
-            inherit system;
-            host = "prox86";
-            user = "me";
+          specialArgs = {
+            inherit ragenix;
+            pkgs-unstable = import nixpkgs-unstable { inherit system; };
           };
+          modules = [
+
+             ./hosts/aem2
+            (import ./overlays)
+            home-manager.darwinModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.ymgyt = import ./home/darwin;
+              home-manager.extraSpecialArgs = specialArgs;
+            }
+          ];
+          # modules = mkModules {
+          #   inherit system;
+          #   host = "prox86";
+          #   user = "me";
+          # };
         };
 
         aem2 = darwin.lib.darwinSystem rec {
           system = "aarch64-darwin";
-          modules = mkModules {
-            inherit system;
-            host = "aem2";
+          specialArgs = {
+            inherit ragenix;
+            pkgs-unstable = import nixpkgs-unstable { inherit system; };
           };
+          modules = [
+
+             ./hosts/aem2
+            (import ./overlays)
+            home-manager.darwinModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.ymgyt = import ./home/darwin;
+              home-manager.extraSpecialArgs = specialArgs;
+            }
+          ];
         };
       };
 

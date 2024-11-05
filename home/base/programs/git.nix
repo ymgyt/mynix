@@ -1,11 +1,14 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   programs.git = {
     enable = true;
     userName = "ymgyt";
     userEmail = "yamaguchi7073xtt@gmail.com";
     delta = {
       enable = true;
-      options = { dark = true; };
+      options = {
+        dark = true;
+      };
     };
     extraConfig = {
       push = {
@@ -14,17 +17,28 @@
         default = "current";
       };
 
-      pull = { rebase = true; };
+      pull = {
+        rebase = true;
+      };
 
-      init = { defaultBranch = "main"; };
+      init = {
+        defaultBranch = "main";
+      };
 
-      color = { ui = "auto"; };
+      color = {
+        ui = "auto";
+      };
 
-      credential = { helper = "cache --timeout=604800"; };
+      credential = {
+        helper = "cache --timeout=604800";
+      };
 
+      blame = {
+        ignoreRevsFile = ".git-blame-ignore-revs";
+      };
     };
 
-    includes = [{ path = "~/.gitlocalconfig"; }];
+    includes = [ { path = "~/.gitlocalconfig"; } ];
 
     aliases = {
       a = "add";
@@ -37,10 +51,11 @@
       co = "checkout";
       cm = "commit";
     };
-
   };
 
-  programs.gitui = { enable = true; };
+  programs.gitui = {
+    enable = true;
+  };
 
   home.packages = with pkgs; [ git-trim ];
 }

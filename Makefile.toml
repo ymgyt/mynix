@@ -25,7 +25,7 @@ env = { HOST = "fraim" }
 
 [tasks."darwin:apply"]
 script = '''
-nix build .#darwinConfigurations.${HOST}.system --extra-experimental-features 'nix-command flakes' --debug --show-trace
+nix build .#darwinConfigurations.${HOST}.system --extra-experimental-features 'nix-command flakes' 
 sudo ./result/sw/bin/darwin-rebuild switch --flake ".#${HOST}"
 '''
 
