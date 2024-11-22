@@ -1,0 +1,3 @@
+# unignore in file picker and global search
+!.github/
+!.gitignore
