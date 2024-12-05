@@ -1,6 +1,7 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   home.packages = with pkgs; [
-    rustup
+    # rustup
     cargo-criterion
     cargo-expand
     cargo-insta
