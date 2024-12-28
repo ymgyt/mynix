@@ -53,7 +53,7 @@
           };
         in
         [
-          # ./hosts/${host}
+          ./hosts/${host}
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -88,7 +88,7 @@
           };
           modules = [
 
-             ./hosts/aem2
+            ./hosts/aem2
             (import ./overlays)
             home-manager.darwinModules.home-manager
             {
@@ -113,7 +113,7 @@
           };
           modules = [
 
-             ./hosts/aem2
+            ./hosts/aem2
             (import ./overlays)
             home-manager.darwinModules.home-manager
             {
