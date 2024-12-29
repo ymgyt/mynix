@@ -1,6 +1,7 @@
 # Configure darwin common settings;
 
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   imports = [ ];
 
   nixpkgs.config.allowUnfree = true;
@@ -14,14 +15,16 @@
 
   nix.settings.trusted-users = [ "ymgyt" ];
 
-  environment.variables = { EDITOR = "hx"; };
+  environment.variables = {
+    EDITOR = "hx";
+  };
 
   fonts = {
     # nixos use fonts.packages but nix-darwin use fonts.fonts
     # so, currently allow duplication definition
     packages = with pkgs; [
       noto-fonts
-      noto-fonts-cjk
+      noto-fonts-cjk-sans
       noto-fonts-emoji
 
       # nerdfotns

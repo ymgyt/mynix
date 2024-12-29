@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
 
   imports = [ ../base ];
 
@@ -17,7 +18,7 @@
     llvmPackages_16.clang-unwrapped
 
     # eBPF
-    bpftool
+    bpftools
 
     # emulator
     qemu
