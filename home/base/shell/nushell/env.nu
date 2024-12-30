@@ -33,3 +33,8 @@ mkdir ~/.cache/starship
 starship init nu | save -f ~/.cache/starship/init.nu
 $env.PROMPT_INDICATOR_VI_INSERT = ""
 $env.PROMPT_INDICATOR_VI_NORMAL = ""
+
+const local = "~/.config/nushell/local.nu"
+if ($local | path exists) {
+  source $local
+}
