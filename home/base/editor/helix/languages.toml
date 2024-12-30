@@ -146,3 +146,7 @@ post_process = { extractor = "(?s)<answer>(.*?)</answer>" }
 [[language]]
 language-servers = ["rust-analyzer", "lsp-ai"]
 name = "rust"
+
+[[language]]
+name = "markdown"
+language-servers = ["marksman", "lsp-ai"]
