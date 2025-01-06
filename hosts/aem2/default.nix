@@ -1,6 +1,6 @@
 # Configure host specific settings
 
-{pkgs-unstable, ... }:
+{ pkgs-unstable, ... }:
 {
   imports = [ ../../modules/darwin ];
 
@@ -13,6 +13,6 @@
   networking = {
     hostName = "aem2";
   };
-  nix.package = pkgs-unstable.nixVersions.nix_2_21;
+  # nix.package = pkgs-unstable.nixVersions.nix_2_21;
   system.stateVersion = 5;
 }
