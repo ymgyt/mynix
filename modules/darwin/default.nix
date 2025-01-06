@@ -36,8 +36,16 @@
 
   nix.gc = {
     automatic = true;
-    dates = "weekly";
+    interval = [
+      {
+        Hour = 3;
+        Minute = 15;
+        Weekday = 7; # sunday
+      }
+    ];
     options = "--delete-older-than 1w";
+    # TODO: use given user
+    user = "ymgyt";
   };
 
   time.timeZone = "Asia/Tokyo";
