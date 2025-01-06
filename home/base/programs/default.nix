@@ -89,6 +89,9 @@
     vscode-langservers-extracted
     biome
 
+    # Language server for code assistance
+    lsp-ai
+
     # Typo
     typos
 
