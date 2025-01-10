@@ -38,3 +38,6 @@ const local = "~/.config/nushell/local.nu"
 if ($local | path exists) {
   source $local
 }
+
+# Add cargo commands to PATH
+$env.PATH = ($env.PATH | prepend "~/.cargo/bin")
