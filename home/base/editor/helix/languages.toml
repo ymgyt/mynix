@@ -150,3 +150,7 @@ name = "rust"
 [[language]]
 name = "markdown"
 language-servers = ["marksman", "lsp-ai"]
+
+[[language]]
+name = "hcl"
+language-servers = ["terraform-ls", "lsp-ai"]
