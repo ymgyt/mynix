@@ -50,8 +50,6 @@
     # Data format
     taplo
     jq
-    yaml-language-server
-    yamlfmt
     pandoc
 
     # SSH

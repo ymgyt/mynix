@@ -16,7 +16,10 @@ auto-format = true
 formatter = { command = "yamlfmt", args = ["-"] }
 
 [language-server.yaml-language-server.config.yaml]
-format = { enable = true }
+# use yamlfmt to format yaml files
+# yaml-language-server use prettier as formatter
+# however, since it doesn't allow specifying format options, so disable it
+format = { enable = false }
 validation = true
 
 # https://github.com/rust-lang/rust-analyzer/blob/master/crates/rust-analyzer/src/config.rs
