@@ -2,7 +2,7 @@
   description = "Deployment for my home server cluster";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
     deploy-rs = {
       url = "github:serokell/deploy-rs";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -41,7 +41,7 @@
     };
 
     syndicationd = {
-      url = "github:ymgyt/syndicationd/synd-api-v0.2.5";
+      url = "github:ymgyt/syndicationd/synd-api-v0.2.6";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
     };
