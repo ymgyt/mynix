@@ -40,7 +40,7 @@
     ponysay
 
     # Provisioning
-    terraform
+    pkgs-unstable.terraform
     terraform-ls
     tflint
 

@@ -49,8 +49,12 @@
           os = builtins.elemAt (builtins.match ".*-(.*)" system) 0;
           specialArgs = {
             inherit ragenix;
-            pkgs-unstable = import nixpkgs-unstable { inherit system; };
+            pkgs-unstable = import nixpkgs-unstable {
+              inherit system;
+              config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [ "terraform" ];
+            };
           };
+
         in
         [
           ./hosts/${host}
@@ -109,7 +113,10 @@
           system = "aarch64-darwin";
           specialArgs = {
             inherit ragenix;
-            pkgs-unstable = import nixpkgs-unstable { inherit system; };
+            pkgs-unstable = import nixpkgs-unstable {
+              inherit system;
+              config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [ "terraform" ];
+            };
           };
           modules = [
 
