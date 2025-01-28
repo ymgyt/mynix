@@ -83,6 +83,10 @@
     # Markdown
     marksman
 
+    # Json
+    jsonnet
+    jsonnet-language-server
+
     # Language server for html,css,json
     vscode-langservers-extracted
     biome
