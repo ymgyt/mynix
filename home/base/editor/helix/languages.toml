@@ -158,7 +158,7 @@ language-servers = ["marksman", "lsp-ai"]
 name = "hcl"
 language-servers = ["terraform-ls", "lsp-ai"]
 
-[language-server.terraform-ls.settings]
+[language-server.terraform-ls]
 # https://github.com/hashicorp/terraform-ls/blob/main/docs/SETTINGS.md
 # ignore docker bake file
 ignorePaths = ["docker-bake.hcl"]
