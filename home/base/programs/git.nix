@@ -11,6 +11,46 @@
       };
     };
     extraConfig = {
+      blanch = {
+        sort = "-committerdate";
+      };
+
+      blame = {
+        ignoreRevsFile = ".git-blame-ignore-revs";
+      };
+
+      column = {
+        ui = "auto";
+      };
+
+      color = {
+        ui = "auto";
+      };
+
+      commit = {
+        verbose = true;
+      };
+
+      credential = {
+        helper = "cache --timeout=604800";
+      };
+
+      diff = {
+        algorithm = "histogram";
+        colorMoved = "plain";
+        mnemonicPrefix = true;
+        renames = true;
+      };
+
+      fetch = {
+        prune = true;
+        pruneTags = true;
+      };
+
+      init = {
+        defaultBranch = "main";
+      };
+
       push = {
         # remoteに同じbranch名でpushする
         # upstreamの設定を要求しない
@@ -21,20 +61,8 @@
         rebase = true;
       };
 
-      init = {
-        defaultBranch = "main";
-      };
-
-      color = {
-        ui = "auto";
-      };
-
-      credential = {
-        helper = "cache --timeout=604800";
-      };
-
-      blame = {
-        ignoreRevsFile = ".git-blame-ignore-revs";
+      tag = {
+        sort = "version:refname";
       };
     };
 
