@@ -41,3 +41,7 @@ if ($local | path exists) {
 
 # Add cargo commands to PATH
 $env.PATH = ($env.PATH | prepend "~/.cargo/bin")
+
+# Configure volta
+$env.VOLATA_HOME = "~/.volta"
+$env.PATH = ($env.PATH | prepend "~/.volta/bin")
