@@ -99,6 +99,7 @@
 
     # Security
     trivy
+    gnupg
 
     # Text browser
     w3m
