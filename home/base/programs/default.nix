@@ -109,7 +109,7 @@
     # }
 
     # Etc(not categorized yet)
-    typst
+    pkgs-unstable.typst
     protobuf # provide protoc
     direnv
     fzf
