@@ -30,3 +30,6 @@ mods = "Command"
 
 [window]
 option_as_alt = "Both"
+decorations = "None"
+blur = true
+opacity = 0.9
