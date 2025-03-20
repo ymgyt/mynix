@@ -6,6 +6,7 @@
     opentelemetry-collector-contrib
     gnomeExtensions.kimpanel
     gnomeExtensions.tiling-shell
+    gnomeExtensions.blur-my-shell
   ];
 
   # Set default editor to helix

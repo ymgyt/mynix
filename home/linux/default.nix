@@ -4,6 +4,7 @@
   imports = [
     ../base
     ./ebpf.nix
+    ./dconf.nix
   ];
 
   home = {
