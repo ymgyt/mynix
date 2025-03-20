@@ -12,7 +12,7 @@ env = { HOST = "xps15" }
 
 [tasks."nixos:apply"]
 script = '''
-sudo nixos-rebuild switch --flake ".#${HOST}" --show-trace
+sudo nixos-rebuild switch --flake ".#${HOST}" --show-trace --impure
 '''
 
 [tasks."prox86:apply"]
