@@ -1,7 +1,10 @@
 { pkgs, ... }:
 {
 
-  imports = [ ../base ];
+  imports = [
+    ../base
+    ./ebpf.nix
+  ];
 
   home = {
     username = "ymgyt";
@@ -16,9 +19,6 @@
     # ojbdump
     llvmPackages.bintools
     llvmPackages_16.clang-unwrapped
-
-    # eBPF
-    bpftools
 
     # emulator
     qemu

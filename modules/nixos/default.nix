@@ -89,6 +89,7 @@
     git
     opentelemetry-collector-contrib
     gnomeExtensions.kimpanel
+    gnomeExtensions.tiling-shell
   ];
 
   # Set default editor to helix
