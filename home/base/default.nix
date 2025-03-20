@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
   imports = [
     ./terminal
     ./shell
@@ -6,5 +7,10 @@
     ./programs
   ];
 
-  home = { sessionVariables = { EDITOR = "hx"; }; };
+  home = {
+    sessionVariables = {
+      EDITOR = "hx";
+      NIXOS_OZONE_WL = "1";
+    };
+  };
 }

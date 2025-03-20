@@ -51,7 +51,12 @@
             inherit ragenix;
             pkgs-unstable = import nixpkgs-unstable {
               inherit system;
-              config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [ "terraform" ];
+              config.allowUnfreePredicate =
+                pkg:
+                builtins.elem (nixpkgs.lib.getName pkg) [
+                  "terraform"
+                  "slack"
+                ];
             };
           };
 

@@ -30,8 +30,7 @@
     # getpcaps,capsh, setcap, getcap
     libcap
 
-    # blockchain
-    bitcoin
+    slack
   ];
 
   programs.home-manager.enable = true;
