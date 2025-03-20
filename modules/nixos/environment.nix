@@ -7,6 +7,7 @@
     gnomeExtensions.kimpanel
     gnomeExtensions.tiling-shell
     gnomeExtensions.blur-my-shell
+    gnomeExtensions.system-monitor
   ];
 
   # Set default editor to helix

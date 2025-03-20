@@ -32,4 +32,4 @@ mods = "Command"
 option_as_alt = "Both"
 decorations = "None"
 blur = true
-opacity = 0.9
+opacity = 0.95
