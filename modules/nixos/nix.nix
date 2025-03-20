@@ -1,12 +1,13 @@
 { ... }:
 {
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
-
-  nix.settings.trusted-users = [ "ymgyt" ];
-  nix.settings.auto-optimise-store = true;
+  nix.settings = {
+    trusted-users = [ "ymgyt" ];
+    auto-optimise-store = true;
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
+  };
 
   nix.gc = {
     automatic = true;
