@@ -102,11 +102,6 @@
               home-manager.extraSpecialArgs = specialArgs;
             }
           ];
-          # modules = mkModules {
-          #   inherit system;
-          #   host = "prox86";
-          #   user = "me";
-          # };
         };
 
         aem2 = darwin.lib.darwinSystem rec {
@@ -119,7 +114,6 @@
             };
           };
           modules = [
-
             ./hosts/aem2
             (import ./overlays)
             home-manager.darwinModules.home-manager
