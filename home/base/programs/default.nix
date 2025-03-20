@@ -13,7 +13,7 @@
     bat = {
       enable = true;
       config = {
-        theme = "Monokai Extended Origin";
+        # theme = "Monokai Extended Origin";
       };
     };
     # error: Package ‘firefox-114.0’ is not available on the requested hostPlatform:

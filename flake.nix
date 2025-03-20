@@ -16,6 +16,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    stylix = {
+      url = "github:danth/stylix/release-24.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # secrets management
     ragenix.url = "github:yaxitech/ragenix";
   };
@@ -26,6 +31,7 @@
       nixpkgs-unstable,
       darwin,
       home-manager,
+      stylix,
       ragenix,
       ...
     }:
@@ -70,6 +76,7 @@
             home-manager.users.${user} = import ./home/${os};
             home-manager.extraSpecialArgs = specialArgs;
           }
+          stylix.nixosModules.stylix
         ];
     in
     {
