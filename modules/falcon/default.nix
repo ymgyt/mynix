@@ -1,6 +1,6 @@
 { pkgs, ... }:
 let
-  falcon = pkgs.callPackage ./falcon { };
+  falcon = pkgs.callPackage ./falcon.nix { };
   startPreScript = pkgs.writeScript "init-falcon" ''
     #! ${pkgs.bash}/bin/sh
     /run/current-system/sw/bin/mkdir -p /opt/CrowdStrike

@@ -1,10 +1,10 @@
 {
   imports = [
-    ../../modules/users.nix
-    ../../modules/nixos
     ./hardware-configuration.nix
     ./boot.nix
-    ./falcon.nix
+    ../../modules/users.nix
+    ../../modules/falcon
+    ../../modules/nixos
   ];
 
   networking.hostName = "arkedge";
