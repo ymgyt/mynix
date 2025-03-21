@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 {
   imports = [
     ./environment.nix
@@ -11,16 +11,9 @@
     ./security.nix
     ./time.nix
     ./i18n.nix
+
+    ./stylix
     ./virtualbox.nix
     ./docker.nix
   ];
-
-  stylix = {
-    enable = true;
-
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
-
-    image = ./wallpaper.jpg;
-
-  };
 }
