@@ -39,7 +39,6 @@ let
       homepage = "https://www.crowdstrike.com/";
       license = licenses.unfree;
       platforms = platforms.linux;
-      # maintainers = with maintainers; [  ];
     };
   };
 in

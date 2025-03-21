@@ -30,6 +30,7 @@
     procs
     ripgrep
     bottom
+    file
     pkgs-unstable.just # >= 1.32.0 for modules
 
     # C
