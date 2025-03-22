@@ -14,6 +14,7 @@
     ./time.nix
     ./i18n.nix
 
+    ./falcon
     ./stylix
     ./virtualbox.nix
     ./docker.nix

@@ -7,16 +7,18 @@
   zlib,
   autoPatchelfHook,
   buildFHSUserEnv,
+  debFile,
+  version,
+  arch,
   ...
 }:
 let
   pname = "falcon-sensor";
-  version = "7.05.0-16004";
-  arch = "amd64";
-  src = /opt/CrowdStrike + "/falcon-sensor_${version}_${arch}.deb";
+
   falcon-sensor = stdenv.mkDerivation {
-    inherit version arch src;
+    inherit version arch;
     name = pname;
+    src = debFile;
 
     buildInputs = [
       dpkg
