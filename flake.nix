@@ -96,26 +96,6 @@
           };
 
       darwinConfigurations = {
-        prox86 = darwin.lib.darwinSystem rec {
-          system = "x86_64-darwin";
-          specialArgs = {
-            inherit ragenix;
-            pkgs-unstable = import nixpkgs-unstable { inherit system; };
-          };
-          modules = [
-
-            ./hosts/aem2
-            (import ./overlays)
-            home-manager.darwinModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.ymgyt = import ./home/darwin;
-              home-manager.extraSpecialArgs = specialArgs;
-            }
-          ];
-        };
-
         aem2 = darwin.lib.darwinSystem rec {
           system = "aarch64-darwin";
           specialArgs = {
