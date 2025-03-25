@@ -8,6 +8,7 @@
         blur-my-shell.extensionUuid
         system-monitor.extensionUuid
         open-bar.extensionUuid
+        unite.extensionUuid
       ];
     };
     "org/gnome/shell/extensions/tilingshell" = {

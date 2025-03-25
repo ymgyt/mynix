@@ -17,6 +17,7 @@
       blur-my-shell
       system-monitor
       open-bar
+      unite
     ]);
 
   # Set default editor to helix
