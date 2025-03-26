@@ -33,6 +33,7 @@
     file
     patchelf
     pkgs-unstable.just # >= 1.32.0 for modules
+    unzip
 
     # C
     pkg-config-unwrapped
