@@ -15,24 +15,5 @@ in
       package = pkgs.bibata-cursors;
       name = "Bibata-Modern-Ice";
     };
-
-    fonts = {
-      serif = {
-        package = pkgs.noto-fonts-cjk-sans;
-        name = "Noto Serif";
-      };
-      sansSerif = {
-        package = pkgs.noto-fonts-cjk-sans;
-        name = "Noto Sans CJK JP";
-      };
-      monospace = {
-        package = pkgs.noto-fonts-cjk-sans;
-        name = "Noto Sans Mono";
-      };
-      emoji = {
-        package = pkgs.noto-fonts-emoji;
-        name = "Noto Color Emoji";
-      };
-    };
   };
 }
