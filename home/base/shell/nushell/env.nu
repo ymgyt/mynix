@@ -46,3 +46,6 @@ $env.PATH = ($env.PATH | prepend "~/.cargo/bin")
 $env.VOLATA_HOME = "~/.volta"
 $env.VOLTA_FEATURE_PNPM = "1"
 $env.PATH = ($env.PATH | prepend "~/.volta/bin")
+
+# uv installed to ~/.local/bin
+$env.PATH = ($env.PATH | append "~/.local/bin")
