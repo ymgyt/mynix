@@ -49,3 +49,6 @@ $env.PATH = ($env.PATH | prepend "~/.volta/bin")
 
 # uv installed to ~/.local/bin
 $env.PATH = ($env.PATH | append "~/.local/bin")
+
+# gallop
+$env.PATH = ($env.PATH | append "~/.gallop/bin")
