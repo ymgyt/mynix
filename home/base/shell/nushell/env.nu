@@ -48,7 +48,7 @@ $env.VOLTA_FEATURE_PNPM = "1"
 $env.PATH = ($env.PATH | prepend "~/.volta/bin")
 
 # uv installed to ~/.local/bin
-$env.PATH = ($env.PATH | append "~/.local/bin")
+$env.PATH = ($env.PATH | prepend "~/.local/bin")
 
 # gallop
-$env.PATH = ($env.PATH | append "~/.gallop/bin")
+$env.PATH = ($env.PATH | prepend "~/.gallop/bin")
