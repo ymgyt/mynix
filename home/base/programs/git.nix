@@ -85,5 +85,8 @@
     enable = true;
   };
 
-  home.packages = with pkgs; [ git-trim ];
+  home.packages = with pkgs; [
+    git-trim
+    git-cliff
+  ];
 }
