@@ -7,6 +7,7 @@
     ./languages
     ./cloud
     ./wasm.nix
+    ./gpg.nix
   ];
 
   programs = {
@@ -38,6 +39,7 @@
     # C
     pkg-config-unwrapped
     cmake
+    gnumake
 
     # Says
     ponysay
@@ -102,7 +104,6 @@
 
     # Security
     trivy
-    gnupg
 
     # Text browser
     w3m
