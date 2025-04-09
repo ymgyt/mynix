@@ -160,6 +160,7 @@ language-servers = ["terraform-ls", "lsp-ai"]
 
 [language-server.terraform-ls]
 # https://github.com/hashicorp/terraform-ls/blob/main/docs/SETTINGS.md
-# ignore docker bake file
-indexing = { ignorePaths = ["docker-bake.hcl"] }
-ignoreDirectoryNames = ["target"]
+command = "terraform-ls"
+args = ["serve"]
+config.indexing.ignorePaths = ["docker-bake.hcl", "*.tftest.hcl"]
+config.indexing.ignoreDirectoryNames = ["target"]
