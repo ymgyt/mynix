@@ -46,7 +46,7 @@
 
     # Provisioning
     pkgs-unstable.terraform
-    terraform-ls
+    pkgs-unstable.terraform-ls
     tflint
 
     # Secret management
