@@ -163,4 +163,4 @@ language-servers = ["terraform-ls", "lsp-ai"]
 command = "terraform-ls"
 args = ["serve"]
 config.indexing.ignorePaths = ["docker-bake.hcl", "*.tftest.hcl"]
-config.indexing.ignoreDirectoryNames = ["target"]
+config.indexing.ignoreDirectoryNames = ["target", "tests"]
