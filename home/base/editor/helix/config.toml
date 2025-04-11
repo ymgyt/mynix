@@ -40,3 +40,11 @@ k = "half_page_up"   # Not using scroll up(just one line)
 
 [keys.normal.g]
 d = ["goto_definition", "align_view_top"]
+
+# window mode
+# window modeへの遷移で、space + w, <Ctrl-w>の2パターンあるので両対応する
+[keys.normal."space".w]
+p = "rotate_view_reverse"
+
+[keys.normal."C-w"]
+p = "rotate_view_reverse"
