@@ -21,6 +21,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    myhelix.url = "github:ymgyt/helix/explorer";
+
     # secrets management
     ragenix.url = "github:yaxitech/ragenix";
   };
@@ -32,6 +34,7 @@
       darwin,
       home-manager,
       stylix,
+      myhelix,
       ragenix,
       ...
     }:
@@ -54,7 +57,7 @@
           # substritute "x86_64-linux" => "linux"
           os = builtins.elemAt (builtins.match ".*-(.*)" system) 0;
           specialArgs = {
-            inherit ragenix;
+            inherit ragenix myhelix;
             pkgs-unstable = import nixpkgs-unstable {
               inherit system;
               config.allowUnfreePredicate =
