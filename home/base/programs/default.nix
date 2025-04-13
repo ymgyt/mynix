@@ -35,6 +35,7 @@
     patchelf
     pkgs-unstable.just # >= 1.32.0 for modules
     unzip
+    hexyl
 
     # C
     pkg-config-unwrapped
