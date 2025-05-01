@@ -1,3 +1,10 @@
 # unignore in file picker and global search
 !.github/
 !.gitignore
+!.cliff.toml
+!.clippy.toml
+!.typos.toml
+!.taplo.toml
+!.yamlfmt.yaml
+!.envrc
+

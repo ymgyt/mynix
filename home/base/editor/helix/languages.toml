@@ -156,7 +156,21 @@ language-servers = ["marksman", "lsp-ai"]
 
 [[language]]
 name = "hcl"
-language-servers = ["terraform-ls", "lsp-ai"]
+# hcl を指定すると、docker-bake.hcl で target blockがエラーになる
+file-types = ["tf", "nomad"]
+language-servers = ["terraform-ls"]
+
+# default だとhclの中で、tfとhclが扱われているので分ける
+[[language]]
+name = "hclonly"
+scope = "source.hcl"
+file-types = ["hcl"]
+comment-token = "#"
+block-comment-tokens = { start = "/*", end = "*/" }
+indent = { tab-width = 2, unit = "  " }
+language-servers = []
+auto-format = true
+
 
 [language-server.terraform-ls]
 # https://github.com/hashicorp/terraform-ls/blob/main/docs/SETTINGS.md
