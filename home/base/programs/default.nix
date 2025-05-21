@@ -70,6 +70,9 @@
     # TLS
     openssl
 
+    # DNS
+    dig
+
     # Policy
     open-policy-agent
 
@@ -88,6 +91,7 @@
 
     # Markdown
     marksman
+    textlint
 
     # Json
     jsonnet
@@ -120,5 +124,6 @@
     fzf
     neofetch
     kbt
+    pciutils
   ];
 }
