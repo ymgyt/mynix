@@ -6,5 +6,7 @@
     eksctl
     s5cmd
     pkgs-unstable.amazon-q-cli
+    # for ecs exec
+    ssm-session-manager-plugin
   ];
 }
