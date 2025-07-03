@@ -73,6 +73,9 @@
     # DNS
     dig
 
+    # Tcp
+    tcpdump
+
     # Policy
     open-policy-agent
 
