@@ -100,6 +100,9 @@
     jsonnet
     jsonnet-language-server
 
+    # SQL
+    sqls
+
     # Language server for html,css,json
     vscode-langservers-extracted
     biome
