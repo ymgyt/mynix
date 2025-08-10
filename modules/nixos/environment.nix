@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
   environment.systemPackages =
     with pkgs;
@@ -10,6 +10,7 @@
       linuxHeaders
       man-pages
       man-pages-posix
+      config.boot.kernelPackages.perf
     ]
     ++ (with pkgs.gnomeExtensions; [
       kimpanel
