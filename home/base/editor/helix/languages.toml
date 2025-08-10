@@ -13,7 +13,7 @@ name = "yaml"
 # does not use ansible-language-server
 language-servers = ["yaml-language-server"]
 auto-format = true
-formatter = { command = "yamlfmt", args = ["-"] }
+formatter = { command = "dprint", args = ["fmt", "--stdin", "file.yaml"] }
 
 [language-server.yaml-language-server.config.yaml]
 # use yamlfmt to format yaml files

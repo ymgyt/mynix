@@ -1,0 +1,25 @@
+{
+  "yaml": {
+    "printWidth": 80,
+    "quotes": "forceDouble",
+    "indentWidth": 2,
+    "trailingComma": true,
+    "formatComments": true,
+    "indentBlockSequenceInMap": true,
+    "braceSpacing": true,
+    "bracketSpacing": false,
+    "preferSingleLine": false,
+    "trimTrailingWhitespaces": true,
+    "trimTrailingZero": false,
+    "ignoreCommentDirective": "pretty-yaml-ignore"
+  },
+  "excludes": [
+    "**/node_modules",
+    "**/*-lock.json",
+    "**/.terraform",
+    "pnpm-lock.yaml"
+  ],
+  "plugins": [
+    "https://plugins.dprint.dev/g-plane/pretty_yaml-v0.5.1.wasm"
+  ]
+}
