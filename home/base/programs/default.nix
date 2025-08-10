@@ -119,6 +119,9 @@
     # Security
     trivy
 
+    # Formatter
+    dprint
+
     # Text browser
     w3m
     # w3m.override
