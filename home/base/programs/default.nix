@@ -113,6 +113,9 @@
     # Typo
     typos
 
+    # Disk utitlity
+    dust
+
     # Security
     trivy
 
