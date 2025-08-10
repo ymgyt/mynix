@@ -4,6 +4,8 @@ bufferline = "always"
 auto-completion = true
 auto-format = true
 end-of-line-diagnostics = "hint"
+# https://github.com/helix-editor/helix/pull/12213
+continue-comments = false
 
 # Anything after --command will be interpreted as a command, so place it at the end
 shell = ["nu", "--stdin", "--commands"]
