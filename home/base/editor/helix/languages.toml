@@ -178,3 +178,11 @@ command = "terraform-ls"
 args = ["serve"]
 config.indexing.ignorePaths = ["docker-bake.hcl", "*.tftest.hcl"]
 config.indexing.ignoreDirectoryNames = ["target", "tests"]
+
+[language-server.sql-language-server]
+command = "sqls"
+args = []
+
+[[language]]
+name = "sql"
+language-servers = ["sql-language-server"]
