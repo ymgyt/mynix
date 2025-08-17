@@ -186,3 +186,17 @@ args = []
 [[language]]
 name = "sql"
 language-servers = ["sql-language-server"]
+
+[[language]]
+name = "make"
+# Add Kbuild
+file-types = [
+  { glob = "Kbuild" },
+  { glob = "Makefile" },
+  { glob = "makefile" },
+  "make",
+  "mk",
+  "mak",
+  { glob = "GNUmakefile" },
+  { glob = "OCamlMakefile" },
+]
