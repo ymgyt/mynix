@@ -75,6 +75,7 @@
 
     # Tcp
     tcpdump
+    lsof
 
     # Policy
     open-policy-agent
