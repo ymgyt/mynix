@@ -104,6 +104,9 @@
     # SQL
     sqls
 
+    # DB
+    postgresql_16
+
     # Language server for html,css,json
     vscode-langservers-extracted
     biome
