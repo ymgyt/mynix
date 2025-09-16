@@ -1,7 +1,7 @@
 { pkgs, pkgs-unstable, ... }:
 {
   home.packages = with pkgs; [
-    awscli2
+    pkgs-unstable.awscli2
     aws-vault
     eksctl
     s5cmd
