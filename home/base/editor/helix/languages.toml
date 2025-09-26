@@ -147,12 +147,12 @@ parameters = { max_context = 4096, max_tokens = 4096, messages = [
 post_process = { extractor = "(?s)<answer>(.*?)</answer>" }
 
 [[language]]
-language-servers = ["rust-analyzer", "lsp-ai"]
+language-servers = ["rust-analyzer"]
 name = "rust"
 
 [[language]]
 name = "markdown"
-language-servers = ["marksman", "lsp-ai"]
+language-servers = ["marksman"]
 
 [[language]]
 name = "hcl"
