@@ -1,11 +1,14 @@
 { pkgs, ... }:
+let
+  email = "yamaguchi7073xtt@gmail.com";
+in
 {
   programs.git = {
     enable = true;
     # for git send-email
     package = pkgs.gitFull;
     userName = "ymgyt";
-    userEmail = "yamaguchi7073xtt@gmail.com";
+    userEmail = email;
     delta = {
       enable = true;
       options = {
@@ -65,6 +68,13 @@
 
       tag = {
         sort = "version:refname";
+      };
+
+      sendemail = {
+        smtpServer = "smtp.gmail.com";
+        smtpServerPort = 587;
+        smtpEncryption = "tls";
+        smtpUser = email;
       };
     };
 
