@@ -2,6 +2,8 @@
 {
   programs.git = {
     enable = true;
+    # for git send-email
+    package = pkgs.gitFull;
     userName = "ymgyt";
     userEmail = "yamaguchi7073xtt@gmail.com";
     delta = {
