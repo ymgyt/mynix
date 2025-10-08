@@ -36,6 +36,11 @@ in
         verbose = true;
       };
 
+      core = {
+        # https://docs.kernel.org/process/submitting-patches.html
+        abbrev = "12";
+      };
+
       credential = {
         helper = "cache --timeout=604800";
       };
@@ -54,6 +59,11 @@ in
 
       init = {
         defaultBranch = "main";
+      };
+
+      pretty = {
+        # https://docs.kernel.org/process/submitting-patches.html
+        fixes = "Fixes: %h (\"%s\")";
       };
 
       push = {
