@@ -1,13 +1,14 @@
 { pkgs, pkgs-unstable, ... }:
 {
   imports = [
+    ./cloud
     ./filesystem.nix
     ./git.nix
+    ./gpg.nix
+    ./kernel.nix
     ./kubernetes.nix
     ./languages
-    ./cloud
     ./wasm.nix
-    ./gpg.nix
   ];
 
   programs = {
