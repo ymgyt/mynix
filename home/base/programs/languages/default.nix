@@ -2,9 +2,10 @@
 {
   imports = [
     ./go.nix
-    ./rust.nix
-    ./node.nix
     ./nix.nix
+    ./node.nix
+    ./perl.nix
+    ./rust.nix
     ./yaml
   ];
 }
