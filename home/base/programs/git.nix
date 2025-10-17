@@ -21,7 +21,8 @@ in
       };
 
       blame = {
-        ignoreRevsFile = ".git-blame-ignore-revs";
+        # これを指定すると常に探しにいき、見つからないとエラーになる
+        # ignoreRevsFile = ".git-blame-ignore-revs";
       };
 
       column = {
