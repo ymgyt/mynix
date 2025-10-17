@@ -35,6 +35,8 @@ in
 
       commit = {
         verbose = true;
+        # Add Signed-off-by: tag
+        signoff = true;
       };
 
       core = {
