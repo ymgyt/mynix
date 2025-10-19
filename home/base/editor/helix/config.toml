@@ -31,6 +31,9 @@ enable = true
 cursor-line = "warning" # hint | info | warning | error
 # other-lines = "hint"
 
+[editor.whitespace.render]
+tab = "all"
+
 [keys.normal]
 "'" = ":buffer-close"  # Close buffer with single quote
 L = ":buffer-next"
