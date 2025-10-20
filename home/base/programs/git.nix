@@ -113,5 +113,6 @@ in
   home.packages = with pkgs; [
     git-trim
     git-cliff
+    git-graph
   ];
 }
