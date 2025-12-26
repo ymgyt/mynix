@@ -11,6 +11,19 @@
     ./wasm.nix
   ];
 
+  # TODO: mv
+  stylix.targets = {
+    firefox = {
+      enable = true;
+      profileNames = [ "ymgyt" ];
+      colors.enable = true;
+      fonts.enable = true;
+      colorTheme.enable = true;
+      firefoxGnomeTheme.enable = true;
+    };
+    gnome.enable = true; # Helps with dark mode detection even without GNOME
+  };
+
   programs = {
     bat = {
       enable = true;
@@ -20,7 +33,22 @@
     };
     # error: Package ‘firefox-114.0’ is not available on the requested hostPlatform:
     # hostPlatform.config = "aarch64-apple-darwin"
-    firefox.enable = if pkgs.stdenv.isDarwin then false else true;
+    firefox = {
+      enable = if pkgs.stdenv.isDarwin then false else true;
+      profiles = {
+        ymgyt = {
+          extensions.force = true;
+          settings = {
+            # Enable userChrome.css customization for better theming
+            "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+            # Force dark mode detection
+            "ui.systemUsesDarkTheme" = 1;
+            # Dark scrollbars
+            "widget.content.allow-gtk-dark-theme" = true;
+          };
+        };
+      };
+    };
 
     carapace = {
       enable = true;

@@ -1,8 +1,18 @@
-{ ... }:
+{ pkgs, ... }:
 {
   services = {
-    displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true;
-
+    # enable COSMIC
+    displayManager.cosmic-greeter.enable = true;
+    desktopManager.cosmic = {
+      enable = true;
+      showExcludedPkgsWarning = true;
+      xwayland.enable = true;
+    };
   };
+
+  environment.cosmic.excludePackages = with pkgs; [
+    cosmic-edit
+    cosmic-term
+    pop-launcher
+  ];
 }
