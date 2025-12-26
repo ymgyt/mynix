@@ -10,7 +10,8 @@
       linuxHeaders
       man-pages
       man-pages-posix
-      config.boot.kernelPackages.perf
+      # config.boot.kernelPackages.perf
+      perf
     ]
     ++ (with pkgs.gnomeExtensions; [
       kimpanel
@@ -29,5 +30,4 @@
     # Disable ssh-askpass
     unset -v SSH_ASKPASS
   '';
-
 }

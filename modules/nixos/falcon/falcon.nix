@@ -6,7 +6,7 @@
   libnl,
   zlib,
   autoPatchelfHook,
-  buildFHSUserEnv,
+  buildFHSEnv,
   debFile,
   version,
   arch,
@@ -44,7 +44,7 @@ let
     };
   };
 in
-buildFHSUserEnv {
+buildFHSEnv {
   name = "fs-bash";
   targetPkgs = pkgs: [
     libnl

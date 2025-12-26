@@ -6,17 +6,9 @@
     packages = with pkgs; [
       noto-fonts
       noto-fonts-cjk-sans
-      noto-fonts-emoji
+      noto-fonts-color-emoji
       dejavu_fonts
-      # nerdfotns
-      # https://www.nerdfonts.com/font-downloads
-      # items are inferred from the actual downloaded file name
-      (nerdfonts.override {
-        fonts = [
-          "JetBrainsMono"
-        ];
-      })
-
+      nerd-fonts.jetbrains-mono
     ];
     enableDefaultPackages = false;
     # Make sure font match with alacritty font settings

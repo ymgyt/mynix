@@ -3,19 +3,22 @@ let
   email = "yamaguchi7073xtt@gmail.com";
 in
 {
+  programs.delta = {
+    enable = true;
+    options = {
+      dark = true;
+    };
+  };
   programs.git = {
     enable = true;
     # for git send-email
     package = pkgs.gitFull;
-    userName = "ymgyt";
-    userEmail = email;
-    delta = {
-      enable = true;
-      options = {
-        dark = true;
+    settings = {
+      user = {
+        inherit email;
+        name = "ymgyt";
+
       };
-    };
-    extraConfig = {
       blanch = {
         sort = "-committerdate";
       };
@@ -89,20 +92,23 @@ in
         smtpEncryption = "tls";
         smtpUser = email;
       };
+
+      alias = {
+        a = "add";
+        b = "branch -vv";
+        d = "diff";
+        s = "status";
+        l = "log";
+        t = "trim --delete local --delete 'merged:*'";
+
+        co = "checkout";
+        cm = "commit";
+      };
     };
 
     includes = [ { path = "~/.gitlocalconfig"; } ];
 
-    aliases = {
-      a = "add";
-      b = "branch -vv";
-      d = "diff";
-      s = "status";
-      l = "log";
-      t = "trim --delete local --delete 'merged:*'";
-
-      co = "checkout";
-      cm = "commit";
+    settings = {
     };
   };
 

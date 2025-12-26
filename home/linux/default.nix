@@ -19,7 +19,6 @@
     # llvm
     # ojbdump
     llvmPackages.bintools
-    llvmPackages_16.clang-unwrapped
     lldb
 
     # emulator

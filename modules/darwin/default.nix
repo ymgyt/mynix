@@ -25,12 +25,8 @@
     packages = with pkgs; [
       noto-fonts
       noto-fonts-cjk-sans
-      noto-fonts-emoji
-
-      # nerdfotns
-      # https://www.nerdfonts.com/font-downloads
-      # items are inferred from the actual downloaded file name
-      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+      noto-fonts-color-emoji
+      nerd-fonts.jetbrains-mono
     ];
   };
 

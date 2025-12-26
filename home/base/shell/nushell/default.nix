@@ -1,4 +1,5 @@
-{ pkgs-unstable, ... }: {
+{ pkgs-unstable, ... }:
+{
   programs.nushell = {
     enable = true;
     package = pkgs-unstable.nushell;
@@ -7,10 +8,8 @@
   };
   xdg.configFile."nushell/completions/cargo-completions.nu".source =
     ./completions/cargo-completions.nu;
-  xdg.configFile."nushell/completions/git-completions.nu".source =
-    ./completions/git-completions.nu;
-  xdg.configFile."nushell/completions/nix-completions.nu".source =
-    ./completions/nix-completions.nu;
+  xdg.configFile."nushell/completions/git-completions.nu".source = ./completions/git-completions.nu;
+  xdg.configFile."nushell/completions/nix-completions.nu".source = ./completions/nix-completions.nu;
   xdg.configFile."nushell/completions/poetry-completions.nu".source =
     ./completions/poetry-completions.nu;
   xdg.configFile."nushell/completions/typst-completions.nu".source =
@@ -29,6 +28,9 @@
   # manually create starship init
   xdg.configFile."nushell/starship/init.nu".source = ./starship_init.nu;
 
+  # stylixでstarshipを有効にすると、~/.config/starship.tomlの作成が衝突する
+  # 回避するには、xdg.configFileではなくて、programs.starship.settingsに定義する必要がある
+  stylix.targets.starship.enable = false;
   # generate by `starship preset nerd-font-symbols -o ./starship.toml`
   xdg.configFile."starship.toml".source = ./starship.toml;
 }
