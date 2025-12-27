@@ -12,7 +12,5 @@
 
   environment.cosmic.excludePackages = with pkgs; [
     cosmic-edit
-    cosmic-term
-    pop-launcher
   ];
 }
