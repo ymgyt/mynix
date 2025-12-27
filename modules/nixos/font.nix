@@ -9,6 +9,7 @@
       noto-fonts-color-emoji
       dejavu_fonts
       nerd-fonts.jetbrains-mono
+      nerd-fonts.symbols-only
     ];
     enableDefaultPackages = false;
     # Make sure font match with alacritty font settings
@@ -23,6 +24,8 @@
         "Noto Color Emoji"
       ];
       monospace = [
+        "JetBrainsMono Nerd Font Mono"
+        "Symbols Nerd Font"
         "Noto Sans Mono"
         "Noto Color Emoji"
         "DejaVu Sans Mono"
