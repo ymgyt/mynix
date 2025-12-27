@@ -8,6 +8,8 @@
       showExcludedPkgsWarning = true;
       xwayland.enable = true;
     };
+
+    system76-scheduler.enable = true;
   };
 
   environment.cosmic.excludePackages = with pkgs; [

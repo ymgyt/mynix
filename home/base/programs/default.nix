@@ -12,17 +12,17 @@
   ];
 
   # TODO: mv
-  stylix.targets = {
-    firefox = {
-      enable = true;
-      profileNames = [ "ymgyt" ];
-      colors.enable = true;
-      fonts.enable = true;
-      colorTheme.enable = true;
-      firefoxGnomeTheme.enable = true;
-    };
-    gnome.enable = true; # Helps with dark mode detection even without GNOME
-  };
+  # stylix.targets = {
+  #   firefox = {
+  #     enable = true;
+  #     profileNames = [ "ymgyt" ];
+  #     colors.enable = true;
+  #     fonts.enable = true;
+  #     colorTheme.enable = true;
+  #     firefoxGnomeTheme.enable = true;
+  #   };
+  #   gnome.enable = true; # Helps with dark mode detection even without GNOME
+  # };
 
   programs = {
     bat = {

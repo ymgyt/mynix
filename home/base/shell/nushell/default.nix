@@ -30,7 +30,7 @@
 
   # stylixでstarshipを有効にすると、~/.config/starship.tomlの作成が衝突する
   # 回避するには、xdg.configFileではなくて、programs.starship.settingsに定義する必要がある
-  stylix.targets.starship.enable = false;
+  # stylix.targets.starship.enable = false;
   # generate by `starship preset nerd-font-symbols -o ./starship.toml`
   xdg.configFile."starship.toml".source = ./starship.toml;
 }
