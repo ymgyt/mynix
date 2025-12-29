@@ -16,6 +16,10 @@
   # TODO: handle
   boot.blacklistedKernelModules = [ "nouveau" ];
   services.xserver.videoDrivers = [ "modesetting" ];
+  boot.kernelParams = [
+    "simpledrm.disable=1"
+  ];
+  boot.initrd.kernelModules = [ "i915" ];
 
   networking.hostName = "arkedge";
   system.stateVersion = "24.05";
