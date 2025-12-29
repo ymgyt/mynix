@@ -15,7 +15,7 @@
     ./i18n.nix
 
     ./falcon
-    ./stylix
+    # ./stylix
     ./virtualbox.nix
     ./docker.nix
   ];

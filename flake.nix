@@ -2,24 +2,23 @@
   description = "Nix configuration of ymgyt";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    nixpkgs-darwin.url = "github:NixOS/nixpkgs/nixpkgs-25.11-darwin";
+    nixpkgs-darwin.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     darwin = {
       url = "github:lnl7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs-darwin";
     };
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.11";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    stylix = {
-      url = "github:nix-community/stylix/release-25.11";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # stylix = {
+    #   url = "github:nix-community/stylix/release-25.11";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     myhelix.url = "github:ymgyt/helix/explorer";
 
@@ -30,10 +29,9 @@
   outputs =
     {
       nixpkgs,
-      nixpkgs-unstable,
       darwin,
       home-manager,
-      stylix,
+      # stylix,
       myhelix,
       ragenix,
       ...
@@ -58,7 +56,7 @@
           os = builtins.elemAt (builtins.match ".*-(.*)" system) 0;
           specialArgs = {
             inherit ragenix myhelix;
-            pkgs-unstable = import nixpkgs-unstable {
+            pkgs-unstable = import nixpkgs {
               inherit system;
               config.allowUnfreePredicate =
                 pkg:
@@ -80,7 +78,7 @@
             home-manager.users.${user} = import ./home/${os};
             home-manager.extraSpecialArgs = specialArgs;
           }
-          stylix.nixosModules.stylix
+          # stylix.nixosModules.stylix
         ];
     in
     {
@@ -104,7 +102,7 @@
           system = "aarch64-darwin";
           specialArgs = {
             inherit ragenix;
-            pkgs-unstable = import nixpkgs-unstable {
+            pkgs-unstable = import nixpkgs {
               inherit system;
               config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [ "terraform" ];
             };

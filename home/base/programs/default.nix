@@ -80,7 +80,7 @@
     tflint
 
     # Secret management
-    vault
+    # vault
 
     # Data format
     taplo
