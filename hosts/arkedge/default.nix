@@ -18,9 +18,9 @@
   services.xserver.videoDrivers = [ "modesetting" ];
   boot.kernelParams = [
     "simpledrm.disable=1"
-    "i915.enable_guc=0"
-    "i915.enable_psr=0"
-    "i915.enable_dc=0"
+    # "i915.enable_guc=0"
+    # "i915.enable_psr=0"
+    # "i915.enable_dc=0"
   ];
   boot.initrd.kernelModules = [ "i915" ];
 
