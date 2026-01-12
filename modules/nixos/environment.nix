@@ -1,26 +1,29 @@
 { pkgs, config, ... }:
 {
-  environment.systemPackages =
-    with pkgs;
-    [
-      fd
-      git
-      gcc # for compile procmacro when reading code
-      opentelemetry-collector-contrib
-      linuxHeaders
-      man-pages
-      man-pages-posix
-      # config.boot.kernelPackages.perf
-      perf
-    ]
-    ++ (with pkgs.gnomeExtensions; [
-      kimpanel
-      tiling-shell
-      blur-my-shell
-      system-monitor
-      open-bar
-      unite
-    ]);
+  environment.systemPackages = with pkgs; [
+    fd
+    git
+    gcc # for compile procmacro when reading code
+    opentelemetry-collector-contrib
+    linuxHeaders
+    man-pages
+    man-pages-posix
+    # config.boot.kernelPackages.perf
+    perf
+
+    # 以下のようにstoreにmodule build用のkernelのsrcが生える
+    # /nix/store/nx4mdfzx7rkwl9zkqspmfcxxznd92akj-linux-6.12.63-dev/lib/modules/6.12.63/build
+    config.boot.kernelPackages.kernel.dev
+  ];
+  # TODO: gnomeの有効性で分岐させたい
+  # ++ (with pkgs.gnomeExtensions; [
+  #   kimpanel
+  #   tiling-shell
+  #   blur-my-shell
+  #   system-monitor
+  #   open-bar
+  #   unite
+  # ]);
 
   # Set default editor to helix
   environment.variables.EDITOR = "hx";
