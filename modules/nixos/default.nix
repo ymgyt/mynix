@@ -17,6 +17,7 @@
     ./falcon
     # ./stylix
     ./virtualbox.nix
+    ./virt-manager.nix
     ./docker.nix
   ];
 }
