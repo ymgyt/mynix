@@ -6,7 +6,7 @@
   ];
 
   falconSensor = rec {
-    enable = false;
+    enable = true;
     version = "7.05.0-16004";
     arch = "amd64";
     debFile = /opt/CrowdStrike + "/falcon-sensor_${version}_${arch}.deb";
@@ -17,5 +17,5 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "FA00202";
-  # system.stateVersion = "24.05";
+  system.stateVersion = "25.11";
 }

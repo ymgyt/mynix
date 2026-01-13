@@ -8,6 +8,7 @@
     linuxHeaders
     man-pages
     man-pages-posix
+    wl-clipboard-rs
     # config.boot.kernelPackages.perf
     perf
 
@@ -28,6 +29,7 @@
   # Set default editor to helix
   environment.variables.EDITOR = "hx";
   environment.variables.__LINUX_HEADER = "${pkgs.linuxHeaders}/include";
+  environment.variables.__KDIR = "${config.boot.kernelPackages.kernel.dev}";
 
   environment.extraInit = ''
     # Disable ssh-askpass
