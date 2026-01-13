@@ -1,4 +1,7 @@
 { pkgs, config, ... }:
+let
+  kernel = config.boot.kernelPackages.kernel;
+in
 {
   environment.systemPackages = with pkgs; [
     fd
@@ -9,12 +12,11 @@
     man-pages
     man-pages-posix
     wl-clipboard-rs
-    # config.boot.kernelPackages.perf
     perf
 
     # 以下のようにstoreにmodule build用のkernelのsrcが生える
     # /nix/store/nx4mdfzx7rkwl9zkqspmfcxxznd92akj-linux-6.12.63-dev/lib/modules/6.12.63/build
-    config.boot.kernelPackages.kernel.dev
+    kernel.dev
   ];
   # TODO: gnomeの有効性で分岐させたい
   # ++ (with pkgs.gnomeExtensions; [
@@ -29,7 +31,7 @@
   # Set default editor to helix
   environment.variables.EDITOR = "hx";
   environment.variables.__LINUX_HEADER = "${pkgs.linuxHeaders}/include";
-  environment.variables.__KDIR = "${config.boot.kernelPackages.kernel.dev}";
+  environment.variables.__KDIR = "${kernel.dev}/lib/modules/${kernel.modDirVersion}/build";
 
   environment.extraInit = ''
     # Disable ssh-askpass
