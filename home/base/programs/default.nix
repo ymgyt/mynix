@@ -8,6 +8,7 @@
     ./kernel.nix
     ./kubernetes.nix
     ./languages
+    ./mail.nix
     ./wasm.nix
   ];
 
