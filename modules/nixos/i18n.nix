@@ -21,6 +21,9 @@
     enable = true;
     type = "fcitx5";
     fcitx5.addons = with pkgs; [ fcitx5-mozc ];
+    # https://github.com/NixOS/nixpkgs/blob/1412caf7bf9e660f2f962917c14b1ea1c3bc695e/nixos/modules/i18n/input-method/fcitx5.nix#L24
+    # should enable waylandFrontend ?
+    # fcitx5.waylandFrontend = true;
   };
 
 }
