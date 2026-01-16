@@ -67,11 +67,6 @@
     unzip
     hexyl
 
-    # C
-    pkg-config-unwrapped
-    cmake
-    gnumake
-
     # Says
     ponysay
 
