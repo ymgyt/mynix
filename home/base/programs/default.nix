@@ -5,7 +5,6 @@
     ./filesystem.nix
     ./git.nix
     ./gpg.nix
-    ./kernel.nix
     ./kubernetes.nix
     ./languages
     ./mail.nix
