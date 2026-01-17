@@ -15,7 +15,7 @@ alias nd = nix develop
 let alias_completer = {|spans| 
   let expanded_alias = scope aliases
       | where name == $spans.0
-      | get -i 0.expansion
+      | get -o 0.expansion
 
   let spans = if $expanded_alias != null {
     $spans
@@ -33,7 +33,7 @@ $env.config = {
   history: {
     max_size: 100_000
     sync_on_enter: true
-    file_format: "plaintext"
+    file_format: "sqlite"
     isolation: true
   }
   completions: {
