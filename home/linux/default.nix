@@ -18,8 +18,6 @@
   home.packages = with pkgs; [
     # llvm
     # ojbdump
-    llvmPackages.bintools
-    lldb
 
     # emulator
     qemu
