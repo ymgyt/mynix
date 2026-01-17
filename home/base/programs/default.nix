@@ -153,6 +153,8 @@
     # {
     #   graphicsSupport = true;
     # }
+    # USB
+    usbutils
 
     # Etc(not categorized yet)
     pkgs-unstable.typst
