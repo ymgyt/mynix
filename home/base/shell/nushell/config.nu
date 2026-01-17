@@ -30,6 +30,10 @@ let alias_completer = {|spans|
 
 $env.config = {
   show_banner: false,
+  table: {
+    # table --list
+    mode:  "psql"
+  }
   history: {
     max_size: 100_000
     sync_on_enter: true
