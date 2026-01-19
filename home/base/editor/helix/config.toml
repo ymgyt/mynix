@@ -32,7 +32,7 @@ cursor-line = "warning" # hint | info | warning | error
 # other-lines = "hint"
 
 [editor.whitespace.render]
-tab = "all"
+# tab = "all"
 
 [keys.normal]
 "'" = ":buffer-close"  # Close buffer with single quote
