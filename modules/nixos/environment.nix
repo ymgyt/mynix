@@ -1,6 +1,7 @@
 { pkgs, config, ... }:
 let
-  kernel = config.boot.kernelPackages.kernel;
+  kernelPkg = config.boot.kernelPackages;
+  kernel = kernelPkg.kernel;
 in
 {
   environment.systemPackages = with pkgs; [
@@ -17,6 +18,7 @@ in
     # 以下のようにstoreにmodule build用のkernelのsrcが生える
     # /nix/store/nx4mdfzx7rkwl9zkqspmfcxxznd92akj-linux-6.12.63-dev/lib/modules/6.12.63/build
     kernel.dev
+    kernelPkg.mm-tools
   ];
   # TODO: gnomeの有効性で分岐させたい
   # ++ (with pkgs.gnomeExtensions; [
