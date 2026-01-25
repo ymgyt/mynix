@@ -28,6 +28,8 @@
     # getpcaps,capsh, setcap, getcap
     libcap
 
+    lm_sensors
+
     slack
   ];
 
