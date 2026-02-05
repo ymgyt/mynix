@@ -96,6 +96,7 @@
             system764 = "x86_64-linux";
             arkedge = "x86_64-linux";
             FA00202 = "x86_64-linux";
+            FA00331 = "x86_64-linux";
           };
 
       darwinConfigurations = {
