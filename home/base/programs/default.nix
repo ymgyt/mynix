@@ -164,5 +164,6 @@
     neofetch
     kbt
     pciutils
+    gettext
   ];
 }
