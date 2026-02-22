@@ -30,6 +30,9 @@
 
     lm_sensors
 
+    # I2C
+    i2c-tools
+
     slack
   ];
 
