@@ -84,6 +84,7 @@
 
     # SSH
     openssh # provide ssh ssh-agent ssh-keygen ssh-add scp ssh-keyscan
+    rage
 
     # Blog
     zola
