@@ -1,4 +1,5 @@
 # unignore in file picker and global search
+!.claude/
 !.github/
 !.gitignore
 !.cliff.toml
