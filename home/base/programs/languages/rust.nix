@@ -5,6 +5,7 @@
     cargo-audit
     cargo-criterion
     cargo-expand
+    cargo-hack
     cargo-insta
     cargo-make
     cargo-nextest
