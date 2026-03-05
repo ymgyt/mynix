@@ -1,3 +1,4 @@
+alias b = bat
 alias c = cargo
 alias g = git
 alias j = just
