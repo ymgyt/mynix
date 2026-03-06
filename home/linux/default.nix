@@ -30,6 +30,9 @@
 
     lm_sensors
 
+    # sound
+    wiremix
+
     # I2C
     i2c-tools
 
