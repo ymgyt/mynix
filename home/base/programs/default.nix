@@ -98,9 +98,10 @@
     # DNS
     dig
 
-    # Tcp
+    # Tcp/Network
     tcpdump
     lsof
+    wireshark
 
     # Policy
     open-policy-agent
