@@ -122,6 +122,13 @@
     # Markdown
     marksman
     textlint
+    (writeShellApplication {
+      name = "mdfmt";
+      runtimeInputs = [ pandoc ];
+      text = ''
+        exec pandoc -t gfm --columns=1000
+      '';
+    })
 
     # Json
     jsonnet
