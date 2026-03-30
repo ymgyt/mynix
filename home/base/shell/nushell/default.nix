@@ -33,4 +33,8 @@
   # stylix.targets.starship.enable = false;
   # generate by `starship preset nerd-font-symbols -o ./starship.toml`
   xdg.configFile."starship.toml".source = ./starship.toml;
+
+  home.packages = with pkgs-unstable; [
+    nufmt
+  ];
 }
