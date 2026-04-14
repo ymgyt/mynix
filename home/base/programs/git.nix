@@ -13,6 +13,7 @@ in
     enable = true;
     # for git send-email
     package = pkgs.gitFull;
+    signing.format = "openpgp";
     settings = {
       user = {
         inherit email;

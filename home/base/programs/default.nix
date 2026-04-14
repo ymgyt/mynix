@@ -170,7 +170,7 @@
     protobuf # provide protoc
     direnv
     fzf
-    neofetch
+    fastfetch
     kbt
     pciutils
     gettext
