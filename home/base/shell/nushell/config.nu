@@ -77,13 +77,8 @@ def gcom [ ] {
   }
 }
 
-# def --env is required for cd to work
-# cd means change of environment variable PWD
-# therefore, it is necessary to change environment variables outside the function scope
-export def --env fraim [ ] {
-  let dst = (exa ~/fraim | fzf)
-  let go = $"($env.HOME)/fraim/($dst)"
-  cd $go
+def mdf [] {
+    pandoc -t gfm --columns 10000
 }
 
 # const starship_init_me = "~/.config/nushell/starship/init.nu"
