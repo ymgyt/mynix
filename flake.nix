@@ -15,11 +15,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # stylix = {
-    #   url = "github:nix-community/stylix/release-25.11";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-
     myhelix.url = "github:ymgyt/helix/explorer";
 
     # secrets management
@@ -31,7 +26,6 @@
       nixpkgs,
       darwin,
       home-manager,
-      # stylix,
       myhelix,
       ragenix,
       ...
@@ -94,8 +88,6 @@
           {
             xps15 = "x86_64-linux";
             system764 = "x86_64-linux";
-            arkedge = "x86_64-linux";
-            FA00202 = "x86_64-linux";
             FA00331 = "x86_64-linux";
           };
 
@@ -124,6 +116,8 @@
       };
 
       formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixpkgs-fmt);
+
+      devShells = forAllSystems (system: import ./devshells { pkgs = nixpkgs.legacyPackages.${system}; });
     };
 
   # https://nixos.org/manual/nix/stable/command-ref/conf-file.html
