@@ -1,5 +1,9 @@
-{ pkgs-unstable, ... }:
+{ pkgs-unstable, lib, ... }:
 {
+  home.activation.ensureNushellLocal = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    run touch "$HOME/.config/nushell/local.nu"
+  '';
+
   programs.nushell = {
     enable = true;
     package = pkgs-unstable.nushell;
