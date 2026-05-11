@@ -10,6 +10,8 @@
       dejavu_fonts
       nerd-fonts.jetbrains-mono
       nerd-fonts.symbols-only
+      source-han-sans-japanese
+      udev-gothic
     ];
     enableDefaultPackages = false;
     # Make sure font match with alacritty font settings
