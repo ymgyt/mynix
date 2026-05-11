@@ -10,7 +10,7 @@
       dejavu_fonts
       nerd-fonts.jetbrains-mono
       nerd-fonts.symbols-only
-      source-han-sans-japanese
+      source-han-sans
       udev-gothic
     ];
     enableDefaultPackages = false;

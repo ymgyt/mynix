@@ -72,7 +72,6 @@
             home-manager.users.${user} = import ./home/${os};
             home-manager.extraSpecialArgs = specialArgs;
           }
-          # stylix.nixosModules.stylix
         ];
     in
     {
@@ -89,6 +88,7 @@
             xps15 = "x86_64-linux";
             system764 = "x86_64-linux";
             FA00331 = "x86_64-linux";
+            ttake = "x86_64-linux";
           };
 
       darwinConfigurations = {
