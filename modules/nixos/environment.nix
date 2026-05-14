@@ -8,10 +8,11 @@ in
     fd
     git
     gcc # for compile procmacro when reading code
-    opentelemetry-collector-contrib
+    libnotify
     linuxHeaders
     man-pages
     man-pages-posix
+    opentelemetry-collector-contrib
     wl-clipboard-rs
     perf
 
@@ -20,15 +21,6 @@ in
     kernel.dev
     kernelPkg.mm-tools
   ];
-  # TODO: gnomeの有効性で分岐させたい
-  # ++ (with pkgs.gnomeExtensions; [
-  #   kimpanel
-  #   tiling-shell
-  #   blur-my-shell
-  #   system-monitor
-  #   open-bar
-  #   unite
-  # ]);
 
   # Set default editor to helix
   environment.variables.EDITOR = "hx";
