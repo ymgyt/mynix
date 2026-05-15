@@ -1,42 +1,22 @@
-{ pkgs-unstable, lib, ... }:
+{ pkgs-unstable, ... }:
 {
-  home.activation.ensureNushellLocal = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-    run touch "$HOME/.config/nushell/local.nu"
-  '';
-
   programs.nushell = {
     enable = true;
     package = pkgs-unstable.nushell;
     configFile.source = ./config.nu;
     envFile.source = ./env.nu;
   };
-  xdg.configFile."nushell/completions/cargo-completions.nu".source =
-    ./completions/cargo-completions.nu;
-  xdg.configFile."nushell/completions/git-completions.nu".source = ./completions/git-completions.nu;
-  xdg.configFile."nushell/completions/nix-completions.nu".source = ./completions/nix-completions.nu;
-  xdg.configFile."nushell/completions/poetry-completions.nu".source =
-    ./completions/poetry-completions.nu;
-  xdg.configFile."nushell/completions/typst-completions.nu".source =
-    ./completions/typst-completions.nu;
-  xdg.configFile."nushell/completions/zellij-completions.nu".source =
-    ./completions/zellij-completions.nu;
-  xdg.configFile."nushell/completions/terraform-completions.nu".source =
-    ./completions/terraform-completions.nu;
+
+  xdg.configFile."nushell/autoload/01-aliases.nu".source = ./autoload/01-aliases.nu;
+  xdg.configFile."nushell/autoload/02-commands.nu".source = ./autoload/02-commands.nu;
+  xdg.configFile."nushell/starship/init.nu".source = ./starship/init.nu;
 
   programs.starship = {
     enable = true;
-    # current starship generate nu script which use `let-env` that is deprecated in 0.83 nushell
     enableNushellIntegration = false;
   };
 
-  # manually create starship init
-  xdg.configFile."nushell/starship/init.nu".source = ./starship_init.nu;
-
-  # stylixでstarshipを有効にすると、~/.config/starship.tomlの作成が衝突する
-  # 回避するには、xdg.configFileではなくて、programs.starship.settingsに定義する必要がある
-  # stylix.targets.starship.enable = false;
-  # generate by `starship preset nerd-font-symbols -o ./starship.toml`
-  xdg.configFile."starship.toml".source = ./starship.toml;
+  xdg.configFile."starship.toml".source = ./starship/starship.toml;
 
   home.packages = with pkgs-unstable; [
     nufmt

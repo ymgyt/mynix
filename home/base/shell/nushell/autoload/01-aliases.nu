@@ -1,0 +1,10 @@
+alias b = bat
+alias c = cargo
+alias g = git
+alias j = just
+alias k = kubectl
+alias m = makers
+alias n = nix
+alias nd = nix develop
+alias tf = terraform
+alias zr = zellij action rename-tab
