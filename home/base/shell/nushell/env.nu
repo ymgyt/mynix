@@ -34,7 +34,7 @@ starship init nu | save -f ~/.cache/starship/init.nu
 $env.PROMPT_INDICATOR_VI_INSERT = ""
 $env.PROMPT_INDICATOR_VI_NORMAL = ""
 
-const local = ($nu.home-path | path join ".config/nushell/local.nu")
+const local = "~/.config/nushell/local.nu"
 source $local
 
 # Add cargo commands to PATH

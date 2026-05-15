@@ -81,5 +81,5 @@ def mdf [] {
     pandoc -t gfm --columns 10000
 }
 
-const starship_init = ($nu.home-path | path join ".cache/starship/init.nu")
+const starship_init = "~/.cache/starship/init.nu"
 use $starship_init

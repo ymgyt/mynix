@@ -35,6 +35,9 @@
     # hostPlatform.config = "aarch64-apple-darwin"
     firefox = {
       enable = if pkgs.stdenv.isDarwin then false else true;
+      # configPath moved to "${config.xdg.configHome}/mozilla/firefox"
+      # keep legacy behavior
+      configPath = ".mozilla/firefox";
       profiles = {
         ymgyt = {
           extensions.force = true;
