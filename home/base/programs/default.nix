@@ -9,8 +9,6 @@
     ./dprint
     ./frontend.nix
     ./fun.nix
-    ./git.nix
-    ./github.nix
     ./gpg.nix
     ./graphql.nix
     ./hardware.nix

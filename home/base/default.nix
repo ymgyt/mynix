@@ -4,6 +4,7 @@
     ./terminal
     ./shell
     ./editor
+    ./git
     ./programs
   ];
 
