@@ -5,6 +5,9 @@ format = '''
 [┌─](bold green)$all[└─](bold green)$character
 '''
 
+[profiles]
+transient = "$character"
+
 [character] # The name of the module we are configuring is 'character'
 error_symbol = '[✗](bold red) '
 format = "$symbol"
