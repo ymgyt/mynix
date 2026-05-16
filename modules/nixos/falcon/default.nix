@@ -5,7 +5,7 @@
   ...
 }:
 let
-  cfg = config.falconSensor;
+  cfg = config.my.falcon;
 
   falcon = pkgs.callPackage ./falcon.nix {
     debFile = cfg.debFile;
@@ -20,33 +20,28 @@ let
     ${falcon}/bin/fs-bash -c "${falcon}/opt/CrowdStrike/falconctl -g --cid"
   '';
 in
-with lib;
 {
-  options.falconSensor = {
-    enable = mkOption {
-      type = types.bool;
-      default = false;
-      description = "Enable CrowdStrike Falcon Sensor";
-    };
+  options.my.falcon = {
+    enable = lib.mkEnableOption "CrowdStrike Falcon Sensor";
 
-    debFile = mkOption {
-      type = types.path;
+    debFile = lib.mkOption {
+      type = lib.types.path;
       description = "Path to the falcon-sensor deb file";
     };
 
-    version = mkOption {
-      type = types.str;
+    version = lib.mkOption {
+      type = lib.types.str;
       description = "Version of falcon-sensor";
     };
 
-    arch = mkOption {
-      type = types.str;
+    arch = lib.mkOption {
+      type = lib.types.str;
       default = "amd64";
       description = "Architecture of falcon-sensor deb file";
     };
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     systemd.services.falcon-sensor = {
       enable = true;
       description = "CrowdStrike Falcon Sensor";

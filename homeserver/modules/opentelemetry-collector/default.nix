@@ -1,4 +1,9 @@
-{ pkgs, config, mysecrets, ... }:
+{
+  pkgs,
+  config,
+  mysecrets,
+  ...
+}:
 let
   otelColUser = "opentelemetry-collector";
   otelColGroup = otelColUser;
@@ -33,7 +38,6 @@ in
     };
   };
 
-
   # Put opentelemetry-collector config file
   environment.etc = {
     "opentelemetry-collector/config.yaml" = {
@@ -50,10 +54,8 @@ in
     wantedBy = [ "multi-user.target" ];
     serviceConfig =
       let
-        conf =
-          "${config.environment.etc."opentelemetry-collector/config.yaml".source.outPath}";
-        ExecStart =
-          "${pkgs.opentelemetry-collector-contrib}/bin/otelcontribcol --config=file:${conf}";
+        conf = "${config.environment.etc."opentelemetry-collector/config.yaml".source.outPath}";
+        ExecStart = "${pkgs.opentelemetry-collector-contrib}/bin/otelcontribcol --config=file:${conf}";
       in
       {
         inherit ExecStart;

@@ -16,6 +16,11 @@
     enableNushellIntegration = false;
   };
 
+  programs.carapace = {
+    enable = true;
+    enableNushellIntegration = true;
+  };
+
   xdg.configFile."starship.toml".source = ./starship/starship.toml;
 
   home.packages = with pkgs-unstable; [

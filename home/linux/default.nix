@@ -1,10 +1,14 @@
-{ pkgs, ... }:
+{ ... }:
 {
-
   imports = [
     ../base
-    ./ebpf.nix
+    ./chat.nix
     ./dconf.nix
+    ./desktop.nix
+    ./ebpf.nix
+    ./firefox.nix
+    ./hardware.nix
+    ./kernel.nix
   ];
 
   home = {
@@ -13,31 +17,6 @@
 
     stateVersion = "23.05";
   };
-
-  # Define packages supported in only linux
-  home.packages = with pkgs; [
-    # llvm
-    # ojbdump
-
-    # emulator
-    qemu
-
-    # cgroup utilities
-    libcgroup
-    # capability tools
-    # getpcaps,capsh, setcap, getcap
-    libcap
-
-    lm_sensors
-
-    # sound
-    wiremix
-
-    # I2C
-    i2c-tools
-
-    slack
-  ];
 
   programs.home-manager.enable = true;
 }

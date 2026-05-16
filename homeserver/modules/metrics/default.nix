@@ -1,3 +1,4 @@
-{ ... }: {
+{ ... }:
+{
   imports = [ ./cpu-temperature ];
 }

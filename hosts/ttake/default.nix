@@ -1,14 +1,17 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ../../modules/users.nix
     ../../modules/nixos
   ];
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
   networking.hostName = "ttake";
-  
+
   system.stateVersion = "25.11";
+
+  my = {
+    docker.enable = true;
+    libvirt.enable = true;
+    kernel-dev.enable = true;
+    cosmic.enable = true;
+  };
 }

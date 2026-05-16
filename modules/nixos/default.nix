@@ -1,12 +1,12 @@
 { ... }:
 {
   imports = [
+    ./users.nix
+
     ./boot
     ./environment.nix
     ./font.nix
-    ./hardware.nix
     ./networking.nix
-    ./nixpkgs.nix
     ./nix.nix
     ./programs.nix
     ./services
@@ -14,10 +14,12 @@
     ./time.nix
     ./i18n.nix
 
+    # Optional feature modules. Each defines my.<name>.enable;
+    # hosts opt in by setting it.
     ./falcon
-    # ./stylix
-    ./virtualbox.nix
-    ./virt-manager.nix
     ./docker.nix
+    ./virtualbox.nix
+    ./libvirt.nix
+    ./kernel-dev.nix
   ];
 }

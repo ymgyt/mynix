@@ -1,8 +1,15 @@
-{ ... }: {
-  virtualisation.virtualbox = {
-    host.enable = true;
-    # Guest additions
-    guest.enable = true;
+{ lib, config, ... }:
+let
+  cfg = config.my.virtualbox;
+in
+{
+  options.my.virtualbox.enable = lib.mkEnableOption "VirtualBox host and guest additions";
+
+  config = lib.mkIf cfg.enable {
+    virtualisation.virtualbox = {
+      host.enable = true;
+      guest.enable = true;
+    };
+    users.extraGroups.vboxusers.members = [ "ymgyt" ];
   };
-  users.extraGroups.vboxusers.members = [ "ymgyt" ];
 }

@@ -10,7 +10,7 @@ in
   # imports = [ ./common.nix ];
   # TODO: add kubectl
 
-  # Next shot: copy 
+  # Next shot: copy
   # /var/lib/cfssl/ca.pem to
   # /var/lib/kubernetes/secrets.ca.pem
 

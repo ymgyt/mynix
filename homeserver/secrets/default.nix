@@ -1,3 +1,4 @@
-{ ragenix, ... }: {
+{ ragenix, ... }:
+{
   imports = [ ragenix.nixosModules.default ];
 }

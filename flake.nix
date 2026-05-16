@@ -22,102 +22,19 @@
   };
 
   outputs =
-    {
-      nixpkgs,
-      darwin,
-      home-manager,
-      myhelix,
-      ragenix,
-      ...
-    }:
+    inputs:
     let
-      systems = [
-        "x86_64-linux"
-        "x86_64-darwin"
-        "aarch64-darwin"
-      ];
-
-      forAllSystems = nixpkgs.lib.genAttrs systems;
-
-      mkModules =
-        {
-          host,
-          system,
-          user ? "ymgyt",
-        }:
-        let
-          # substritute "x86_64-linux" => "linux"
-          os = builtins.elemAt (builtins.match ".*-(.*)" system) 0;
-          specialArgs = {
-            inherit ragenix myhelix;
-            pkgs-unstable = import nixpkgs {
-              inherit system;
-              config.allowUnfreePredicate =
-                pkg:
-                builtins.elem (nixpkgs.lib.getName pkg) [
-                  "terraform"
-                  "slack"
-                ];
-            };
-          };
-
-        in
-        [
-          ./hosts/${host}
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.backupFileExtension = "backup";
-            home-manager.users.${user} = import ./home/${os};
-            home-manager.extraSpecialArgs = specialArgs;
-          }
-        ];
+      mylib = import ./lib { inherit inputs; };
     in
     {
-      nixosConfigurations =
-        builtins.mapAttrs
-          (
-            host: system:
-            nixpkgs.lib.nixosSystem {
-              inherit system;
-              modules = mkModules { inherit system host; };
-            }
-          )
-          {
-            xps15 = "x86_64-linux";
-            system764 = "x86_64-linux";
-            FA00331 = "x86_64-linux";
-            ttake = "x86_64-linux";
-          };
+      nixosConfigurations = mylib.configsFor "nixos";
+      darwinConfigurations = mylib.configsFor "darwin";
 
-      darwinConfigurations = {
-        aem2 = darwin.lib.darwinSystem rec {
-          system = "aarch64-darwin";
-          specialArgs = {
-            inherit ragenix;
-            pkgs-unstable = import nixpkgs {
-              inherit system;
-              config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [ "terraform" ];
-            };
-          };
-          modules = [
-            ./hosts/aem2
-            (import ./overlays)
-            home-manager.darwinModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.ymgyt = import ./home/darwin;
-              home-manager.extraSpecialArgs = specialArgs;
-            }
-          ];
-        };
-      };
+      formatter = mylib.formatter;
+      devShells = mylib.devShells;
 
-      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixpkgs-fmt);
-
-      devShells = forAllSystems (system: import ./devshells { pkgs = nixpkgs.legacyPackages.${system}; });
+      # exposed for `nix repl` / `nix eval` introspection.
+      lib = mylib;
     };
 
   # https://nixos.org/manual/nix/stable/command-ref/conf-file.html
@@ -134,7 +51,6 @@
     substituters = [ "https://cache.nixos.org/" ];
     extra-substituters = [ "https://nix-community.cachix.org" ];
     extra-trusted-public-keys = [
-
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
     ];
   };

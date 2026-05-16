@@ -1,1 +1,7 @@
-{ pkgs, ... }: { home.packages = with pkgs; [ go gopls ]; }
+{ pkgs, ... }:
+{
+  home.packages = with pkgs; [
+    go
+    gopls
+  ];
+}

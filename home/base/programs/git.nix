@@ -18,9 +18,9 @@ in
       user = {
         inherit email;
         name = "ymgyt";
-
       };
-      blanch = {
+
+      branch = {
         sort = "-committerdate";
       };
 
@@ -108,9 +108,6 @@ in
     };
 
     includes = [ { path = "~/.gitlocalconfig"; } ];
-
-    settings = {
-    };
   };
 
   programs.gitui = {
