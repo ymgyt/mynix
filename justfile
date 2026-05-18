@@ -44,3 +44,7 @@ gc:
 # Remove result symlink
 clean:
     rm -rf result
+
+# Run cargo clean on all rust git repos under PATH (defaults to ~/rs)
+clean-rs path="~/rs":
+    nu scripts/clean-rs.nu {{ path }}
