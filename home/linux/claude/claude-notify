@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+payload="$(cat)"
+message="$(jq -r '.message // "Claude needs your attention"' <<<"$payload")"
+
+title="${S:-$(basename "$(jq -r '.cwd // ""' <<<"$payload")")}"
+title="${title:-attention}"
+
+notify-send \
+	--app-name='Claude Code' \
+	--urgency=critical \
+	--icon=dialog-warning \
+	--category=im.received \
+	"$title" \
+	"$message"

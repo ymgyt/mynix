@@ -3,6 +3,7 @@
   imports = [
     ../base
     ./chat.nix
+    ./claude
     ./dconf.nix
     ./desktop.nix
     ./ebpf.nix
