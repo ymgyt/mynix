@@ -9,6 +9,7 @@
     ./ebpf.nix
     ./firefox.nix
     ./hardware.nix
+    ./rust-linker.nix
     ./kernel.nix
   ];
 
