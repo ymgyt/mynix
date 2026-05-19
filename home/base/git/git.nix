@@ -101,6 +101,7 @@ in
         s = "status";
         l = "log";
         t = "trim --delete local --delete 'merged:*'";
+        w = "worktree";
 
         co = "checkout";
         cm = "commit";
