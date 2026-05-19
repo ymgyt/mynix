@@ -1,6 +1,6 @@
 $env.EDITOR = "hx"
 
-$env.VOLTA_HOME = ($nu.home-path | path join ".volta")
+$env.VOLTA_HOME = ($nu.home-dir | path join ".volta")
 $env.VOLTA_FEATURE_PNPM = "1"
 
 use std/util "path add"
