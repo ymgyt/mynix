@@ -15,7 +15,7 @@
     ./json.nix
     ./kubernetes.nix
     ./languages
-    ./mail.nix
+    ./mail
     ./man.nix
     ./markdown.nix
     ./monitor.nix

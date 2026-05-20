@@ -1,0 +1,30 @@
+[accounts."gmail"]
+root_mailbox = ""
+format = "imap"
+identity = "yamaguchi7073xtt@gmail.com"
+# booleanではなくコマンドとして失敗させている
+send_mail = "false"
+# subscribed_mailboxes = []
+
+server_hostname = "imap.gmail.com"
+server_username = "yamaguchi7073xtt@gmail.com"
+server_password_command = 'test -n "$MELI_GMAIL_APP_PASSWORD" && printf %s "$MELI_GMAIL_APP_PASSWORD"'
+server_port = 993
+use_tls = true
+use_starttls = false
+
+offline_cache = true
+default_mailbox = "INBOX"
+
+[accounts."gmail".mailboxes]
+"[Gmail]" = { collapsed = false }
+"[Gmail]/Trash" = { usage = "Trash" }
+"[Gmail]/Sent Mail" = { alias = "Sent" }
+"[Gmail]/Important" = { autoload = false }
+"R4L" = { autoload = true }
+
+[listing]
+index_style = "Compact"
+
+[notifications]
+enable = false

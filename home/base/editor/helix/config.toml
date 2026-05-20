@@ -6,6 +6,7 @@ auto-completion = true
 completion-replace = true
 auto-format = true
 path-completion = true
+insecure = true           # disable prompt
 
 end-of-line-diagnostics = "hint"
 insert-final-newline = true
