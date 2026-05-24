@@ -4,5 +4,5 @@
     meli
     swaks
   ];
-  xdg.configFile."meli/config.toml" = ./meli/config.toml;
+  xdg.configFile."meli/config.toml".source = ./meli/config.toml;
 }
