@@ -4,7 +4,8 @@
   programs.eza.enable = true;
   programs.yazi = {
     enable = true;
-    enableNushellIntegration = true;
+    # cd 追従ラッパ (y / yy) は使わないので integration は無効。
+    enableNushellIntegration = false;
     settings = {
       mgr = {
         show_hidden = true;
