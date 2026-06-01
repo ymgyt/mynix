@@ -13,6 +13,8 @@ let
     "terraform"
     "slack"
     "falcon-sensor"
+    "1password-cli"
+    "1password"
   ];
 
   allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) allowUnfreePackages;
