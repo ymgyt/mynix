@@ -10,6 +10,7 @@
     ./firefox.nix
     ./hardware.nix
     ./rust-linker.nix
+    ./sandbox.nix
     ./kernel.nix
   ];
 
