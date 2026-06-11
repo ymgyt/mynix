@@ -42,6 +42,12 @@ symbol = " "
 [fossil_branch]
 symbol = " "
 
+[gcloud]
+# project が設定されているときだけ ☁️ + project を表示する。
+# $symbol は常に非空なので format に入れると雲が常時表示されてしまう。
+# 代わりに雲をリテラルで埋め込み、$project が空ならグループ () ごと非表示にする。
+format = '[(on ☁️ $project )]($style)'
+
 [git_branch]
 symbol = " "
 
@@ -68,6 +74,12 @@ symbol = " "
 
 [julia]
 symbol = " "
+
+[kubernetes]
+# デフォルトは無効。k8s 関連ディレクトリにいるときだけ context を表示する。
+disabled = false
+detect_files = []
+detect_folders = ['k8s', 'kubernetes', 'helm', 'manifests', 'kustomize']
 
 [lua]
 symbol = " "
