@@ -24,7 +24,8 @@ default_mailbox = "INBOX"
 "R4L" = { autoload = true }
 
 [listing]
-index_style = "Compact"
+# index_style = "Compact"
+index_style = "Threaded"
 
 [notifications]
 enable = false

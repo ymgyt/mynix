@@ -32,6 +32,7 @@
   home.packages = with pkgs; [
     file
     hexyl
+    poppler-utils
     w3m
   ];
 }
