@@ -9,6 +9,7 @@
     ./ebpf.nix
     ./firefox.nix
     ./hardware.nix
+    ./monitor.nix
     ./rust-linker.nix
     ./sandbox.nix
     ./kernel.nix
