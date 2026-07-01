@@ -11,8 +11,14 @@ in
   options.my.libvirt.enable = lib.mkEnableOption "libvirtd for virsh-based VM management";
 
   config = lib.mkIf cfg.enable {
-    virtualisation.libvirtd.enable = true;
+    virtualisation.libvirtd = {
+      enable = true;
+      qemu.package = pkgs.qemu_kvm;
+    };
     users.users.ymgyt.extraGroups = [ "libvirtd" ];
-    environment.systemPackages = [ pkgs.qemu ];
+    environment.systemPackages = with pkgs; [
+      qemu
+      virt-manager
+    ];
   };
 }
