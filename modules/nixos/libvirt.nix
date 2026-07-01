@@ -17,7 +17,9 @@ in
     };
     users.users.ymgyt.extraGroups = [ "libvirtd" ];
     environment.systemPackages = with pkgs; [
+      libosinfo
       qemu
+      virt-viewer
       virt-manager
     ];
   };
