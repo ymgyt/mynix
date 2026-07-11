@@ -13,7 +13,11 @@ in
   config = lib.mkIf cfg.enable {
     virtualisation.libvirtd = {
       enable = true;
-      qemu.package = pkgs.qemu_kvm;
+      qemu = {
+        package = pkgs.qemu_kvm;
+        # virtios-fs backend
+        vhostUserPackages = [ pkgs.virtiofsd ];
+      };
     };
     # defaultの接続先を指定しておく
     environment.variables.LIBVIRT_DEFAULT_URI = "qemu:///system";
