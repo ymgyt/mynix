@@ -1,6 +1,9 @@
 { pkgs, ... }:
 {
-  programs.bat.enable = true;
+  programs.bat = {
+    enable = true;
+    config.theme = "dark";
+  };
   programs.eza.enable = true;
   programs.yazi = {
     enable = true;
