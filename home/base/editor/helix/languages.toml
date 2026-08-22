@@ -124,6 +124,7 @@ auto-format = true
 [[language]]
 language-servers = ["rust-analyzer"]
 name = "rust"
+roots = ["rust-project.json", "Cargo.toml", "Cargo.lock"]
 
 [[language]]
 name = "markdown"
