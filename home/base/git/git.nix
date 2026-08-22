@@ -50,6 +50,10 @@ in
 
       credential = {
         helper = "cache --timeout=604800";
+        # github.com は gh が keyring に持つ token を使う
+        "https://github.com" = {
+          helper = "!gh auth git-credential";
+        };
       };
 
       diff = {
