@@ -4,6 +4,7 @@ $env.VOLTA_HOME = ($nu.home-dir | path join ".volta")
 $env.VOLTA_FEATURE_PNPM = "1"
 
 use std/util "path add"
+path add "~/.ae/bin"
 path add "~/.cargo/bin"
 path add "~/.volta/bin"
 path add "~/.local/bin"
