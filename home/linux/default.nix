@@ -5,6 +5,7 @@
     ./chat.nix
     ./claude
     ./dconf.nix
+    ./debug.nix
     ./desktop.nix
     ./ebpf.nix
     ./firefox.nix
