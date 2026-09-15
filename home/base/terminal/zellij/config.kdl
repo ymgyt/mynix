@@ -210,6 +210,12 @@ default_shell "nu"
 //
 // pane_frames true
 
+// Whether stacked panes display as a list with the expanded pane pinned to the bottom
+// zellij 0.45 で追加された stack list UI が画面上部を占有するので旧表示 (1 行ずつ) に戻す
+// Default: true
+//
+stacked_pane_list false
+
 // Define color themes for Zellij
 // For more examples, see: https://github.com/zellij-org/zellij/tree/main/example/themes
 // Once these themes are defined, one of them should to be selected in the "theme" section of this file
