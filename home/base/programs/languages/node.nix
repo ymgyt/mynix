@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    nodejs_20
+    nodejs_26
     typescript-language-server
     prettier
   ];
