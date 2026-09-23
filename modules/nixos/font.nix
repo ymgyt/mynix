@@ -6,6 +6,7 @@
     packages = with pkgs; [
       noto-fonts
       noto-fonts-cjk-sans
+      noto-fonts-cjk-serif
       noto-fonts-color-emoji
       dejavu_fonts
       nerd-fonts.jetbrains-mono
@@ -17,6 +18,7 @@
     # Make sure font match with alacritty font settings
     fontconfig.defaultFonts = {
       serif = [
+        "Noto Serif CJK JP"
         "Noto Serif"
         "Noto Color Emoji"
       ];
@@ -28,6 +30,8 @@
       monospace = [
         "JetBrainsMono Nerd Font Mono"
         "Symbols Nerd Font"
+        "Noto Sans Mono CJK JP"
+        "UDEV Gothic"
         "Noto Sans Mono"
         "Noto Color Emoji"
         "DejaVu Sans Mono"
