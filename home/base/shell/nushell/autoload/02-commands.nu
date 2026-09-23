@@ -8,6 +8,10 @@ def gcom [] {
   }
 }
 
+def gmsg [n: int = 10] {
+  git log --oneline -n $n | fzf --accept-nth 2.. | wl-copy
+}
+
 def mdf [] {
   pandoc -t gfm --columns 10000
 }
