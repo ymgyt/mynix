@@ -177,7 +177,9 @@ keybinds {
 }
 
 plugins {
-    tab-bar { path "tab-bar"; }
+    tab-bar location="zellij:tab-bar" {
+        hide_swap_layout_indication true
+    }
     status-bar { path "status-bar"; }
     strider { path "strider"; }
     compact-bar { path "compact-bar"; }
@@ -197,6 +199,12 @@ plugins {
 //    - false (Default)
 //
 simplified_ui false
+
+ui {
+    pane_frames {
+        hide_session_name true
+    }
+}
 
 // Choose the path to the default shell that zellij will use for opening new panes
 // Default: $SHELL
@@ -239,12 +247,12 @@ stacked_pane_list false
 // Choose the theme that is specified in the themes section.
 // Default: default
 //
-// theme "default"
+theme "retro-wave"
 
 // The name of the default layout to load on startup
 // Default: "default"
 //
-// default_layout "compact"
+default_layout "minimal"
 
 // Choose the mode that zellij uses when starting up.
 // Default: normal
