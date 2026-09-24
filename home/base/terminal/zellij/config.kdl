@@ -182,7 +182,9 @@ plugins {
     }
     status-bar { path "status-bar"; }
     strider { path "strider"; }
-    compact-bar { path "compact-bar"; }
+    compact-bar location="zellij:compact-bar" {
+        tooltip "Ctrl y"
+    }
 }
 
 // Choose what to do when zellij receives SIGTERM, SIGINT, SIGQUIT or SIGHUP

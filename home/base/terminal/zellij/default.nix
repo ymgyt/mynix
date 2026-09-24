@@ -34,7 +34,7 @@ in
   xdg.configFile."zellij/layouts/minimal.kdl".text = ''
     layout {
         pane size=1 borderless=true {
-            plugin location="tab-bar"
+            plugin location="compact-bar"
         }
         pane
     }
