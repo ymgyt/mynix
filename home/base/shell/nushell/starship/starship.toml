@@ -95,7 +95,7 @@ symbol = " "
 
 [nix_shell]
 symbol = " "
-format = '[$symbol$state( \($name\))]($style) '
+format = '[$symbol]($style)'
 
 [nodejs]
 symbol = " "
