@@ -10,5 +10,7 @@
 
     [build]
     rustflags = ["-C", "link-arg=--ld-path=${pkgs.wild}/bin/wild"]
+
+    include = [{ path = "local_config.toml", optional = true }]
   '';
 }
