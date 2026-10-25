@@ -1,11 +1,12 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
+    dig
+    inetutils
+    lsof
     openssh
     openssl
-    dig
     tcpdump
-    lsof
     wireshark
   ];
 }
