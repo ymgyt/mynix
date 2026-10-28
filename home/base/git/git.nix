@@ -14,6 +14,7 @@ in
     # for git send-email
     package = pkgs.gitFull;
     signing.format = "openpgp";
+    lfs.enable = true;
     settings = {
       user = {
         inherit email;
