@@ -3,7 +3,9 @@ use std/config dark-theme
 
 # Carapace cannot complete aliases on its own; expand the alias's first token
 # before delegating, per https://github.com/nushell/nushell/issues/8483.
-let alias_completer = {|spans|
+let alias_completer = {|place|
+  # Positional `spans` is deprecated; `place.command` holds the same token list.
+  let spans = $place.command
   let expanded_alias = scope aliases
     | where name == $spans.0
     | get -o 0.expansion
