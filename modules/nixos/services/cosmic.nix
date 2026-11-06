@@ -24,6 +24,10 @@ in
 
     environment.cosmic.excludePackages = with pkgs; [
       cosmic-edit
+      # cosmic-osk (on-screen keyboard) が fcitx5 より先に zwp_input_method_v2 を取り、
+      # Wayland アプリで日本語入力が効かなくなる。修正版が nixpkgs に入ったら外す。
+      # https://github.com/pop-os/cosmic-osk/issues/44
+      cosmic-osk
     ];
   };
 }
