@@ -5,6 +5,9 @@
     package = pkgs-unstable.nushell;
     configFile.source = ./config.nu;
     envFile.source = ./env.nu;
+    # ログインシェルとして起動した場合も /etc/set-environment と
+    # home.sessionVariables を env.nu の先頭で取り込む。
+    loadSessionVariables = true;
   };
 
   xdg.configFile."nushell/autoload/01-aliases.nu".source = ./autoload/01-aliases.nu;

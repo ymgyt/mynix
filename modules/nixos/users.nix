@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs-unstable, ... }:
 {
   users.users.ymgyt = {
     isNormalUser = true;
@@ -7,5 +7,6 @@
       "networkmanager"
       "wheel"
     ];
+    shell = pkgs-unstable.nushell;
   };
 }
