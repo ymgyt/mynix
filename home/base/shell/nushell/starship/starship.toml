@@ -15,6 +15,10 @@ success_symbol = '[❯](bold green) '
 [aws]
 symbol = "  "
 
+[env_var.AE_AWS_PROFILE]
+format = "as [$env_value]($style) "
+style = "bold yellow"
+
 [buf]
 symbol = " "
 
