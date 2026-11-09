@@ -39,4 +39,21 @@ in
         pane
     }
   '';
+  # gwt new が開く tab。command pane は shell を経由しないので direnv exec で .envrc を読ませる。
+  xdg.configFile."zellij/layouts/wt.kdl".text = ''
+    layout {
+        pane size=1 borderless=true {
+            plugin location="compact-bar"
+        }
+        pane stacked=true {
+            pane name="claude" command="direnv" expanded=true {
+                args "exec" "." "claude"
+            }
+            pane name="hx" command="direnv" {
+                args "exec" "." "hx"
+            }
+            pane name="shell"
+        }
+    }
+  '';
 }

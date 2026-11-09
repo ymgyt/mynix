@@ -12,6 +12,7 @@
 
   xdg.configFile."nushell/autoload/01-aliases.nu".source = ./autoload/01-aliases.nu;
   xdg.configFile."nushell/autoload/02-commands.nu".source = ./autoload/02-commands.nu;
+  xdg.configFile."nushell/autoload/03-worktree.nu".source = ./autoload/03-worktree.nu;
   xdg.configFile."nushell/starship/init.nu".source = ./starship/init.nu;
 
   programs.starship = {
