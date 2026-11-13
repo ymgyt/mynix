@@ -1,5 +1,8 @@
 # git worktree と zellij tab を対にして扱う。
 # worktree は <main worktree>.wt/<branch> に置き、tab 名は branch 名にする。
+def gwt [] {
+  help gwt
+}
 
 # main worktree の root。linked worktree から呼んでも main 側を返す。
 def gwt-root [] {
@@ -10,8 +13,15 @@ def gwt-dir [branch: string] {
   $"(gwt-root).wt" | path join $branch
 }
 
+# 今の tab の右隣に開く。new-tab は右端に作るので、元の tab の隣まで左に寄せる。
 def gwt-open-tab [branch: string, dir: string] {
+  let tabs = (zellij action dump-layout | lines | where $it =~ '^\s*tab ')
+  let focused = ($tabs | enumerate | where item =~ 'focus=true' | get index)
+  let current = if ($focused | is-empty) { ($tabs | length) - 1 } else { $focused.0 }
   zellij action new-tab --layout wt --cwd $dir --name $branch
+  for _ in 0..<(($tabs | length) - $current - 1) {
+    zellij action move-tab left
+  }
 }
 
 # worktree を作り、同名の zellij tab を開く。
