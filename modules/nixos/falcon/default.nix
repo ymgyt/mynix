@@ -1,67 +1,89 @@
 {
-  lib,
   config,
+  lib,
   pkgs,
   ...
 }:
 let
-  cfg = config.my.falcon;
+  cfg = config.services.falcon-sensor;
 
-  falcon = pkgs.callPackage ./falcon.nix {
-    debFile = cfg.debFile;
-    version = cfg.version;
-    arch = cfg.arch;
-  };
+  # The sensor binaries expect an FHS layout, so every command runs through
+  # the FHS environment of the package.
+  fsBash = "${cfg.package}/bin/fs-bash";
 
-  startPreScript = pkgs.writeScript "init-falcon" ''
-    #! ${pkgs.bash}/bin/sh
-    /run/current-system/sw/bin/mkdir -p /opt/CrowdStrike
-    ln -sf ${falcon}/opt/CrowdStrike/* /opt/CrowdStrike
-    ${falcon}/bin/fs-bash -c "${falcon}/opt/CrowdStrike/falconctl -g --cid"
+  # The sensor keeps its state in /opt/CrowdStrike and replaces its own
+  # binaries there when it updates itself, so the files are copied once and
+  # left to the sensor afterwards.
+  install = pkgs.writeShellScript "falcon-sensor-install" ''
+    if [ ! -e /opt/CrowdStrike/falcond ]; then
+      ${pkgs.coreutils}/bin/mkdir -p /opt/CrowdStrike
+      ${pkgs.coreutils}/bin/cp -a ${cfg.package.unwrapped}/opt/CrowdStrike/. /opt/CrowdStrike/
+      ${pkgs.coreutils}/bin/chmod -R u+w /opt/CrowdStrike
+    fi
+  '';
+
+  setCid = pkgs.writeShellScript "falcon-sensor-set-cid" ''
+    if ! /opt/CrowdStrike/falconctl -g --cid > /dev/null 2>&1; then
+      /opt/CrowdStrike/falconctl -s --cid=${lib.escapeShellArg cfg.cid}
+    fi
   '';
 in
 {
-  options.my.falcon = {
+  options.services.falcon-sensor = {
     enable = lib.mkEnableOption "CrowdStrike Falcon Sensor";
 
-    debFile = lib.mkOption {
-      type = lib.types.path;
-      description = "Path to the falcon-sensor deb file";
+    package = lib.mkOption {
+      type = lib.types.package;
+      default = pkgs.callPackage ./package.nix { };
+      defaultText = lib.literalMD "the falcon-sensor package of this flake";
+      description = "The falcon-sensor package to run.";
     };
 
-    version = lib.mkOption {
-      type = lib.types.str;
-      description = "Version of falcon-sensor";
-    };
-
-    arch = lib.mkOption {
-      type = lib.types.str;
-      default = "amd64";
-      description = "Architecture of falcon-sensor deb file";
+    cid = lib.mkOption {
+      type = lib.types.nullOr lib.types.str;
+      default = null;
+      description = ''
+        Customer ID to register the sensor with. It is set only while the
+        sensor has no CID. When null, the CID is left as it is.
+      '';
     };
   };
 
   config = lib.mkIf cfg.enable {
+    # Follows lib/systemd/system/falcon-sensor.service of the deb.
     systemd.services.falcon-sensor = {
-      enable = true;
       description = "CrowdStrike Falcon Sensor";
-      unitConfig.DefaultDependencies = false;
+      unitConfig = {
+        DefaultDependencies = false;
+        RequiresMountsFor = [
+          "/opt"
+          "/var"
+        ];
+      };
       after = [ "local-fs.target" ];
       conflicts = [ "shutdown.target" ];
-      before = [
+      before = [ "shutdown.target" ];
+      wantedBy = [
         "sysinit.target"
-        "shutdown.target"
+        "multi-user.target"
       ];
       serviceConfig = {
-        ExecStartPre = "${startPreScript}";
-        ExecStart = "${falcon}/bin/fs-bash -c \"${falcon}/opt/CrowdStrike/falcond\"";
+        ExecStartPre = [
+          install
+        ]
+        ++ lib.optional (cfg.cid != null) "${fsBash} ${setCid}"
+        ++ [
+          "${fsBash} -c \"/opt/CrowdStrike/falconctl -g --cid\""
+        ];
+        ExecStart = "${fsBash} -c /opt/CrowdStrike/falcond";
         Type = "forking";
         PIDFile = "/run/falcond.pid";
         Restart = "no";
         TimeoutStopSec = "60s";
-        KillMode = "process";
+        KillMode = "control-group";
+        KillSignal = "SIGTERM";
+        Delegate = true;
       };
-      wantedBy = [ "multi-user.target" ];
     };
   };
 }

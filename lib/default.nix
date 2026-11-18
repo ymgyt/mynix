@@ -13,6 +13,9 @@ let
     "terraform"
     "slack"
     "falcon-sensor"
+    "falcon-sensor-unwrapped"
+    # requireFile derives the name from the deb file name
+    "falcon-sensor_8.11.0"
     "1password-cli"
     "1password"
   ];

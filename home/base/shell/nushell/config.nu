@@ -131,6 +131,24 @@ $env.config.hooks.pre_prompt = [{
   code: "direnv export json | from json | default {} | load-env"
 }]
 
+# A command that asks the terminal for the cursor position (`ESC[6n`) and exits
+# without reading the reply leaves that reply in stdin. Reedline then reads it as
+# the answer to its own query and draws every later prompt one position behind,
+# erasing output (https://github.com/nushell/nushell/issues/11950).
+#
+# Drain stdin before the prompt: ask for device attributes (`ESC[c`), whose reply
+# ends in `c`, and read up to it. A leftover reply sits in front and is read too.
+# Keys typed while the command was running are discarded along with it.
+$env.config.hooks.pre_execution = [{|| $env.CPR_TRAP_LAST = (commandline) }]
+$env.config.hooks.pre_prompt = ($env.config.hooks.pre_prompt | append {||
+  let reply = (term query (ansi -e 'c') --terminator 'c' | decode)
+  if ($reply =~ '\x1b\[\d+;\d+R') {
+    # Record the command that left the reply behind.
+    $"(date now | format date '%F %T')\t($env.CPR_TRAP_LAST? | default '?')\n"
+      | save --append ~/cpr-trap.log
+  }
+})
+
 $env.config.keybindings = [
   {
     name: history_menu
