@@ -1,6 +1,7 @@
 { ... }:
 {
   imports = [
+    ./c.nix
     ./go.nix
     ./nix.nix
     ./node.nix
