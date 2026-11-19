@@ -12,6 +12,7 @@
     libvirt.enable = true;
     kernel-dev.enable = true;
     cosmic.enable = true;
+    zram.enable = true;
   };
 
   services.falcon-sensor.enable = true;

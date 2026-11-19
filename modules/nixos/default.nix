@@ -21,5 +21,6 @@
     ./virtualbox.nix
     ./libvirt.nix
     ./kernel-dev.nix
+    ./zram.nix
   ];
 }
